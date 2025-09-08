@@ -1,0 +1,121 @@
+<?php if($blogs->count() > 0): ?>
+    <section class="article-section py-80">
+        <div class="eyebrow heading"><?php echo e(\App\Helpers\TranslationHelper::translate('blogs')); ?></div>
+        <h2 class="dark-gray fw-800 heading mb-48">
+            <?php echo e(\App\Helpers\TranslationHelper::translate('Insights and')); ?>&nbsp;
+            <span class="color-sec">
+                <?php echo e(\App\Helpers\TranslationHelper::translate('blogs')); ?>
+
+            </span>
+        </h2>
+        <div class="container-fluid">
+            <div class="article-wrapper">
+                <div class="row justify-content-center">
+                    <div class="row row-gap-4 justify-content-center">
+                        <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="cursor-pointer col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                <div data-url="<?php echo e(route('site.blog-details', $blog->id)); ?>"
+                                    class="article-block br-12 h-100 d-flex flex-column" style="cursor: pointer">
+                                    <div class="article-image shine">
+                                        <img src="<?php echo e($blog->getFirstMediaUrl('blogs_image')); ?>" alt="">
+                                    </div>
+                                    <div class="article-content d-flex flex-column flex-grow-1">
+                                        <div class="d-flex align-items-center gap-32 mb-24">
+                                            <div class="d-flex align-items-center gap-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
+                                                    viewBox="0 0 20 21" fill="none">
+                                                    <path
+                                                        d="M17.0711 3.42892C15.1823 1.54019 12.6711 0.5 10 0.5C7.32895 0.5 4.81766 1.54019 2.92892 3.42892C1.04019 5.31766 0 7.82895 0 10.5C0 13.1711 1.04019 15.6823 2.92892 17.5711C4.81766 19.4598 7.32895 20.5 10 20.5C12.6711 20.5 15.1823 19.4598 17.0711 17.5711C18.9598 15.6823 20 13.1711 20 10.5C20 7.82895 18.9598 5.31766 17.0711 3.42892ZM4.34006 17.2694C4.67026 14.4282 7.11304 12.2346 10 12.2346C11.5219 12.2346 12.953 12.8276 14.0295 13.9039C14.939 14.8135 15.5125 16.0011 15.6601 17.2693C14.1266 18.5536 12.1521 19.3281 10 19.3281C7.8479 19.3281 5.87357 18.5537 4.34006 17.2694ZM10 11.0276C8.32535 11.0276 6.96274 9.66504 6.96274 7.99039C6.96274 6.31558 8.32535 4.95312 10 4.95312C11.6747 4.95312 13.0373 6.31558 13.0373 7.99039C13.0373 9.66504 11.6747 11.0276 10 11.0276ZM16.6687 16.2787C16.3701 15.0747 15.7474 13.9647 14.8581 13.0754C14.1379 12.3552 13.2858 11.8148 12.3566 11.4763C13.4737 10.7187 14.2091 9.43875 14.2091 7.99039C14.2091 5.66953 12.3209 3.78125 10 3.78125C7.67914 3.78125 5.79086 5.66953 5.79086 7.99039C5.79086 9.43951 6.52695 10.7199 7.64496 11.4773C6.79001 11.7889 5.99884 12.2706 5.31815 12.9048C4.33243 13.8228 3.64792 14.9933 3.33054 16.2777C1.98639 14.7282 1.17188 12.7075 1.17188 10.5C1.17188 5.63214 5.13214 1.67188 10 1.67188C14.8679 1.67188 18.8281 5.63214 18.8281 10.5C18.8281 12.7079 18.0133 14.7291 16.6687 16.2787Z"
+                                                        fill="var(--secondary-color)" />
+                                                </svg>
+                                                <p class="light-gray fw-500">
+                                                    <?php echo e(\App\Helpers\TranslationHelper::translate('Abdulhamid')); ?>
+
+                                                </p>
+                                            </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="2" height="29"
+                                                viewBox="0 0 2 29" fill="none">
+                                                <path d="M1 0V29" stroke="#92949F" />
+                                            </svg>
+                                            <div class="d-flex align-items-center gap-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21"
+                                                    viewBox="0 0 20 21" fill="none">
+                                                    <path
+                                                        d="M5.84766 10.2266H4.59766C4.27406 10.2266 4.01172 10.4889 4.01172 10.8125C4.01172 11.1361 4.27406 11.3984 4.59766 11.3984H5.84766C6.17125 11.3984 6.43359 11.1361 6.43359 10.8125C6.43359 10.4889 6.17125 10.2266 5.84766 10.2266Z"
+                                                        fill="var(--secondary-color)" />
+                                                    <path
+                                                        d="M5.84766 12.7266H4.59766C4.27406 12.7266 4.01172 12.9889 4.01172 13.3125C4.01172 13.6361 4.27406 13.8984 4.59766 13.8984H5.84766C6.17125 13.8984 6.43359 13.6361 6.43359 13.3125C6.43359 12.9889 6.17125 12.7266 5.84766 12.7266Z"
+                                                        fill="var(--secondary-color)" />
+                                                    <path
+                                                        d="M5.84766 15.2266H4.59766C4.27406 15.2266 4.01172 15.4889 4.01172 15.8125C4.01172 16.1361 4.27406 16.3984 4.59766 16.3984H5.84766C6.17125 16.3984 6.43359 16.1361 6.43359 15.8125C6.43359 15.4889 6.17125 15.2266 5.84766 15.2266Z"
+                                                        fill="var(--secondary-color)" />
+                                                    <path
+                                                        d="M10.8477 10.2266H9.59766C9.27406 10.2266 9.01172 10.4889 9.01172 10.8125C9.01172 11.1361 9.27406 11.3984 9.59766 11.3984H10.8477C11.1713 11.3984 11.4336 11.1361 11.4336 10.8125C11.4336 10.4889 11.1713 10.2266 10.8477 10.2266Z"
+                                                        fill="var(--secondary-color)" />
+                                                    <path
+                                                        d="M10.8477 12.7266H9.59766C9.27406 12.7266 9.01172 12.9889 9.01172 13.3125C9.01172 13.6361 9.27406 13.8984 9.59766 13.8984H10.8477C11.1713 13.8984 11.4336 13.6361 11.4336 13.3125C11.4336 12.9889 11.1713 12.7266 10.8477 12.7266Z"
+                                                        fill="var(--secondary-color)" />
+                                                    <path
+                                                        d="M10.8477 15.2266H9.59766C9.27406 15.2266 9.01172 15.4889 9.01172 15.8125C9.01172 16.1361 9.27406 16.3984 9.59766 16.3984H10.8477C11.1713 16.3984 11.4336 16.1361 11.4336 15.8125C11.4336 15.4889 11.1713 15.2266 10.8477 15.2266Z"
+                                                        fill="var(--secondary-color)" />
+                                                    <path
+                                                        d="M15.8477 10.2266H14.5977C14.2741 10.2266 14.0117 10.4889 14.0117 10.8125C14.0117 11.1361 14.2741 11.3984 14.5977 11.3984H15.8477C16.1713 11.3984 16.4336 11.1361 16.4336 10.8125C16.4336 10.4889 16.1713 10.2266 15.8477 10.2266Z"
+                                                        fill="var(--secondary-color)" />
+                                                    <path
+                                                        d="M15.8477 12.7266H14.5977C14.2741 12.7266 14.0117 12.9889 14.0117 13.3125C14.0117 13.6361 14.2741 13.8984 14.5977 13.8984H15.8477C16.1713 13.8984 16.4336 13.6361 16.4336 13.3125C16.4336 12.9889 16.1713 12.7266 15.8477 12.7266Z"
+                                                        fill="var(--secondary-color)" />
+                                                    <path
+                                                        d="M15.8477 15.2266H14.5977C14.2741 15.2266 14.0117 15.4889 14.0117 15.8125C14.0117 16.1361 14.2741 16.3984 14.5977 16.3984H15.8477C16.1713 16.3984 16.4336 16.1361 16.4336 15.8125C16.4336 15.4889 16.1713 15.2266 15.8477 15.2266Z"
+                                                        fill="var(--secondary-color)" />
+                                                    <path
+                                                        d="M18.4648 3.03906H17.0586V2.0625C17.0586 1.73891 16.7962 1.47656 16.4727 1.47656C16.1491 1.47656 15.8867 1.73891 15.8867 2.0625V3.03906H10.8086V2.0625C10.8086 1.73891 10.5463 1.47656 10.2227 1.47656C9.89906 1.47656 9.63672 1.73891 9.63672 2.0625V3.03906H4.55859V2.0625C4.55859 1.73891 4.29625 1.47656 3.97266 1.47656C3.64906 1.47656 3.38672 1.73891 3.38672 2.0625V3.03906H1.98047C1.01121 3.03906 0.222656 3.82762 0.222656 4.79688V17.7656C0.222656 18.7349 1.01121 19.5234 1.98047 19.5234H18.4648C19.4341 19.5234 20.2227 18.7349 20.2227 17.7656C20.2227 17.3874 20.2227 5.12598 20.2227 4.79688C20.2227 3.82762 19.4341 3.03906 18.4648 3.03906ZM1.39453 4.79688C1.39453 4.47379 1.65738 4.21094 1.98047 4.21094H3.38672V5.1875C3.38672 5.51109 3.64906 5.77344 3.97266 5.77344C4.29625 5.77344 4.55859 5.51109 4.55859 5.1875V4.21094H9.63672V5.1875C9.63672 5.51109 9.89906 5.77344 10.2227 5.77344C10.5463 5.77344 10.8086 5.51109 10.8086 5.1875V4.21094H15.8867V5.1875C15.8867 5.51109 16.1491 5.77344 16.4727 5.77344C16.7962 5.77344 17.0586 5.51109 17.0586 5.1875V4.21094H18.4648C18.7879 4.21094 19.0508 4.47379 19.0508 4.79688V7.10156H1.39453V4.79688ZM18.4648 18.3516H1.98047C1.65738 18.3516 1.39453 18.0887 1.39453 17.7656V8.27344H19.0508V17.7656C19.0508 18.0887 18.7879 18.3516 18.4648 18.3516Z"
+                                                        fill="var(--secondary-color)" />
+
+                                                </svg>
+                                                <p class="light-gray fw-500">
+                                                    <?php echo e($blog->created_at->format('d M Y')); ?>
+
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <h6 class="fw-800 mb-16 line-clamp"><?php echo e(Str::limit(strip_tags($blog->name))); ?></h6>
+
+                                        <p class="light-gray mb-32 flex-grow-1"><?php echo Str::limit(strip_tags($blog->description)); ?></p>
+
+                                        <div class="cus-arrow-btn d-flex align-items-center mt-auto">
+                                            <p class="fw-700 color-sec">
+                                                <?php echo e(\App\Helpers\TranslationHelper::translate('Read More')); ?></p>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                                viewBox="0 0 28 28" fill="none">
+                                                <path
+                                                    d="M19.6212 17.6941C18.2339 15.2911 18.6268 10.7924 21.1899 9.3126M21.1899 9.3126C19.7215 10.1604 15.9217 11.2863 13.147 6.48045M21.1899 9.3126L5.97147 18.099"
+                                                    stroke="var(--primary-color)" stroke-width="1.84977" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
+
+<?php $__env->startPush('js'); ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.article-block').forEach(function(block) {
+                block.addEventListener('click', function() {
+                    const url = this.dataset.url;
+                    if (url) {
+                        window.location.href = url;
+                    }
+                });
+            });
+        });
+    </script>
+<?php $__env->stopPush(); ?>
+<?php /**PATH D:\xampp_new\htdocs\abdElHmidQuritem\resources\views/front/components/blogs.blade.php ENDPATH**/ ?>
