@@ -1,11 +1,9 @@
 <header class="header">
     <div class="container-fluid">
         <nav class="navigation d-flex align-items-center justify-content-between">
-            <a href="{{ route('site.home') }}" class="brand-name text-decoration-none">
-                <span class="first-part">{{ \App\Helpers\TranslationHelper::translate('Mr') }}</span><span
-                    class="middle-part">.</span><span
-                    class="last-part">{{ \App\Helpers\TranslationHelper::translate('AbdulHamid') }}</span>
-            </a>
+            {{-- <a href="{{ route('site.home') }}" class="brand-name text-decoration-none"> --}}
+                <img src="{{ asset('front/assets/media/preloader.png') }}" alt="" srcset="" width="200px" height="50px">
+            {{-- </a> --}}
 
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Poppins:wght@700&display=swap');
