@@ -47,7 +47,7 @@
                 <li></li>
             </ul> --}}
 
-                <img src="{{ asset('front/assets/media/preloader.gif') }}" alt="" srcset="">
+                <img src="{{ asset('front/assets/media/preloader.png') }}" alt="" srcset="">
 
             </div>
         </div>

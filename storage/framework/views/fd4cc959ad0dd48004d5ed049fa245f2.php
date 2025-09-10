@@ -1,11 +1,9 @@
 <header class="header">
     <div class="container-fluid">
         <nav class="navigation d-flex align-items-center justify-content-between">
-            <a href="<?php echo e(route('site.home')); ?>" class="brand-name text-decoration-none">
-                <span class="first-part"><?php echo e(\App\Helpers\TranslationHelper::translate('Mr')); ?></span><span
-                    class="middle-part">.</span><span
-                    class="last-part"><?php echo e(\App\Helpers\TranslationHelper::translate('AbdulHamid')); ?></span>
-            </a>
+            
+                <img src="<?php echo e(asset('front/assets/media/preloader.png')); ?>" alt="" srcset="" width="200px" height="50px">
+            
 
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Poppins:wght@700&display=swap');

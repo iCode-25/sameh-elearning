@@ -17,7 +17,7 @@
                 
                 
 
-                <img src="<?php echo e(asset('front/assets/media/preloader.gif')); ?>" alt="" srcset="">
+                <img src="<?php echo e(asset('front/assets/media/preloader.png')); ?>" alt="" srcset="">
 
             </div>
         </div>
