@@ -16,8 +16,7 @@
                             </div>
                             <div class="col-lg-6 col-sm-6 d-sm-block d-none">
                                 <div class="title-image">
-                                    <img src="<?php echo e(setting('image_banner_page_lessons_web', 'en')); ?>"
-                                        alt="">
+                                    <img src="<?php echo e(setting('image_banner_page_lessons_web', 'en')); ?>" alt="">
                                 </div>
                             </div>
                         </div>
@@ -29,17 +28,30 @@
     <!-- TITLE BANNER END -->
 
     <!-- videos-start -->
-    <section class="videos py-80">
-        <div class="container-fluid">
-            <?php echo $__env->make('front.components.filter', ['levels' => $levels], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-            <div class="video-sec">
-                <div class="row justify-content-center">
-                    <div class="col-xl-12">
-                        <div class="row gy-2">
-                            <?php echo $__env->make('front.components.lesson', ['lessons' => $lessons], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <section class="videos py-80" dir="ltr">
+        <div class="eyebrow heading"><?php echo e(\App\Helpers\TranslationHelper::translate('Courses Video')); ?></div>
+        <h2 class="dark-gray fw-800 heading mb-48">
+            <span class="color-sec"><?php echo e(\App\Helpers\TranslationHelper::translate('Video Courses')); ?></span>
+        </h2>
+
+        <div class="container">
+            <div class="video-grid">
+                <?php $__currentLoopData = $lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="video-card">
+                        <div class="card-img">
+                            <img src="<?php echo e($lesson->getFirstMediaUrl('news')); ?>" alt="video">
+                            <a href="<?php echo e(route('site.lesson_details', ['lesson' => $lesson->id])); ?>" class="play-btn">
+                                <img src="<?php echo e(asset('front/assets/media/icons/play-icon.png')); ?>" alt="play">
+                            </a>
+                        </div>
+                        <div class="card-body" dir="rtl">
+                            <h5><?php echo e($lesson->name); ?></h5>
+                            <p><?php echo strip_tags($lesson->des); ?></p>
+                            <span
+                                class="price"><?php echo e($lesson->price . ' ' . \App\Helpers\TranslationHelper::translate('EGP')); ?></span>
                         </div>
                     </div>
-                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </section>

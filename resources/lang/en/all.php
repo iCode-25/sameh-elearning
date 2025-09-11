@@ -732,7 +732,7 @@
   'Upload Video' => 'Upload Video',
   'Existing Azhar Video' => 'Existing Azhar Video',
   'Eng-' => 'Eng-',
-  'Samah Shtain' => 'Samah Shtain',
+  'Samah Shtain' => 'Samah Stain',
   'Eng' => 'Eng',
   'Explore Courses' => 'Explore Courses',
   'More about us' => 'More about us',
@@ -742,4 +742,5 @@
   'Gain deeper understanding and effective study strategies through articles' => 'Gain deeper understanding and effective study strategies through articles',
   'Test your knowledge with comprehensive quizzes simulating final exams' => 'Test your knowledge with comprehensive quizzes simulating final exams',
   'Account' => 'Account',
+  'mr' => 'Mr',
 );
