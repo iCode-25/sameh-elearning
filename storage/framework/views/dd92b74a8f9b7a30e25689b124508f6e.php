@@ -1,6 +1,4 @@
-@extends('front.layouts.app')
-
-@push('css')
+<?php $__env->startPush('css'); ?>
     <style>
         .image-wrapper {
             /* width: 500px; */
@@ -20,9 +18,9 @@
             will-change: transform;
         }
     </style>
-@endpush
+<?php $__env->stopPush(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- HERO BANNER START -->
     <section class="hero-section">
   <div class="container">
@@ -32,37 +30,43 @@
       <div class="col-lg-6">
         <div class="hero-content">
           <span class="badge-text">
-            {{ \App\Helpers\TranslationHelper::translate('Chemistry Made Simple') }}
+            <?php echo e(\App\Helpers\TranslationHelper::translate('Chemistry Made Simple')); ?>
+
           </span>
           <h1 class="hero-title">
-            {{ \App\Helpers\TranslationHelper::translate('Your Future Starts') }} <br>
+            <?php echo e(\App\Helpers\TranslationHelper::translate('Your Future Starts')); ?> <br>
             <span class="highlight">
-              {{ \App\Helpers\TranslationHelper::translate('Learn, Apply, Create') }}
+              <?php echo e(\App\Helpers\TranslationHelper::translate('Learn, Apply, Create')); ?>
+
             </span>
           </h1>
           <p class="hero-subtitle">
-            {{ \App\Helpers\TranslationHelper::translate('Your Ultimate Platform to Learn Chemistry Professionally We offer you a complete educational experience that combines simplified explanations, interactive lessons, comprehensive quizzes, and informative articles') }}
+            <?php echo e(\App\Helpers\TranslationHelper::translate('Your Ultimate Platform to Learn Chemistry Professionally We offer you a complete educational experience that combines simplified explanations, interactive lessons, comprehensive quizzes, and informative articles')); ?>
+
           </p>
           
           <div class="hero-buttons mt-4">
-            <a href="{{ route('site.lessons') }}" class="btn-main">
-              {{ \App\Helpers\TranslationHelper::translate('Explore Courses') }}
+            <a href="<?php echo e(route('site.lessons')); ?>" class="btn-main">
+              <?php echo e(\App\Helpers\TranslationHelper::translate('Explore Courses')); ?>
+
             </a>
-            <a href="{{ route('site.about') }}" class="btn-secondary">
-              {{ \App\Helpers\TranslationHelper::translate('Read More') }}
+            <a href="<?php echo e(route('site.about')); ?>" class="btn-secondary">
+              <?php echo e(\App\Helpers\TranslationHelper::translate('Read More')); ?>
+
             </a>
           </div>
 
           <div class="students-block mt-5 d-flex align-items-center">
             <div class="students-avatars">
-              <img src="{{ asset('front/assets/media/user/user-1.png') }}" alt="">
-              <img src="{{ asset('front/assets/media/user/user-2.png') }}" alt="">
-              <img src="{{ asset('front/assets/media/user/user-3.png') }}" alt="">
-              <img src="{{ asset('front/assets/media/user/test-user-1.png') }}" alt="">
+              <img src="<?php echo e(asset('front/assets/media/user/user-1.png')); ?>" alt="">
+              <img src="<?php echo e(asset('front/assets/media/user/user-2.png')); ?>" alt="">
+              <img src="<?php echo e(asset('front/assets/media/user/user-3.png')); ?>" alt="">
+              <img src="<?php echo e(asset('front/assets/media/user/test-user-1.png')); ?>" alt="">
             </div>
             <h6 class="ms-3">
               <span class="highlight">+659</span>
-              {{ \App\Helpers\TranslationHelper::translate('Students') }}
+              <?php echo e(\App\Helpers\TranslationHelper::translate('Students')); ?>
+
             </h6>
           </div>
         </div>
@@ -71,7 +75,7 @@
       <!-- Right Image -->
       <div class="col-lg-6 text-center">
         <div class="hero-image">
-          <img src="{{ setting('image_banner_home_web', 'en') }}" alt="Hero Image">
+          <img src="<?php echo e(setting('image_banner_home_web', 'en')); ?>" alt="Hero Image">
         </div>
       </div>
 
@@ -179,18 +183,16 @@
       <div class="col-lg-6">
         <div class="image-masonry">
           <div class="img-box big">
-            <img src="{{ asset('front/assets/media/course/course-1.png') }}" alt="course">
+            <img src="<?php echo e(asset('front/assets/media/course/course-1.png')); ?>" alt="course">
           </div>
           <div class="img-box small">
-            <img src="{{ asset('front/assets/media/course/course-2.png') }}" alt="course">
+            <img src="<?php echo e(asset('front/assets/media/course/course-2.png')); ?>" alt="course">
           </div>
           <div class="img-box small">
-            <img src="{{ asset('front/assets/media/course/course-3.png') }}" alt="course">
+            <img src="<?php echo e(asset('front/assets/media/course/course-3.png')); ?>" alt="course">
           </div>
           
-          {{-- <div class="img-box big">
-            <img src="{{ asset('front/assets/media/course/tutor-1.png') }}" alt="tutor">
-          </div> --}}
+          
         </div>
       </div>
 
@@ -198,20 +200,23 @@
       <div class="col-lg-6">
         <div class="about-content">
           <span class="badge-text">
-            {{ \App\Helpers\TranslationHelper::translate('Simply Chemistry') }}
+            <?php echo e(\App\Helpers\TranslationHelper::translate('Simply Chemistry')); ?>
+
           </span>
           <h2 class="section-title">
-            {{ setting('title_about_us', app()->getLocale()) }}
+            <?php echo e(setting('title_about_us', app()->getLocale())); ?>
+
           </h2>
           <p class="section-desc">
-            {!! \Illuminate\Support\Str::limit(setting('description_about_us', app()->getLocale()), 400) !!}
+            <?php echo \Illuminate\Support\Str::limit(setting('description_about_us', app()->getLocale()), 400); ?>
+
           </p>
 
           <!-- Avatars -->
           <div class="avatars d-flex align-items-center mb-4">
-            <img src="{{ asset('front/assets/media/user/image2.png') }}" alt="user">
-            <img src="{{ asset('front/assets/media/user/test-user-2.png') }}" alt="user">
-            <img src="{{ asset('front/assets/media/user/test-user-3.png') }}" alt="user">
+            <img src="<?php echo e(asset('front/assets/media/user/image2.png')); ?>" alt="user">
+            <img src="<?php echo e(asset('front/assets/media/user/test-user-2.png')); ?>" alt="user">
+            <img src="<?php echo e(asset('front/assets/media/user/test-user-3.png')); ?>" alt="user">
             <span class="ms-3 fw-700 text-primary">+659 Students</span>
           </div>
 
@@ -220,32 +225,33 @@
             <div class="col-md-6">
               <div class="feature-box">
                 <div class="icon-circle"><i class="fas fa-flask"></i></div>
-                <h6>{{ \App\Helpers\TranslationHelper::translate('Chemistry Lessons') }}</h6>
+                <h6><?php echo e(\App\Helpers\TranslationHelper::translate('Chemistry Lessons')); ?></h6>
               </div>
             </div>
             <div class="col-md-6">
               <div class="feature-box">
                 <div class="icon-circle"><i class="fas fa-calendar-alt"></i></div>
-                <h6>{{ \App\Helpers\TranslationHelper::translate('Monthly Packages') }}</h6>
+                <h6><?php echo e(\App\Helpers\TranslationHelper::translate('Monthly Packages')); ?></h6>
               </div>
             </div>
             <div class="col-md-6">
               <div class="feature-box">
                 <div class="icon-circle"><i class="fas fa-question-circle"></i></div>
-                <h6>{{ \App\Helpers\TranslationHelper::translate('Quizzes') }}</h6>
+                <h6><?php echo e(\App\Helpers\TranslationHelper::translate('Quizzes')); ?></h6>
               </div>
             </div>
             <div class="col-md-6">
               <div class="feature-box">
                 <div class="icon-circle"><i class="fas fa-book-open"></i></div>
-                <h6>{{ \App\Helpers\TranslationHelper::translate('Educational Articles') }}</h6>
+                <h6><?php echo e(\App\Helpers\TranslationHelper::translate('Educational Articles')); ?></h6>
               </div>
             </div>
           </div>
 
           <!-- Button -->
-          <a href="{{ route('site.about') }}" class="btn-gradient">
-            {{ \App\Helpers\TranslationHelper::translate('More about us') }}
+          <a href="<?php echo e(route('site.about')); ?>" class="btn-gradient">
+            <?php echo e(\App\Helpers\TranslationHelper::translate('More about us')); ?>
+
           </a>
         </div>
       </div>
@@ -364,14 +370,17 @@
     <div class="container">
         <div class="text-center mb-5">
             <div class="eyebrow heading">
-                {{ \App\Helpers\TranslationHelper::translate('Services') }}
+                <?php echo e(\App\Helpers\TranslationHelper::translate('Services')); ?>
+
             </div>
             <h2 class="dark-gray fw-800 heading mb-3">
-                {{ \App\Helpers\TranslationHelper::translate('Exclusive') }}
-                <span class="color-sec">{{ \App\Helpers\TranslationHelper::translate('Services') }}</span>
+                <?php echo e(\App\Helpers\TranslationHelper::translate('Exclusive')); ?>
+
+                <span class="color-sec"><?php echo e(\App\Helpers\TranslationHelper::translate('Services')); ?></span>
             </h2>
             <p class="light-gray">
-                {{ \App\Helpers\TranslationHelper::translate('Discover our modern and interactive services designed to help you achieve academic excellence') }}
+                <?php echo e(\App\Helpers\TranslationHelper::translate('Discover our modern and interactive services designed to help you achieve academic excellence')); ?>
+
             </p>
         </div>
 
@@ -380,13 +389,15 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 text-center shadow-sm border-0 p-4 hover-card">
                     <div class="icon-box mb-3">
-                        <img src="{{ asset('front/assets/media/user/banner-user-1.png') }}" alt="icon" class="w-50 mx-auto">
+                        <img src="<?php echo e(asset('front/assets/media/user/banner-user-1.png')); ?>" alt="icon" class="w-50 mx-auto">
                     </div>
                     <h5 class="fw-800 mb-2">
-                        {{ \App\Helpers\TranslationHelper::translate('Monthly Packages') }}
+                        <?php echo e(\App\Helpers\TranslationHelper::translate('Monthly Packages')); ?>
+
                     </h5>
                     <p class="light-gray small">
-                        {{ \App\Helpers\TranslationHelper::translate('Subscribe to our monthly plans for simplified lessons, practice, and regular quizzes') }}
+                        <?php echo e(\App\Helpers\TranslationHelper::translate('Subscribe to our monthly plans for simplified lessons, practice, and regular quizzes')); ?>
+
                     </p>
                 </div>
             </div>
@@ -395,13 +406,15 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 text-center shadow-sm border-0 p-4 hover-card">
                     <div class="icon-box mb-3">
-                        <img src="{{ asset('front/assets/media/user/banner-user-2.png') }}" alt="icon" class="w-50 mx-auto">
+                        <img src="<?php echo e(asset('front/assets/media/user/banner-user-2.png')); ?>" alt="icon" class="w-50 mx-auto">
                     </div>
                     <h5 class="fw-800 mb-2">
-                        {{ \App\Helpers\TranslationHelper::translate('Chemistry Lessons') }}
+                        <?php echo e(\App\Helpers\TranslationHelper::translate('Chemistry Lessons')); ?>
+
                     </h5>
                     <p class="light-gray small">
-                        {{ \App\Helpers\TranslationHelper::translate('Simplify complex concepts with clear explanations and exercises') }}
+                        <?php echo e(\App\Helpers\TranslationHelper::translate('Simplify complex concepts with clear explanations and exercises')); ?>
+
                     </p>
                 </div>
             </div>
@@ -410,13 +423,15 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 text-center shadow-sm border-0 p-4 hover-card">
                     <div class="icon-box mb-3">
-                        <img src="{{ asset('front/assets/media/user/banner-user-3.png') }}" alt="icon" class="w-50 mx-auto">
+                        <img src="<?php echo e(asset('front/assets/media/user/banner-user-3.png')); ?>" alt="icon" class="w-50 mx-auto">
                     </div>
                     <h5 class="fw-800 mb-2">
-                        {{ \App\Helpers\TranslationHelper::translate('Educational Articles') }}
+                        <?php echo e(\App\Helpers\TranslationHelper::translate('Educational Articles')); ?>
+
                     </h5>
                     <p class="light-gray small">
-                        {{ \App\Helpers\TranslationHelper::translate('Gain deeper understanding and effective study strategies through articles') }}
+                        <?php echo e(\App\Helpers\TranslationHelper::translate('Gain deeper understanding and effective study strategies through articles')); ?>
+
                     </p>
                 </div>
             </div>
@@ -425,13 +440,15 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card h-100 text-center shadow-sm border-0 p-4 hover-card">
                     <div class="icon-box mb-3">
-                        <img src="{{ asset('front/assets/media/user/banner-user-4.png') }}" alt="icon" class="w-50 mx-auto">
+                        <img src="<?php echo e(asset('front/assets/media/user/banner-user-4.png')); ?>" alt="icon" class="w-50 mx-auto">
                     </div>
                     <h5 class="fw-800 mb-2">
-                        {{ \App\Helpers\TranslationHelper::translate('Quizzes') }}
+                        <?php echo e(\App\Helpers\TranslationHelper::translate('Quizzes')); ?>
+
                     </h5>
                     <p class="light-gray small">
-                        {{ \App\Helpers\TranslationHelper::translate('Test your knowledge with comprehensive quizzes simulating final exams') }}
+                        <?php echo e(\App\Helpers\TranslationHelper::translate('Test your knowledge with comprehensive quizzes simulating final exams')); ?>
+
                     </p>
                 </div>
             </div>
@@ -462,119 +479,82 @@
 
     <!-- COURSES SECTION END -->
 
-    @if ($packages->count() > 0)
-        {{-- <section class="course-section py-80">
-            <div class="container-fluid">
-                <div class="d-flex align-items-center justify-content-between mb-48 flex-wrap">
-                    <div>
-                        <div class="eyebrow-2">{{ \App\Helpers\TranslationHelper::translate('Packages') }}</div>
-                        @if (app()->getLocale() == 'ar')
-                            <h2 class="dark-gray fw-800 mb-16">
-                                <span
-                                    class="color-primary">{{ \App\Helpers\TranslationHelper::translate('Packages') }}</span>
-                                {{ \App\Helpers\TranslationHelper::translate('Most Popular') }}
-                            </h2>
-                        @else
-                            <h2 class="dark-gray fw-800 mb-16">
-                                {{ \App\Helpers\TranslationHelper::translate('Most Popular') }}
-                                <span
-                                    class="color-primary">{{ \App\Helpers\TranslationHelper::translate('Packages') }}</span>
-                            </h2>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="tab-content" id="pills-tabContent">
-                    <div>
-                        <div class="mb-48">
-                            <div class="row row-gap-4">
-                                @include('front.components.package', ['packages', $packages])
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="light-gray heading fw-400">
-                    <a href="{{ route('site.packages') }}">
-                        <span
-                            class="color-primary fw-700">{{ \App\Helpers\TranslationHelper::translate('Explore all Packages') }}<svg
-                                xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
-                                fill="none">
-                                <path
-                                    d="M2.92098 11.4097H19.4453L15.8531 7.81736C15.427 7.39131 15.427 6.70066 15.8531 6.27461C16.279 5.84857 16.9698 5.84857 17.3958 6.27461L22.8504 11.7291C23.2764 12.1552 23.2764 12.8458 22.8504 13.2719L17.3959 18.7264C17.1828 18.9395 16.9036 19.046 16.6245 19.046C16.3453 19.046 16.066 18.9395 15.8531 18.7264C15.4271 18.3004 15.4271 17.6097 15.8531 17.1837L19.4453 13.5915H2.92098C2.31849 13.5915 1.83006 13.103 1.83006 12.5005C1.83006 11.8981 2.31849 11.4097 2.92098 11.4097Z"
-                                    fill="var(--secondary-color)"></path>
-                            </svg>
-                        </span>
-                    </a>
-                </p>
-            </div>
-        </section> --}}
+    <?php if($packages->count() > 0): ?>
+        
      <section class="course-section py-80">
     <div class="container">
         <div class="text-center mb-48">
-            <div class="eyebrow-2">{{ \App\Helpers\TranslationHelper::translate('Packages') }}</div>
-            @if (app()->getLocale() == 'ar')
+            <div class="eyebrow-2"><?php echo e(\App\Helpers\TranslationHelper::translate('Packages')); ?></div>
+            <?php if(app()->getLocale() == 'ar'): ?>
                 <h2 class="dark-gray fw-800 mb-16">
-                    <span class="color-primary">{{ \App\Helpers\TranslationHelper::translate('Packages') }}</span>
-                    {{ \App\Helpers\TranslationHelper::translate('Most Popular') }}
+                    <span class="color-primary"><?php echo e(\App\Helpers\TranslationHelper::translate('Packages')); ?></span>
+                    <?php echo e(\App\Helpers\TranslationHelper::translate('Most Popular')); ?>
+
                 </h2>
-            @else
+            <?php else: ?>
                 <h2 class="dark-gray fw-800 mb-16">
-                    {{ \App\Helpers\TranslationHelper::translate('Most Popular') }}
-                    <span class="color-primary">{{ \App\Helpers\TranslationHelper::translate('Packages') }}</span>
+                    <?php echo e(\App\Helpers\TranslationHelper::translate('Most Popular')); ?>
+
+                    <span class="color-primary"><?php echo e(\App\Helpers\TranslationHelper::translate('Packages')); ?></span>
                 </h2>
-            @endif
+            <?php endif; ?>
         </div>
 
         <div class="row g-4">
-            @foreach ($packages as $package)
+            <?php $__currentLoopData = $packages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $package): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
                     <div class="package-card-pro bg-white br-20 shadow-sm h-100 d-flex flex-column transition">
                         
                         <!-- صورة الكورس -->
                         <div class="package-img position-relative">
-                            <img src="{{ $package->getFirstMediaUrl('workshops_image') }}" alt="" class="w-100 h-100 object-fit-cover br-20-top">
+                            <img src="<?php echo e($package->getFirstMediaUrl('workshops_image')); ?>" alt="" class="w-100 h-100 object-fit-cover br-20-top">
                             <span class="price-tag bg-primary text-white fw-700">
-                                {{ $package->price - ($package->price * $package->discount / 100) }}
-                                {{ \App\Helpers\TranslationHelper::translate('EGP') }}
+                                <?php echo e($package->price - ($package->price * $package->discount / 100)); ?>
+
+                                <?php echo e(\App\Helpers\TranslationHelper::translate('EGP')); ?>
+
                             </span>
                         </div>
 
                         <!-- تفاصيل -->
                         <div class="p-20 d-flex flex-column flex-grow-1">
-                            <h5 class="fw-700 mb-12 dark-gray">{{ $package->getTranslation('name', app()->getLocale()) }}</h5>
+                            <h5 class="fw-700 mb-12 dark-gray"><?php echo e($package->getTranslation('name', app()->getLocale())); ?></h5>
                             
                             <div class="d-flex gap-2 small text-muted mb-12 flex-wrap">
-                                <span>{{ $package->lessons()->count() }} {{ \App\Helpers\TranslationHelper::translate('Lessons') }}</span>
+                                <span><?php echo e($package->lessons()->count()); ?> <?php echo e(\App\Helpers\TranslationHelper::translate('Lessons')); ?></span>
                                 <span>•</span>
-                                <span>{{ $package->level?->getTranslation('name', app()->getLocale()) }}</span>
+                                <span><?php echo e($package->level?->getTranslation('name', app()->getLocale())); ?></span>
                             </div>
 
                             <p class="light-gray small mb-20 text-truncate-3 flex-grow-1">
-                                {!! Str::limit($package->getTranslation('description', app()->getLocale()), 150, '...') !!}
+                                <?php echo Str::limit($package->getTranslation('description', app()->getLocale()), 150, '...'); ?>
+
                             </p>
 
                             <!-- زرار -->
                             <div>
-                                @if (Route::currentRouteName() === 'user.profile')
-                                    <a href="{{ route('user.site.package.details', $package->id) }}" class="btn-enroll w-100">
-                                        {{ \App\Helpers\TranslationHelper::translate('Track your progress') }}
+                                <?php if(Route::currentRouteName() === 'user.profile'): ?>
+                                    <a href="<?php echo e(route('user.site.package.details', $package->id)); ?>" class="btn-enroll w-100">
+                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Track your progress')); ?>
+
                                     </a>
-                                @else
-                                    <a href="{{ route('user.site.package.details', $package->id) }}" class="btn-enroll w-100">
-                                        {{ \App\Helpers\TranslationHelper::translate('enroll') }}
+                                <?php else: ?>
+                                    <a href="<?php echo e(route('user.site.package.details', $package->id)); ?>" class="btn-enroll w-100">
+                                        <?php echo e(\App\Helpers\TranslationHelper::translate('enroll')); ?>
+
                                     </a>
-                                @endif
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
 
         <div class="text-center mt-40">
-            <a href="{{ route('site.packages') }}" class="fw-700 color-primary hover-underline">
-                {{ \App\Helpers\TranslationHelper::translate('Explore all Packages') }}
+            <a href="<?php echo e(route('site.packages')); ?>" class="fw-700 color-primary hover-underline">
+                <?php echo e(\App\Helpers\TranslationHelper::translate('Explore all Packages')); ?>
+
             </a>
         </div>
     </div>
@@ -634,14 +614,14 @@
 }
 </style>
 
-    @endif
+    <?php endif; ?>
 
     <!-- videos-start -->
-    @if ($lessons->count() > 0)
+    <?php if($lessons->count() > 0): ?>
         <section class="videos py-80" dir="ltr">
-            <div class="eyebrow heading">{{ \App\Helpers\TranslationHelper::translate('Courses Video') }}</div>
-            <h2 class="dark-gray fw-800 heading mb-48"> {{-- Online &nbsp; --}}<span
-                    class="color-sec">{{ \App\Helpers\TranslationHelper::translate('Video Courses') }}</span>
+            <div class="eyebrow heading"><?php echo e(\App\Helpers\TranslationHelper::translate('Courses Video')); ?></div>
+            <h2 class="dark-gray fw-800 heading mb-48"> <span
+                    class="color-sec"><?php echo e(\App\Helpers\TranslationHelper::translate('Video Courses')); ?></span>
             </h2>
             <div class="container-fluid mb-48">
                 <div class="video-sec">
@@ -666,29 +646,30 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-10">
                             <div class="video-slider">
-                                @foreach ($lessons as $lesson)
+                                <?php $__currentLoopData = $lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="video-block">
-                                        <img src="{{ $lesson->getFirstMediaUrl('news') }}" alt="brand">
-                                        <a href="{{ route('site.lesson_details', ['lesson' => $lesson->id]) }}"
+                                        <img src="<?php echo e($lesson->getFirstMediaUrl('news')); ?>" alt="brand">
+                                        <a href="<?php echo e(route('site.lesson_details', ['lesson' => $lesson->id])); ?>"
                                             class="play-btn">
-                                            <img src="{{ asset('front/assets/media/icons/play-icon.png') }}"
+                                            <img src="<?php echo e(asset('front/assets/media/icons/play-icon.png')); ?>"
                                                 alt="video" class="mb-48 video-pic">
                                         </a>
                                         <div class="block" dir="rtl">
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <div>
-                                                    <h5 class="white mb-4p heading-style">{{ $lesson->name }}</h5>
-                                                    <p class="text-light description">{!! strip_tags($lesson->des) !!}</p>
+                                                    <h5 class="white mb-4p heading-style"><?php echo e($lesson->name); ?></h5>
+                                                    <p class="text-light description"><?php echo strip_tags($lesson->des); ?></p>
                                                 </div>
                                                 <div>
                                                     <p class="lightest-gray">
-                                                        {{ $lesson->price . ' ' . \App\Helpers\TranslationHelper::translate('EGP') }}
+                                                        <?php echo e($lesson->price . ' ' . \App\Helpers\TranslationHelper::translate('EGP')); ?>
+
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </div>
                     </div>
@@ -696,9 +677,9 @@
             </div>
 
             <p class="light-gray heading fw-400">
-                <a href="{{ route('site.lessons') }}">
+                <a href="<?php echo e(route('site.lessons')); ?>">
                     <span
-                        class="color-primary fw-700">{{ \App\Helpers\TranslationHelper::translate('Explore all Lessons') }}<svg
+                        class="color-primary fw-700"><?php echo e(\App\Helpers\TranslationHelper::translate('Explore all Lessons')); ?><svg
                             xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
                             fill="none">
                             <path
@@ -710,159 +691,167 @@
             </p>
 
         </section>
-    @endif
+    <?php endif; ?>
 
-    {{-- Tests --}}
-    @if ($tests_lessons->isNotEmpty())
+    
+    <?php if($tests_lessons->isNotEmpty()): ?>
         <section class="course-section py-80">
             <div class="container-fluid">
 
-                {{-- العنوان --}}
+                
                 <div class="d-flex align-items-center justify-content-between mb-48 flex-wrap">
                     <div>
-                        <div class="eyebrow-2">{{ \App\Helpers\TranslationHelper::translate('Tests') }}</div>
+                        <div class="eyebrow-2"><?php echo e(\App\Helpers\TranslationHelper::translate('Tests')); ?></div>
 
                         <h2 class="dark-gray fw-800 mb-16">
-                            @if (app()->getLocale() === 'ar')
+                            <?php if(app()->getLocale() === 'ar'): ?>
                                 <span class="color-primary">
-                                    {{ \App\Helpers\TranslationHelper::translate('Tests') }}
+                                    <?php echo e(\App\Helpers\TranslationHelper::translate('Tests')); ?>
+
                                 </span>
-                                {{ \App\Helpers\TranslationHelper::translate('doors') }}
-                            @else
-                                {{ \App\Helpers\TranslationHelper::translate('doors') }}
+                                <?php echo e(\App\Helpers\TranslationHelper::translate('doors')); ?>
+
+                            <?php else: ?>
+                                <?php echo e(\App\Helpers\TranslationHelper::translate('doors')); ?>
+
                                 <span class="color-primary">
-                                    {{ \App\Helpers\TranslationHelper::translate('Lessons') }}
+                                    <?php echo e(\App\Helpers\TranslationHelper::translate('Lessons')); ?>
+
                                 </span>
-                            @endif
+                            <?php endif; ?>
                         </h2>
                     </div>
                 </div>
 
-                {{-- البطاقات --}}
+                
                 <div class="row g-4">
-                    @foreach ($tests_lessons as $lesson)
+                    <?php $__currentLoopData = $tests_lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
                             <div class="card border-0 shadow h-100 hover-shadow w-100">
                                 <div class="card-head h-50 d-flex flex-column">
-                                    <img src="{{ $lesson->getFirstMediaUrl('news') }}" alt="{{ $lesson->name }}"
+                                    <img src="<?php echo e($lesson->getFirstMediaUrl('news')); ?>" alt="<?php echo e($lesson->name); ?>"
                                         class="card-img-top rounded-top h-100">
                                 </div>
                                 <div class="card-body d-flex flex-column">
-                                    <h5 class="mb-4p heading-style">{{ $lesson->name }}</h5>
+                                    <h5 class="mb-4p heading-style"><?php echo e($lesson->name); ?></h5>
                                     <p class="text-muted small mb-3 description">
-                                        {!! strip_tags($lesson->des) !!}
+                                        <?php echo strip_tags($lesson->des); ?>
+
                                     </p>
 
-                                    {{-- Spacer علشان الزرار يبقى ثابت تحت --}}
+                                    
                                     <div class="mt-auto">
-                                        <a href="{{ route('user.show_lesson', ['lesson' => $lesson->id]) }}" class="cus-btn">
+                                        <a href="<?php echo e(route('user.show_lesson', ['lesson' => $lesson->id])); ?>" class="cus-btn">
                                             <span
-                                                class="btn-text">{{ \App\Helpers\TranslationHelper::translate('view test') }}</span>
-                                            <span>{{ \App\Helpers\TranslationHelper::translate('view test') }}</span>
+                                                class="btn-text"><?php echo e(\App\Helpers\TranslationHelper::translate('view test')); ?></span>
+                                            <span><?php echo e(\App\Helpers\TranslationHelper::translate('view test')); ?></span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
 
             </div>
         </section>
-    @endif
+    <?php endif; ?>
 
 
 
     <!-- User START -->
-    @if ($users->count() > 0)
+    <?php if($users->count() > 0): ?>
         <section class="py-5">
             <div class="container-fluid">
-                <h2 class="text-center fw-bold mb-5">🥇 {{ \App\Helpers\TranslationHelper::translate('top students') }}
+                <h2 class="text-center fw-bold mb-5">🥇 <?php echo e(\App\Helpers\TranslationHelper::translate('top students')); ?>
+
                 </h2>
 
 
                 <div class="swiper topStudentsSwiper">
                     <div class="swiper-wrapper">
-                        @foreach ($users as $user)
-                            @php
+                        <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php
                                 $fullName = $user->name . ' ' . $user->l_name;
                                 $displayName = strlen($fullName) > 15 ? $user->name : $fullName;
-                            @endphp
+                            ?>
 
                             <div class="swiper-slide">
                                 <div class="card border shadow-sm rounded-4 p-4 text-center h-100"
                                     style="background-color: #ffffff;">
-                                    <img src="{{ $user->getFirstMediaUrl('users') ?: asset('front/assets/media/user/default.jpg') }}"
+                                    <img src="<?php echo e($user->getFirstMediaUrl('users') ?: asset('front/assets/media/user/default.jpg')); ?>"
                                         alt="student photo" class="rounded-circle mb-3"
                                         style="width: 100px; height: 100px; object-fit: cover; margin: 0 auto;">
 
-                                    <h5 class="fw-bold mb-1" title="{{ $fullName }}">{{ $displayName }}</h5>
+                                    <h5 class="fw-bold mb-1" title="<?php echo e($fullName); ?>"><?php echo e($displayName); ?></h5>
                                     <p class="text-muted small mb-2">
-                                        {{ $user->level?->name ?? App\Helpers\TranslationHelper::translate('undefined') }}
+                                        <?php echo e($user->level?->name ?? App\Helpers\TranslationHelper::translate('undefined')); ?>
+
                                     </p>
 
-                                    <img src="{{ asset('front/assets/media/user/quotes.png') }}" alt="quote"
+                                    <img src="<?php echo e(asset('front/assets/media/user/quotes.png')); ?>" alt="quote"
                                         style="width: 24px; opacity: 0.4;" />
                                 </div>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
 
                 </div>
             </div>
         </section>
         <!-- User END -->
-    @endif
+    <?php endif; ?>
    <!-- Payment Methods START -->
 <section class="py-5" style="background: linear-gradient(135deg, #f8f9fa, #eef1f7);">
     <div class="container">
         <h2 class="text-center fw-bold mb-5">
-            💳 {{ \App\Helpers\TranslationHelper::translate('Available Payment Methods on Platform') }}
+            💳 <?php echo e(\App\Helpers\TranslationHelper::translate('Available Payment Methods on Platform')); ?>
+
         </h2>
 
         <div class="row g-4 justify-content-center">
             <!-- Vodafone Cash -->
             <div class="col-6 col-md-4 col-lg-2">
                 <div class="card shadow-sm border-0 text-center p-3 h-100 rounded-4 payment-card">
-                    <img src="{{ asset('front/assets/media/Vodafone-Cash.png') }}"
+                    <img src="<?php echo e(asset('front/assets/media/Vodafone-Cash.png')); ?>"
                         alt="Vodafone Cash" class="img-fluid mb-3" style="width:70px; height:70px; object-fit:contain;">
-                    <h6 class="fw-bold mb-0">{{ \App\Helpers\TranslationHelper::translate('Vodafone Cash') }}</h6>
+                    <h6 class="fw-bold mb-0"><?php echo e(\App\Helpers\TranslationHelper::translate('Vodafone Cash')); ?></h6>
                 </div>
             </div>
 
             <!-- Etisalat Cash -->
             <div class="col-6 col-md-4 col-lg-2">
                 <div class="card shadow-sm border-0 text-center p-3 h-100 rounded-4 payment-card">
-                    <img src="{{ asset('front/assets/media/Etisalat_Misr-Logo.wine.png') }}"
+                    <img src="<?php echo e(asset('front/assets/media/Etisalat_Misr-Logo.wine.png')); ?>"
                         alt="Etisalat Cash" class="img-fluid mb-3" style="width:70px; height:70px; object-fit:contain;">
-                    <h6 class="fw-bold mb-0">{{ \App\Helpers\TranslationHelper::translate('Etisalat Cash') }}</h6>
+                    <h6 class="fw-bold mb-0"><?php echo e(\App\Helpers\TranslationHelper::translate('Etisalat Cash')); ?></h6>
                 </div>
             </div>
 
             <!-- Orange Cash -->
             <div class="col-6 col-md-4 col-lg-2">
                 <div class="card shadow-sm border-0 text-center p-3 h-100 rounded-4 payment-card">
-                    <img src="{{ asset('front/assets/media/om2.png') }}"
+                    <img src="<?php echo e(asset('front/assets/media/om2.png')); ?>"
                         alt="Orange Cash" class="img-fluid mb-3" style="width:70px; height:70px; object-fit:contain;">
-                    <h6 class="fw-bold mb-0">{{ \App\Helpers\TranslationHelper::translate('Orange Cash') }}</h6>
+                    <h6 class="fw-bold mb-0"><?php echo e(\App\Helpers\TranslationHelper::translate('Orange Cash')); ?></h6>
                 </div>
             </div>
 
             <!-- WE Pay -->
             <div class="col-6 col-md-4 col-lg-2">
                 <div class="card shadow-sm border-0 text-center p-3 h-100 rounded-4 payment-card">
-                    <img src="{{ asset('front/assets/media/we.png') }}"
+                    <img src="<?php echo e(asset('front/assets/media/we.png')); ?>"
                         alt="WE Pay" class="img-fluid mb-3" style="width:70px; height:70px; object-fit:contain;">
-                    <h6 class="fw-bold mb-0">{{ \App\Helpers\TranslationHelper::translate('WE Pay') }}</h6>
+                    <h6 class="fw-bold mb-0"><?php echo e(\App\Helpers\TranslationHelper::translate('WE Pay')); ?></h6>
                 </div>
             </div>
 
             <!-- Fawry -->
             <div class="col-6 col-md-4 col-lg-2">
                 <div class="card shadow-sm border-0 text-center p-3 h-100 rounded-4 payment-card">
-                    <img src="{{ asset('front/assets/media/fery.jpg') }}"
+                    <img src="<?php echo e(asset('front/assets/media/fery.jpg')); ?>"
                         alt="Fawry" class="img-fluid mb-3" style="width:70px; height:70px; object-fit:contain;">
-                    <h6 class="fw-bold mb-0">{{ \App\Helpers\TranslationHelper::translate('Fawry') }}</h6>
+                    <h6 class="fw-bold mb-0"><?php echo e(\App\Helpers\TranslationHelper::translate('Fawry')); ?></h6>
                 </div>
             </div>
 
@@ -871,7 +860,7 @@
                 <div class="card shadow-sm border-0 text-center p-3 h-100 rounded-4 payment-card">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
                         alt="Visa" class="img-fluid mb-3" style="width:70px; height:70px; object-fit:contain;">
-                    <h6 class="fw-bold mb-0">{{ \App\Helpers\TranslationHelper::translate('Visa / MasterCard') }}</h6>
+                    <h6 class="fw-bold mb-0"><?php echo e(\App\Helpers\TranslationHelper::translate('Visa / MasterCard')); ?></h6>
                 </div>
             </div>
         </div>
@@ -885,11 +874,12 @@
 </style>
 
     <!-- blogs -->
-    @include('front.components.blogs', ['blogs' => $blogs])
+    <?php echo $__env->make('front.components.blogs', ['blogs' => $blogs], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- blogs-end -->
     <p class="light-gray heading fw-400 mb-48">
-        <a href="{{ route('site.blogs') }}">
-            <span class="color-primary fw-700">{{ \App\Helpers\TranslationHelper::translate('Explore all Blogs') }}
+        <a href="<?php echo e(route('site.blogs')); ?>">
+            <span class="color-primary fw-700"><?php echo e(\App\Helpers\TranslationHelper::translate('Explore all Blogs')); ?>
+
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
                     fill="none">
                     <path
@@ -899,13 +889,13 @@
             </span>
         </a>
     </p>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('css')
+<?php $__env->startPush('css'); ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-@endpush
+<?php $__env->stopPush(); ?>
 
-@push('js')
+<?php $__env->startPush('js'); ?>
     <script>
         const wrapper = document.querySelector('.image-wrapper');
         const image = document.querySelector('.moving-image');
@@ -966,4 +956,6 @@
             },
         });
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('front.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp_new\htdocs\sameh_stein\resources\views/front/index.blade.php ENDPATH**/ ?>

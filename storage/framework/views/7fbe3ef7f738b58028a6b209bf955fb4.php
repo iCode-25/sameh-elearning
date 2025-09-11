@@ -144,13 +144,13 @@
 
             <a href="https://icode.hudurly.com/index" target="_blank" class="fw-700 color-sec"
                 style="text-decoration: none;">
-                iCode.
+                iCode Teck.
             </a>
             <?php echo e(\App\Helpers\TranslationHelper::translate('Design & Developed By')); ?>
 
             <a href="https://icode.hudurly.com/index" target="_blank" class="color-sec fw-700"
                 style="text-decoration: none;">
-                iCode
+                iCode Teck
             </a>
         </p>
 

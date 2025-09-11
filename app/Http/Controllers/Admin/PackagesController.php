@@ -132,7 +132,7 @@ class PackagesController extends Controller
         // $tags = Tag::get();
         // $categories = Level::get();
         $levels = Level::get();
-        $tags = Tag::select('id', 'name')->get();
+        // $tags = Tag::select('id', 'name')->get();
         $categories = Level::select('id', 'name')->get();
         return view('admin.pages.packages.form', new PackagesViewModel($packages), get_defined_vars());
     }

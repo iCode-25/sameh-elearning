@@ -4,7 +4,7 @@
     <title>تم إيقاف المنصة مؤقتًا</title>
 </head>
 <body style="text-align: center; padding: 50px;">
-        <h1 style="color:red;">⚠️ iCode</h1>
+        <h1 style="color:red;">⚠️ iCode Teck</h1>
 
     <h1 style="color:red;">⚠️ تم إيقاف المنصة مؤقتًا</h1>
         <h1 style="color:red;">⚠️الفلوس المتبقيه من توتل سعر المشروع هتتضاعف  جزاء ليك على سوء سلوكك </h1>

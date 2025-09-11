@@ -9,3 +9,4 @@
         </div>
     </div>
 </div>
+<?php /**PATH D:\xampp_new\htdocs\sameh_stein\resources\views/admin/layouts/includes/footer.blade.php ENDPATH**/ ?>
