@@ -1,6 +1,4 @@
-@extends('front.layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- TITLE BANNER START -->
     <section class="title-banner">
         <div class="container-fluid">
@@ -10,16 +8,17 @@
                         <div class="row align-items-center">
                             <div class="col-lg-6 col-sm-6">
                                 <div class="title-content">
-                                    <h1 class="dark-gray fw-700">{{ \App\Helpers\TranslationHelper::translate('Packages') }}
+                                    <h1 class="dark-gray fw-700"><?php echo e(\App\Helpers\TranslationHelper::translate('Packages')); ?>
+
                                     </h1>
                                 </div>
                                 <div class="img-block">
-                                    <img src="{{ asset('front/assets/media/user/star.png') }}" alt="star">
+                                    <img src="<?php echo e(asset('front/assets/media/user/star.png')); ?>" alt="star">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-6 d-sm-block d-none">
                                 <div class="title-image">
-                                    <img src="{{ setting('image_banner_page_packages_web', 'en') }}" alt="">
+                                    <img src="<?php echo e(setting('image_banner_page_packages_web', 'en')); ?>" alt="">
                                 </div>
                             </div>
                         </div>
@@ -32,64 +31,69 @@
     <!-- PRICING START -->
     <section class="course-section py-80">
         <div class="container-fluid">
-            {{-- <div class="eyebrow heading">Lesson Packages</div>
-            <h2 class="dark-gray fw-800 heading mb-48"><span class="color-sec"> Select a Plan&nbsp</span>That Suits You</h2> --}}
+            
             <div>
-                @include('front.components.filter', ['levels' => $levels])
+                <?php echo $__env->make('front.components.filter', ['levels' => $levels], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                 <div class="tab-content" id="pills-tabContent">
                     <div>
                         <div class="mb-48">
                             <div class="row row-gap-4">
-                                @foreach ($packages as $package)
+                                <?php $__currentLoopData = $packages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $package): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
                                         <div
                                             class="package-card-pro bg-white br-20 shadow-sm h-100 d-flex flex-column transition">
 
                                             <!-- صورة الكورس -->
                                             <div class="package-img position-relative">
-                                                <img src="{{ $package->getFirstMediaUrl('workshops_image') }}"
+                                                <img src="<?php echo e($package->getFirstMediaUrl('workshops_image')); ?>"
                                                     alt="" class="w-100 h-100 object-fit-cover br-20-top">
                                                 <span class="price-tag bg-primary text-white fw-700">
-                                                    {{ $package->price - ($package->price * $package->discount) / 100 }}
-                                                    {{ \App\Helpers\TranslationHelper::translate('EGP') }}
+                                                    <?php echo e($package->price - ($package->price * $package->discount) / 100); ?>
+
+                                                    <?php echo e(\App\Helpers\TranslationHelper::translate('EGP')); ?>
+
                                                 </span>
                                             </div>
 
                                             <!-- تفاصيل -->
                                             <div class="p-20 d-flex flex-column flex-grow-1">
                                                 <h5 class="fw-700 mb-12 dark-gray">
-                                                    {{ $package->getTranslation('name', app()->getLocale()) }}</h5>
+                                                    <?php echo e($package->getTranslation('name', app()->getLocale())); ?></h5>
 
                                                 <div class="d-flex gap-2 small text-muted mb-12 flex-wrap">
-                                                    <span>{{ $package->lessons()->count() }}
-                                                        {{ \App\Helpers\TranslationHelper::translate('Lessons') }}</span>
+                                                    <span><?php echo e($package->lessons()->count()); ?>
+
+                                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Lessons')); ?></span>
                                                     <span>•</span>
-                                                    <span>{{ $package->level?->getTranslation('name', app()->getLocale()) }}</span>
+                                                    <span><?php echo e($package->level?->getTranslation('name', app()->getLocale())); ?></span>
                                                 </div>
 
                                                 <p class="light-gray small mb-20 text-truncate-3 flex-grow-1">
-                                                    {!! Str::limit($package->getTranslation('description', app()->getLocale()), 150, '...') !!}
+                                                    <?php echo Str::limit($package->getTranslation('description', app()->getLocale()), 150, '...'); ?>
+
                                                 </p>
 
                                                 <!-- زرار -->
                                                 <div>
-                                                    @if (Route::currentRouteName() === 'user.profile')
-                                                        <a href="{{ route('user.site.package.details', $package->id) }}"
+                                                    <?php if(Route::currentRouteName() === 'user.profile'): ?>
+                                                        <a href="<?php echo e(route('user.site.package.details', $package->id)); ?>"
                                                             class="btn-enroll w-100">
-                                                            {{ \App\Helpers\TranslationHelper::translate('Track your progress') }}
+                                                            <?php echo e(\App\Helpers\TranslationHelper::translate('Track your progress')); ?>
+
                                                         </a>
-                                                    @else
-                                                        <a href="{{ route('user.site.package.details', $package->id) }}"
+                                                    <?php else: ?>
+                                                        <a href="<?php echo e(route('user.site.package.details', $package->id)); ?>"
                                                             class="btn-enroll w-100">
-                                                            {{ \App\Helpers\TranslationHelper::translate('enroll') }}
+                                                            <?php echo e(\App\Helpers\TranslationHelper::translate('enroll')); ?>
+
                                                         </a>
-                                                    @endif
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </div>
                     </div>
@@ -163,4 +167,6 @@
                 overflow: hidden;
             }
         </style>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('front.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\sameh-elearning\resources\views/front/pages/packages.blade.php ENDPATH**/ ?>
