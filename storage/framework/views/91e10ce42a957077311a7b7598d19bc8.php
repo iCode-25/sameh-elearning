@@ -21,7 +21,7 @@
                                                         fill="var(--secondary-color)" />
                                                 </svg>
                                                 <p class="light-gray fw-500">
-                                                    <?php echo e(\App\Helpers\TranslationHelper::translate('Abdulhamid')); ?>
+                                                    <?php echo e(\App\Helpers\TranslationHelper::translate('Samah Shtain')); ?>
 
                                                 </p>
                                             </div>

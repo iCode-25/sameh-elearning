@@ -53,8 +53,6 @@
     <?php echo $__env->make('front.includes.mobile-menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- Mobile Menu End -->
 
-
-
     <?php echo $__env->make('front.includes.scripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 </body>
