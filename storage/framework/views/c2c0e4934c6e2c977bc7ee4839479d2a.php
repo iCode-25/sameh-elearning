@@ -1,15 +1,15 @@
-@if ($blogs->count() > 0)
+<?php if($blogs->count() > 0): ?>
     <section class="article-section py-2">
         <div class="container-fluid">
             <div class="article-wrapper">
                 <div class="row justify-content-center">
                     <div class="row row-gap-4 justify-content-center">
-                        @foreach ($blogs as $blog)
+                        <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="cursor-pointer col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                                <div data-url="{{ route('site.blog-details', $blog->id) }}"
+                                <div data-url="<?php echo e(route('site.blog-details', $blog->id)); ?>"
                                     class="article-block br-12 h-100 d-flex flex-column" style="cursor: pointer">
                                     <div class="article-image shine">
-                                        <img src="{{ $blog->getFirstMediaUrl('blogs_image') }}" alt="">
+                                        <img src="<?php echo e($blog->getFirstMediaUrl('blogs_image')); ?>" alt="">
                                     </div>
                                     <div class="article-content d-flex flex-column flex-grow-1">
                                         <div class="d-flex align-items-center gap-32 mb-24">
@@ -21,7 +21,8 @@
                                                         fill="var(--secondary-color)" />
                                                 </svg>
                                                 <p class="light-gray fw-500">
-                                                    {{ \App\Helpers\TranslationHelper::translate('Samah Shtain') }}
+                                                    <?php echo e(\App\Helpers\TranslationHelper::translate('Samah Shtain')); ?>
+
                                                 </p>
                                             </div>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="2" height="29"
@@ -64,19 +65,21 @@
 
                                                 </svg>
                                                 <p class="light-gray fw-500">
-                                                    {{ $blog->created_at->format('d M Y') }}
+                                                    <?php echo e($blog->created_at->format('d M Y')); ?>
+
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <h6 class="fw-800 mb-16 line-clamp">{{ Str::limit(strip_tags($blog->name)) }}
+                                        <h6 class="fw-800 mb-16 line-clamp"><?php echo e(Str::limit(strip_tags($blog->name))); ?>
+
                                         </h6>
 
-                                        <p class="light-gray mb-32 flex-grow-1">{!! Str::limit(strip_tags($blog->description)) !!}</p>
+                                        <p class="light-gray mb-32 flex-grow-1"><?php echo Str::limit(strip_tags($blog->description)); ?></p>
 
                                         <div class="cus-arrow-btn d-flex align-items-center mt-auto">
                                             <p class="fw-700 color-sec">
-                                                {{ \App\Helpers\TranslationHelper::translate('Read More') }}</p>
+                                                <?php echo e(\App\Helpers\TranslationHelper::translate('Read More')); ?></p>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
                                                 viewBox="0 0 28 28" fill="none">
                                                 <path
@@ -87,15 +90,15 @@
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-@endif
+<?php endif; ?>
 
-@push('js')
+<?php $__env->startPush('js'); ?>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.article-block').forEach(function(block) {
@@ -108,4 +111,5 @@
             });
         });
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+<?php /**PATH D:\xampp_new\htdocs\sameh_stein\resources\views/front/pages/blogs_data.blade.php ENDPATH**/ ?>

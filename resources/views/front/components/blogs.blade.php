@@ -28,7 +28,7 @@
                                                         fill="var(--secondary-color)" />
                                                 </svg>
                                                 <p class="light-gray fw-500">
-                                                    {{ \App\Helpers\TranslationHelper::translate('Abdulhamid') }}
+                                                    {{ \App\Helpers\TranslationHelper::translate('Samah Shtain') }}
                                                 </p>
                                             </div>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="2" height="29"

@@ -5,7 +5,7 @@
     <meta name="description" content="Future HUB|| E-Learning HTML Template">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Mr-AbdulHamid Quritem</title>
+    <title>Eng-Samah Shtain</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ setting('image_logo_web', 'en') }}">

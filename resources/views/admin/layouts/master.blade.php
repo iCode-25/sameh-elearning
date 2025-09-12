@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{{ \App\Helpers\TranslationHelper::translate('AbdulHamid Quritem ') }}</title>
+    <title>{{ \App\Helpers\TranslationHelper::translate('Samah Shtain ') }}</title>
     {{-- {{setting('title_one')}}  --}}
     <meta charset="utf-8"/>
     <meta name="description"
-          content="{{ \App\Helpers\TranslationHelper::translate('AbdulHamid Quritem Dashboard') }}"/>
+          content="{{ \App\Helpers\TranslationHelper::translate('Samah Shtain Dashboard') }}"/>
     <meta name="keywords"
-          content="{{ \App\Helpers\TranslationHelper::translate('AbdulHamid Quritem Dashboard') }}"/>
+          content="{{ \App\Helpers\TranslationHelper::translate('Samah Shtain Dashboard') }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="{{ \App\Helpers\TranslationHelper::translate('AbdulHamid Quritem Dashboard') }}"/>
+    <meta property="og:title" content="{{ \App\Helpers\TranslationHelper::translate('Samah Shtain Dashboard') }}"/>
     <meta property="og:url" content=""/>
-    <meta property="og:site_name" content="{{ \App\Helpers\TranslationHelper::translate('AbdulHamid Quritem ') }}"/>
+    <meta property="og:site_name" content="{{ \App\Helpers\TranslationHelper::translate('Samah Shtain ') }}"/>
     <link rel="canonical" href=""/>
     <link rel="shortcut icon" href="{{asset('dashboard/assets/media/logos/logo.png')}}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"/>

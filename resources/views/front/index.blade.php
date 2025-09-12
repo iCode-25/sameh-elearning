@@ -32,16 +32,16 @@
                 <div class="col-lg-6">
                     <div class="hero-content">
                         <span class="badge-text">
-                            {{ \App\Helpers\TranslationHelper::translate('Chemistry Made Simple') }}
+                            {{ \App\Helpers\TranslationHelper::translate('Physics Made Simple') }}
                         </span>
                         <h1 class="hero-title">
                             {{ \App\Helpers\TranslationHelper::translate('Your Future Starts') }} <br>
                             <span class="highlight">
-                                {{ \App\Helpers\TranslationHelper::translate('Learn, Apply, Create') }}
+                                {{ \App\Helpers\TranslationHelper::translate('The Physics as it Should Be') }}
                             </span>
                         </h1>
                         <p class="hero-subtitle">
-                            {{ \App\Helpers\TranslationHelper::translate('Your Ultimate Platform to Learn Chemistry Professionally We offer you a complete educational experience that combines simplified explanations, interactive lessons, comprehensive quizzes, and informative articles') }}
+                            {{ \App\Helpers\TranslationHelper::translate('Your Ultimate Platform to Learn Physics Professionally We offer you a complete educational experience that combines simplified explanations, interactive lessons, comprehensive quizzes, and informative articles') }}
                         </p>
 
                         <div class="hero-buttons mt-4">
@@ -189,7 +189,7 @@
                 <div class="col-lg-6">
                     <div class="image-masonry">
                         <div class="img-box big">
-                            <img width="100%" src="{{ asset('front/assets/media/course/course-1.png') }}" alt="course">
+                            <img width="100%" src="{{ asset('front/assets/media/course/banersck.jpg') }}" alt="course">
                         </div>
                     </div>
                 </div>
@@ -198,7 +198,7 @@
                 <div class="col-lg-6">
                     <div class="about-content">
                         <span class="badge-text">
-                            {{ \App\Helpers\TranslationHelper::translate('Simply Chemistry') }}
+                            {{ \App\Helpers\TranslationHelper::translate('Simply Physics') }}
                         </span>
                         <h2 class="section-title">
                             {{ setting('title_about_us', app()->getLocale()) }}
@@ -214,7 +214,7 @@
                             <div class="col-md-6">
                                 <div class="feature-box">
                                     <div class="icon-circle"><i class="fas fa-flask"></i></div>
-                                    <h6>{{ \App\Helpers\TranslationHelper::translate('Chemistry Lessons') }}</h6>
+                                    <h6>{{ \App\Helpers\TranslationHelper::translate('Physics Lessons') }}</h6>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -400,7 +400,7 @@
                                 class="w-50 mx-auto">
                         </div>
                         <h5 class="fw-800 mb-2">
-                            {{ \App\Helpers\TranslationHelper::translate('Chemistry Lessons') }}
+                            {{ \App\Helpers\TranslationHelper::translate('Physics Lessons') }}
                         </h5>
                         <p class="light-gray small">
                             {{ \App\Helpers\TranslationHelper::translate('Simplify complex concepts with clear explanations and exercises') }}

@@ -31,7 +31,7 @@
                     <div class="col-xl-5 order-xl-1 order-2">
                         <div class="hero-content">
                             <div class="hero-text mb-48">
-                                <p class="eyebrow"><?php echo e(\App\Helpers\TranslationHelper::translate('Chemistry Made Simple')); ?>
+                                <p class="eyebrow"><?php echo e(\App\Helpers\TranslationHelper::translate('Physics Made Simple')); ?>
 
                                 </p>
                                 <h1 class="dark-gray mb-16 text-xl-start text-center fw-700 tex">
@@ -44,7 +44,7 @@
                                     </span>
                                 </h1>
                                 <p class="text-xl-start text-center light-gray fw-400">
-                                    <?php echo e(\App\Helpers\TranslationHelper::translate('Your Ultimate Platform to Learn Chemistry Professionally We offer you a complete educational experience that combines simplified explanations, interactive lessons, comprehensive quizzes, and informative articles')); ?>
+                                    <?php echo e(\App\Helpers\TranslationHelper::translate('Your Ultimate Platform to Learn Physics Professionally We offer you a complete educational experience that combines simplified explanations, interactive lessons, comprehensive quizzes, and informative articles')); ?>
 
                                 </p>
                             </div>
@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         <div class="col-xl-7">
-                            <div class="eyebrow-2"> <?php echo e(\App\Helpers\TranslationHelper::translate('Simply Chemistry')); ?>
+                            <div class="eyebrow-2"> <?php echo e(\App\Helpers\TranslationHelper::translate('Simply Physics')); ?>
 
                             </div>
                             <h2 class="dark-gray fw-800 mb-16">
@@ -151,7 +151,7 @@
                                                     fill="var(--secondary-color)"></path>
                                             </svg>
                                             <h6 class="color-primary fw-700">
-                                                <?php echo e(\App\Helpers\TranslationHelper::translate('Chemistry Lessons')); ?></h6>
+                                                <?php echo e(\App\Helpers\TranslationHelper::translate('Physics Lessons')); ?></h6>
                                         </div>
                                     </div>
                                     <div class="col-xl-5 col-lg-5 col-md-5">
@@ -248,7 +248,7 @@
                                     <h5 class="heading  fw-800 mb-24">
                                         <?php echo e(\App\Helpers\TranslationHelper::translate('Monthly Packages')); ?></h5>
                                     <p class="light-gray heading">
-                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Subscribe to our monthly plans and get comprehensive, simplified chemistry lessons, continuous practice, and regular quizzes to help you steadily progress toward excellence')); ?>
+                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Subscribe to our monthly plans and get comprehensive, simplified Physics lessons, continuous practice, and regular quizzes to help you steadily progress toward excellence')); ?>
 
                                     </p>
                                 </div>
@@ -262,9 +262,9 @@
                                             alt="banner" class="mb-32">
                                     </div>
                                     <h5 class="heading  fw-800 mb-24">
-                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Chemistry Lessons')); ?></h5>
+                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Physics Lessons')); ?></h5>
                                     <p class="light-gray heading">
-                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Chemistry lessons are designed to simplify complex concepts through clear explanations and practical exercises')); ?>
+                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Physics lessons are designed to simplify complex concepts through clear explanations and practical exercises')); ?>
 
                                     </p>
                                 </div>
@@ -276,7 +276,7 @@
                                     <h5 class="heading  fw-800 mb-24">
                                         <?php echo e(\App\Helpers\TranslationHelper::translate('Educational Articles')); ?></h5>
                                     <p class="light-gray heading">
-                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Educational articles that help you gain a deeper understanding of chemistry concepts, offering effective study tips and strategies for academic excellence')); ?>
+                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Educational articles that help you gain a deeper understanding of Physics concepts, offering effective study tips and strategies for academic excellence')); ?>
 
 
                                     </p>
@@ -290,7 +290,7 @@
                                         <?php echo e(\App\Helpers\TranslationHelper::translate('Quizzes')); ?></h5>
                                     <p class="light-gray heading">
 
-                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Our chemistry tests are designed to assess your true understanding of the curriculum and strengthen your skills through comprehensive questions that simulate final exam patterns, helping you prepare with confidence')); ?>
+                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Our Physics tests are designed to assess your true understanding of the curriculum and strengthen your skills through comprehensive questions that simulate final exam patterns, helping you prepare with confidence')); ?>
 
 
                                     </p>
@@ -304,7 +304,7 @@
                                     <h5 class="heading  fw-800 mb-24">
                                         <?php echo e(\App\Helpers\TranslationHelper::translate('Educational Articles')); ?></h5>
                                     <p class="light-gray heading">
-                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Educational articles that help you gain a deeper understanding of chemistry concepts, offering effective study tips and strategies for academic excellence')); ?>
+                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Educational articles that help you gain a deeper understanding of Physics concepts, offering effective study tips and strategies for academic excellence')); ?>
 
 
                                     </p>
@@ -316,9 +316,9 @@
                                             alt="banner" class="mb-32">
                                     </div>
                                     <h5 class="heading  fw-800 mb-24">
-                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Chemistry Lessons')); ?></h5>
+                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Physics Lessons')); ?></h5>
                                     <p class="light-gray heading">
-                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Chemistry lessons are designed to simplify complex concepts through clear explanations and practical exercises')); ?>
+                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Physics lessons are designed to simplify complex concepts through clear explanations and practical exercises')); ?>
 
                                     </p>
                                 </div>
