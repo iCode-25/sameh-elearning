@@ -83,8 +83,6 @@
     @include('front.includes.mobile-menu')
     <!-- Mobile Menu End -->
 
-
-
     @include('front.includes.scripts')
 
 </body>

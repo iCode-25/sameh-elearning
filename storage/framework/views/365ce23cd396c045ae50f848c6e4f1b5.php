@@ -13,8 +13,7 @@
                         <div class="card-body" dir="rtl">
                             <h5><?php echo e($lesson->name); ?></h5>
                             <p><?php echo strip_tags($lesson->des); ?></p>
-                            <span
-                                class="price"><?php echo e($lesson->price . ' ' . \App\Helpers\TranslationHelper::translate('EGP')); ?></span>
+                            <span class="price"><?php echo e($lesson->price . ' ' . \App\Helpers\TranslationHelper::translate('EGP')); ?></span>
                         </div>
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

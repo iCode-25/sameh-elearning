@@ -1,4 +1,4 @@
-<header class="header fixed-top">
+{{-- <header class="header fixed-top">
     <div class="container-fluid">
         <nav class="navigation d-flex align-items-center justify-content-between">
 
@@ -33,10 +33,10 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Right side -->
-            <div class="main-menu__right d-flex align-items-center gap-3">
+            {{-- <div class="main-menu__right d-flex align-items-center gap-3"> --}}
 
                 {{-- @guest('web')
                     <a href="{{ route('user.login.form') }}" class="cus-btn">
@@ -63,7 +63,7 @@
                 @endauth --}}
 
                 <!-- زرار Login -->
-                @guest('web')
+                {{-- @guest('web')
                     <a href="{{ route('user.login.form') }}" class="login-glass-btn d-flex align-items-center gap-2">
                         <i class="fas fa-user"></i>
                         <span>{{ \App\Helpers\TranslationHelper::translate('Login') }}</span>
@@ -90,11 +90,11 @@
                         <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
                             @csrf</form>
                     </div>
-                @endauth
+                @endauth --}}
 
 
 
-                <style>
+                {{-- <style>
                     /* Login Button - Glass style */
                     .login-glass-btn {
                         padding: 10px 20px;
@@ -174,9 +174,9 @@
 
         </nav>
     </div>
-</header>
+</header> --}}
 
-<style>
+{{-- <style>
     .cus-btn {
         padding: 10px 24px;
         background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -305,10 +305,10 @@
     window.addEventListener("scroll", function() {
         document.querySelector(".header").classList.toggle("scrolled", window.scrollY > 50);
     });
-</script>
+</script> --}}
 
 
-{{-- <header class="header">
+<header class="header">
     <div class="container-fluid">
         <nav class="navigation d-flex align-items-center justify-content-between">
 
@@ -499,4 +499,4 @@
 
         </nav>
     </div>
-</header> --}}
+</header>
