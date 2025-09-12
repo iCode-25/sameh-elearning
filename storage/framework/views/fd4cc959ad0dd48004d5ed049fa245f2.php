@@ -4,7 +4,7 @@
 
             <!-- Logo -->
             <a href="<?php echo e(route('site.home')); ?>" class="brand-name text-decoration-none">
-                <span class="first-part"><?php echo e(\App\Helpers\TranslationHelper::translate('Mr')); ?></span>
+                <span class="first-part"><?php echo e(\App\Helpers\TranslationHelper::translate('Eng')); ?></span>
                 <span class="middle-part">.</span>
                 <span class="last-part"><?php echo e(\App\Helpers\TranslationHelper::translate('Samah Shtain')); ?></span>
             </a>
