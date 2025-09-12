@@ -36,7 +36,7 @@
                         <h1 class="hero-title">
                             <?php echo e(\App\Helpers\TranslationHelper::translate('Your Future Starts')); ?> <br>
                             <span class="highlight">
-                                <?php echo e(\App\Helpers\TranslationHelper::translate('Learn, Apply, Create')); ?>
+                                <?php echo e(\App\Helpers\TranslationHelper::translate('The Physics as it Should Be')); ?>
 
                             </span>
                         </h1>
@@ -193,7 +193,7 @@
                 <div class="col-lg-6">
                     <div class="image-masonry">
                         <div class="img-box big">
-                            <img width="100%" src="<?php echo e(asset('front/assets/media/course/course-1.png')); ?>" alt="course">
+                            <img width="100%" src="<?php echo e(asset('front/assets/media/course/banersck.jpg')); ?>" alt="course">
                         </div>
                     </div>
                 </div>

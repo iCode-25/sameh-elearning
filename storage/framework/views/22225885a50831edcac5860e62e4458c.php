@@ -91,6 +91,8 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
+                    <div id="message" class="alert-msg"></div>
+
                     <div class="contact-form-box shadow-sm p-4 rounded-4">
                         <h4 class="mb-4"><?php echo e(\App\Helpers\TranslationHelper::translate('Contact Us Now')); ?></h4>
                         <form method="post" id="contactForm" action="<?php echo e(route('create_message')); ?>" novalidate>
