@@ -35,7 +35,7 @@
             {{-- <div class="eyebrow heading">Lesson Packages</div>
             <h2 class="dark-gray fw-800 heading mb-48"><span class="color-sec"> Select a Plan&nbsp</span>That Suits You</h2> --}}
             <div>
-                @include('front.components.filter', ['levels' => $levels])
+                {{-- @include('front.components.filter', ['levels' => $levels]) --}}
 
                 <div class="tab-content" id="pills-tabContent">
                     <div>

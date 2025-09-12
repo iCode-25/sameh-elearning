@@ -13,8 +13,7 @@
                         <div class="card-body" dir="rtl">
                             <h5>{{ $lesson->name }}</h5>
                             <p>{!! strip_tags($lesson->des) !!}</p>
-                            <span
-                                class="price">{{ $lesson->price . ' ' . \App\Helpers\TranslationHelper::translate('EGP') }}</span>
+                            <span class="price">{{ $lesson->price . ' ' . \App\Helpers\TranslationHelper::translate('EGP') }}</span>
                         </div>
                     </div>
                 @endforeach

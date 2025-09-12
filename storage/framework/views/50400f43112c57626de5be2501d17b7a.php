@@ -33,7 +33,7 @@
         <div class="container-fluid">
             
             <div>
-                <?php echo $__env->make('front.components.filter', ['levels' => $levels], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                
 
                 <div class="tab-content" id="pills-tabContent">
                     <div>
