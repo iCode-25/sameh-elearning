@@ -27,7 +27,7 @@ class VideosController extends Controller
         $this->middleware(['auth:admin', 'permission:videos.create'], ['only' => ['create', 'store']]);
         $this->middleware(['auth:admin', 'permission:videos.edit'], ['only' => ['edit', 'update']]);
         $this->middleware(['auth:admin', 'permission:videos.delete'], ['only' => ['destroy']]);
-        $this->middleware(['auth:admin', 'permission:videos.sort'], ['only' => ['reorder','saveReorder']]);
+        $this->middleware(['auth:admin', 'permission:videos.sort'], ['only' => ['reorder', 'saveReorder']]);
         $this->videos = new VideosService();
     }
     /**
@@ -109,20 +109,13 @@ class VideosController extends Controller
         return response()->json(['success' => true, 'is_active' => $video->is_active]);
     }
 
-
-
-    /**
-     * Display a Single Row of the resource.
-     */
     public function Show($id): View
     {
         $videos = Videos::find($id);
         return view('admin.pages.videos.show', get_defined_vars());
     }
 
-    /**
-     * Show the form for creating a new videos.
-     */
+
     public function create(): View
     {
         // TODO: Get Levels List
@@ -131,9 +124,6 @@ class VideosController extends Controller
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(VideosRequest $request)
     {
         // return $request;

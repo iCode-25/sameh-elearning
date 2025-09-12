@@ -1,35 +1,52 @@
-@extends('admin.layouts.app')
-@section('title', \App\Helpers\TranslationHelper::translate('News Details'))
-@section('crumb')
-    <x-bread-crumb :breadcrumbs="[
+<?php $__env->startSection('title', \App\Helpers\TranslationHelper::translate('News Details')); ?>
+<?php $__env->startSection('crumb'); ?>
+    <?php if (isset($component)) { $__componentOriginalc2072a121b282e859e8bdea9c58b76d8 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalc2072a121b282e859e8bdea9c58b76d8 = $attributes; } ?>
+<?php $component = App\View\Components\BreadCrumb::resolve(['breadcrumbs' => [
         ['text' => \App\Helpers\TranslationHelper::translate('Lessons'), 'link' => route('admin.videos.index')],
         ['text' => \App\Helpers\TranslationHelper::translate('Details')],
-    ]" :button="[]">
-    </x-bread-crumb>
-@endsection
-@section('content')
+    ],'button' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('bread-crumb'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\BreadCrumb::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+     <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalc2072a121b282e859e8bdea9c58b76d8)): ?>
+<?php $attributes = $__attributesOriginalc2072a121b282e859e8bdea9c58b76d8; ?>
+<?php unset($__attributesOriginalc2072a121b282e859e8bdea9c58b76d8); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc2072a121b282e859e8bdea9c58b76d8)): ?>
+<?php $component = $__componentOriginalc2072a121b282e859e8bdea9c58b76d8; ?>
+<?php unset($__componentOriginalc2072a121b282e859e8bdea9c58b76d8); ?>
+<?php endif; ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <div class="post d-flex flex-column-fluid" id="kt_post">
             <div id="kt_content_container" class="container-xxl">
                 <div class="card">
                     <div class="card-header border-0 pt-6">
-                        <div class="card-body py-4 px-0" dir="{{ Config::get('app.locale') == 'en' ? 'ltr' : 'rtl' }}">
+                        <div class="card-body py-4 px-0" dir="<?php echo e(Config::get('app.locale') == 'en' ? 'ltr' : 'rtl'); ?>">
                             <div class="row px-0 mt-3">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-left">
                                     <h4 class="d-inline-block  py-3">
-                                        {{ \App\Helpers\TranslationHelper::translate('News Details') }}</h4>
+                                        <?php echo e(\App\Helpers\TranslationHelper::translate('News Details')); ?></h4>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-6  text-right">
                                     <a class="btn btn-primary text-center" style="margin-left: 25px"
-                                        href="{{ route('admin.videos.edit', $videos->id) }}">
-                                        <span>{{ \App\Helpers\TranslationHelper::translate('Edit') }}</span> &nbsp;
+                                        href="<?php echo e(route('admin.videos.edit', $videos->id)); ?>">
+                                        <span><?php echo e(\App\Helpers\TranslationHelper::translate('Edit')); ?></span> &nbsp;
                                         <i class="fas fa-pen"></i>
                                     </a>
                                 </div>
                             </div>
 
-                           @php
+                           <?php
     use Illuminate\Support\Str;
 
     function getYoutubeEmbedUrl($url) {
@@ -77,17 +94,18 @@
             </video>
         ';
     }
-@endphp
+?>
 
 <!-- الفيديو العادي -->
 <div class="row px-0 mt-3">
     <div class="col-lg-12 m-auto text-left">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3 col-6 text-left details_item bold">
-                {{ \App\Helpers\TranslationHelper::translate('Video') }} :
+                <?php echo e(\App\Helpers\TranslationHelper::translate('Video')); ?> :
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-12 text-left details_item">
-                {!! renderVideo($videos->video_url) !!}
+                <?php echo renderVideo($videos->video_url); ?>
+
             </div>
         </div>
     </div>
@@ -98,10 +116,11 @@
     <div class="col-lg-12 m-auto text-left">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3 col-6 text-left details_item bold">
-                {{ \App\Helpers\TranslationHelper::translate('Azhar Homework Video') }} :
+                <?php echo e(\App\Helpers\TranslationHelper::translate('Azhar Homework Video')); ?> :
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-12 text-left details_item">
-                {!! renderVideo($videos->azhar_video_url) !!}
+                <?php echo renderVideo($videos->azhar_video_url); ?>
+
             </div>
         </div>
     </div>
@@ -112,10 +131,11 @@
     <div class="col-lg-12 m-auto text-left">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3 col-6 text-left details_item bold">
-                {{ \App\Helpers\TranslationHelper::translate('School Homework Video') }} :
+                <?php echo e(\App\Helpers\TranslationHelper::translate('School Homework Video')); ?> :
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-12 text-left details_item">
-                {!! renderVideo($videos->school_video_url) !!}
+                <?php echo renderVideo($videos->school_video_url); ?>
+
             </div>
         </div>
     </div>
@@ -126,11 +146,11 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto text-left ">
                                     <div class="row">
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-6  text-left details_item bold">
-                                            {{ \App\Helpers\TranslationHelper::translate('Image') }} :
+                                            <?php echo e(\App\Helpers\TranslationHelper::translate('Image')); ?> :
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-6  text-left details_item ">
-                                            <a href="{{ $videos->getFirstMediaUrl('news') }}" target="_blank">
-                                                <img src="{{ $videos->getFirstMediaUrl('news') }}" class="w-100"
+                                            <a href="<?php echo e($videos->getFirstMediaUrl('newsnews')); ?>" target="_blank">
+                                                <img src="<?php echo e($videos->getFirstMediaUrl('newsnews')); ?>" class="w-100"
                                                     alt="test"
                                                     style="width: 150px; height: 150px; object-fit: contain;">
                                             </a>
@@ -143,17 +163,18 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto text-left">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3 col-6 text-left details_item bold">
-                {{ \App\Helpers\TranslationHelper::translate('PDF') }} :
+                <?php echo e(\App\Helpers\TranslationHelper::translate('PDF')); ?> :
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-left details_item">
-                @if($videos->getFirstMediaUrl('newsnews_pdf'))
-                    <iframe src="{{ $videos->getFirstMediaUrl('newsnews_pdf') }}"
+                <?php if($videos->getFirstMediaUrl('newsnews_pdf')): ?>
+                    <iframe src="<?php echo e($videos->getFirstMediaUrl('newsnews_pdf')); ?>"
                             width="100%" height="600px" frameborder="0"></iframe>
-                @else
+                <?php else: ?>
                     <p class="text-danger">
-                        {{ \App\Helpers\TranslationHelper::translate('الملف غير متوفر') }}
+                        <?php echo e(\App\Helpers\TranslationHelper::translate('الملف غير متوفر')); ?>
+
                     </p>
-                @endif
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -162,28 +183,31 @@
 
 
                             <div class="row px-0 mt-3">
-                                @foreach (Config('language') as $key => $lang)
+                                <?php $__currentLoopData = Config('language'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $lang): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto text-left ">
                                         <div class="row">
                                             <div class="col-lg-3 col-md-3 col-sm-3 col-6  text-left details_item bold">
-                                                {{ \App\Helpers\TranslationHelper::translate('Name in') }}
-                                                {{ __('methods.' . $lang) }}:
+                                                <?php echo e(\App\Helpers\TranslationHelper::translate('Name in')); ?>
+
+                                                <?php echo e(__('methods.' . $lang)); ?>:
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-6  text-left details_item ">
-                                                {{ $videos->getTranslation('name', $key) }}
+                                                <?php echo e($videos->getTranslation('name', $key)); ?>
+
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                             <div class="row px-0 mt-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto text-left ">
                                     <div class="row">
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-6  text-left details_item bold">
-                                            {{ \App\Helpers\TranslationHelper::translate('Price') }}:
+                                            <?php echo e(\App\Helpers\TranslationHelper::translate('Price')); ?>:
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-6  text-left details_item ">
-                                            {{ $videos->price }}
+                                            <?php echo e($videos->price); ?>
+
                                         </div>
                                     </div>
                                 </div>
@@ -192,10 +216,11 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto text-left ">
                                     <div class="row">
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-6  text-left details_item bold">
-                                            {{ \App\Helpers\TranslationHelper::translate('Academic Levels') }}:
+                                            <?php echo e(\App\Helpers\TranslationHelper::translate('Academic Levels')); ?>:
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-6  text-left details_item ">
-                                            {{ $videos->level->name ?? '-' }}
+                                            <?php echo e($videos->level->name ?? '-'); ?>
+
                                         </div>
                                     </div>
                                 </div>
@@ -207,4 +232,6 @@
         </div>
     </div>
     </div>
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp_new\htdocs\sameh_stein\resources\views/admin/pages/videos/show.blade.php ENDPATH**/ ?>

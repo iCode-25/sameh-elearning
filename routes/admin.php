@@ -597,60 +597,7 @@ Route::group(
                     ]);
                 });
 
-                // رفع chunk
-                // Route::post('/videos/upload-chunk', function (Request $request) {
-                //     $file = $request->file('file');
-                //     $fileName = $request->fileName;
-                //     $chunkIndex = $request->chunkIndex;
-
-                //     $tmpPath = storage_path("app/tmp_uploads/{$fileName}_{$chunkIndex}");
-                //     $file->move(dirname($tmpPath), basename($tmpPath));
-
-                //     return response()->json(['status' => 'chunk_uploaded']);
-                // });
-
-                // // دمج كل الـ chunks ورفع الملف النهائي على Bunny
-                // Route::post('/videos/merge-chunks', function (Request $request) {
-                //     $fileName = $request->fileName;
-                //     $totalChunks = $request->totalChunks;
-                //     $mimeType = $request->mime_type;
-
-                //     $finalPath = storage_path("app/tmp_uploads/{$fileName}");
-                //     $out = fopen($finalPath, "wb");
-
-                //     for ($i = 0; $i < $totalChunks; $i++) {
-                //         $chunkPath = storage_path("app/tmp_uploads/{$fileName}_{$i}");
-                //         $in = fopen($chunkPath, "rb");
-                //         stream_copy_to_stream($in, $out);
-                //         fclose($in);
-                //         unlink($chunkPath);
-                //     }
-                //     fclose($out);
-
-                //     // رفع الملف النهائي لـ Bunny Storage
-                //     $zone = "abdhamed";
-                //     $accessKey = "xxxx-xxxx-xxxx"; // AccessKey بتاعك
-                //     $remotePath = "videos/$fileName";
-
-                //     $uploadUrl = "https://storage.bunnycdn.com/$zone/$remotePath";
-
-                //     $res = Http::withHeaders([
-                //         "AccessKey" => $accessKey,
-                //         "Content-Type" => $mimeType,
-                //     ])->put($uploadUrl, fopen($finalPath, 'r'));
-
-                //     // احذف الملف من السيرفر بعد الرفع
-                //     unlink($finalPath);
-
-                //     if ($res->successful()) {
-                //         return response()->json(['status' => 'merged', 'path' => $remotePath]);
-                //     } else {
-                //         return response()->json(['status' => 'error'], 500);
-                //     }
-                // });
-
-
-
+             
                 Route::get('/{videos}', [VideosController::class, 'show'])->name('videos.show');
                 Route::get('/{videos}/edit', [VideosController::class, 'edit'])->name('videos.edit');
                 Route::put('/{videos}', [VideosController::class, 'update'])->name('videos.update');

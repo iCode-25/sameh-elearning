@@ -10,14 +10,14 @@
 @endsection
 
 @push('admin_css')
-<style>
-              #level_id {
-    max-width: 100%;
-    border-radius: 8px;
-    padding: 6px 12px;
-    font-size: 14px;
-}
-</style>
+    <style>
+        #level_id {
+            max-width: 100%;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+    </style>
 @endpush
 @section('content')
     <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -46,8 +46,8 @@
                 </div>
             </div>
 
-            
-            
+
+
 
             <table class="table table-rounded align-middle table-striped border gy-5 gs-7 dataTable no-footer"
                 id="kt_table_users">

@@ -1,6 +1,4 @@
-@extends('front.layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- TITLE BANNER START -->
     <section class="title-banner">
         <div class="container-fluid">
@@ -11,15 +9,15 @@
                             <div class="col-lg-6 col-sm-6">
                                 <div class="title-content">
                                     <h1 class="dark-gray fw-700">
-                                        {{ \App\Helpers\TranslationHelper::translate('Lesson Detail') }}</h1>
+                                        <?php echo e(\App\Helpers\TranslationHelper::translate('Lesson Detail')); ?></h1>
                                 </div>
                                 <div class="img-block">
-                                    <img src="{{ asset('front/assets/media/user/star.png') }}" alt="star">
+                                    <img src="<?php echo e(asset('front/assets/media/user/star.png')); ?>" alt="star">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-6 d-sm-block d-none">
                                 <div class="title-image">
-                                    <img src="{{ setting('image_banner_page_lesson_details_web', 'en') }}"
+                                    <img src="<?php echo e(setting('image_banner_page_lesson_details_web', 'en')); ?>"
                                         alt="">
                                 </div>
                             </div>
@@ -40,51 +38,54 @@
                         <div class="col-xl-9">
                             <div class="course-detail-wrapper">
                                 <div class="detail-image">
-                                    <img src="{{ $lesson->getFirstMediaUrl('news') }}" alt=""
+                                    <img src="<?php echo e($lesson->getFirstMediaUrl('news')); ?>" alt=""
                                         class="mb-24 br-12 w-100">
                                 </div>
-                                <h4 class="black fw-700 mb-16">{{ $lesson->getTranslation('name', app()->getLocale()) }}
+                                <h4 class="black fw-700 mb-16"><?php echo e($lesson->getTranslation('name', app()->getLocale())); ?>
+
                                 </h4>
-                                <p class="mb-24">{!! $lesson->getTranslation('des', app()->getLocale()) !!}</p>
+                                <p class="mb-24"><?php echo $lesson->getTranslation('des', app()->getLocale()); ?></p>
                             </div>
                         </div>
                         <div class="col-xl-3">
                             <div class="course-sidebar">
                                 <div class="pricing-block mb-24">
                                     <h4 class="dark-gray fw-800 mb-12">
-                                        {{ $lesson->price . ' ' . \App\Helpers\TranslationHelper::translate('EGP') }}
+                                        <?php echo e($lesson->price . ' ' . \App\Helpers\TranslationHelper::translate('EGP')); ?>
+
                                     </h4>
-                                    @auth('web')
-                                        @if ($myVoucher || $lesson->price == 0)
-                                            <a href="{{ route('user.show_lesson', $lesson->id) }}"
+                                    <?php if(auth()->guard('web')->check()): ?>
+                                        <?php if($myVoucher || $lesson->price == 0): ?>
+                                            <a href="<?php echo e(route('user.show_lesson', $lesson->id)); ?>"
                                                 class="cus-btn-3 d-flex mb-12">
                                                 <span
-                                                    class="btn-text">{{ \App\Helpers\TranslationHelper::translate('Show Lesson') }}</span>
-                                                <span>{{ \App\Helpers\TranslationHelper::translate('Show Lesson') }}</span>
+                                                    class="btn-text"><?php echo e(\App\Helpers\TranslationHelper::translate('Show Lesson')); ?></span>
+                                                <span><?php echo e(\App\Helpers\TranslationHelper::translate('Show Lesson')); ?></span>
                                             </a>
-                                        @else
-                                            <form id="enrollForm" data-lesson-id="{{ $lesson->id }}"
+                                        <?php else: ?>
+                                            <form id="enrollForm" data-lesson-id="<?php echo e($lesson->id); ?>"
                                                 class="cus-btn-3 d-flex mb-12">
-                                                @csrf
+                                                <?php echo csrf_field(); ?>
                                                 <button type="submit" style="all: unset; cursor: pointer;">
                                                     <span
-                                                        class="btn-text">{{ \App\Helpers\TranslationHelper::translate('enroll now') }}</span>
-                                                    <span>{{ \App\Helpers\TranslationHelper::translate('enroll now') }}</span>
+                                                        class="btn-text"><?php echo e(\App\Helpers\TranslationHelper::translate('enroll now')); ?></span>
+                                                    <span><?php echo e(\App\Helpers\TranslationHelper::translate('enroll now')); ?></span>
                                                 </button>
                                             </form>
 
-                                            @if ($errors->any())
+                                            <?php if($errors->any()): ?>
                                                 <div class="container-fluid">
                                                     <div class="row justify-content-center">
                                                         <div class="col-lg-8">
                                                             <div class="alert alert-danger alert-dismissible fade show mb-4"
                                                                 role="alert">
-                                                                <strong>{{ __('Whoops!') }}</strong>
-                                                              {{ \App\Helpers\TranslationHelper::translate('There were some problems with your input') }}
+                                                                <strong><?php echo e(__('Whoops!')); ?></strong>
+                                                              <?php echo e(\App\Helpers\TranslationHelper::translate('There were some problems with your input')); ?>
+
                                                                 <ul class="mb-0 mt-2">
-                                                                    @foreach ($errors->all() as $error)
-                                                                        <li>{{ $error }}</li>
-                                                                    @endforeach
+                                                                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                        <li><?php echo e($error); ?></li>
+                                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                 </ul>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                                     aria-label="Close"></button>
@@ -92,11 +93,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @endif
+                                            <?php endif; ?>
                                             <form id="couponForm" dir="ltr" class="mb-3">
                                                 <div class="input-group">
                                                     <input type="text" name="coupon_code" id="coupon_code"
-                                                        class="form-control" placeholder="{{ \App\Helpers\TranslationHelper::translate('Buy now with the coupon') }}" aria-label="{{ \App\Helpers\TranslationHelper::translate('Coupon Code') }}"
+                                                        class="form-control" placeholder="<?php echo e(\App\Helpers\TranslationHelper::translate('Buy now with the coupon')); ?>" aria-label="<?php echo e(\App\Helpers\TranslationHelper::translate('Coupon Code')); ?>"
                                                         aria-describedby="button-addon2" required>
                                                     <button class="btn btn-success" style="background: var(--secondary-color);" type="submit"
                                                         id="button-addon2">
@@ -113,26 +114,28 @@
                                                     </button>
                                                 </div>
                                             </form>
-                                        @endif
-                                    @endauth
+                                        <?php endif; ?>
+                                    <?php endif; ?>
 
-                                    @guest('web')
-                                        <a href="{{ route('user.login.form') }}" class="cus-btn-3 d-flex mb-12">
+                                    <?php if(auth()->guard('web')->guest()): ?>
+                                        <a href="<?php echo e(route('user.login.form')); ?>" class="cus-btn-3 d-flex mb-12">
                                             <span
-                                                class="btn-text">{{ \App\Helpers\TranslationHelper::translate('Login') }}</span>
-                                            <span>{{ \App\Helpers\TranslationHelper::translate('Login') }}</span>
+                                                class="btn-text"><?php echo e(\App\Helpers\TranslationHelper::translate('Login')); ?></span>
+                                            <span><?php echo e(\App\Helpers\TranslationHelper::translate('Login')); ?></span>
                                         </a>
-                                    @endguest
+                                    <?php endif; ?>
 
                                     <div id="couponResult"></div>
 
                                     <div class="d-flex justify-content-between mb-16">
                                         <p class="dark-gray fw-600">
-                                            {{ \App\Helpers\TranslationHelper::translate('level') }}
+                                            <?php echo e(\App\Helpers\TranslationHelper::translate('level')); ?>
+
                                         </p>
                                         <p class="light-gray">
-                                            {{-- {{ $lesson->level->getTranslation('name', app()->getLocale()) }} --}}
-                                              {{ $lesson->level?->name ?? '' }}
+                                            
+                                              <?php echo e($lesson->level?->name ?? ''); ?>
+
                                         
                                         </p>
                                     </div>
@@ -145,20 +148,20 @@
         </div>
     </section>
     <!-- COURSE DETAIL END -->
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('js')
+<?php $__env->startPush('js'); ?>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#couponForm').on('submit', function(e) {
                 e.preventDefault();
                 var code = $('#coupon_code').val();
-                var lessonId = {{ $lesson->id }};
-                var token = '{{ csrf_token() }}';
+                var lessonId = <?php echo e($lesson->id); ?>;
+                var token = '<?php echo e(csrf_token()); ?>';
                 $('#couponResult').html('');
                 $.ajax({
-                    url: '{{ route('site.lesson.coupon.apply', ['lesson' => $lesson->id]) }}',
+                    url: '<?php echo e(route('site.lesson.coupon.apply', ['lesson' => $lesson->id])); ?>',
                     type: 'POST',
                     data: {
                         coupon_code: code,
@@ -169,7 +172,7 @@
                             response.message + '</div>');
                         setTimeout(function() {
                             window.location.href =
-                                "{{ route('user.show_lesson', ['lesson' => $lesson->id]) }}";
+                                "<?php echo e(route('user.show_lesson', ['lesson' => $lesson->id])); ?>";
                         }, 3000);
                     },
                     error: function(xhr) {
@@ -201,7 +204,7 @@
                 fetch(`/lessons/${lessonId}/enroll`, {
                         method: 'POST',
                         headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>',
                             'Accept': 'application/json',
                             'Content-Type': 'application/json',
                         },
@@ -222,4 +225,6 @@
             });
         });
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('front.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp_new\htdocs\sameh_stein\resources\views/front/pages/courses/details.blade.php ENDPATH**/ ?>

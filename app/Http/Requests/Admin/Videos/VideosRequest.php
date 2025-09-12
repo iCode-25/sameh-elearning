@@ -22,16 +22,10 @@ class VideosRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'news_video' => 'required',
-            'news_video' => $this->isMethod('post') ? 'nullable' : 'nullable',
-            'video_url' => $this->isMethod('post') ? 'nullable' : 'nullable',
-            
-            'azhar_video' => 'nullable',
-            'azhar_video_url' => $this->isMethod('post') ? 'nullable' : 'nullable',
+            'video_url' => 'required|url',
+            'azhar_video_url' => 'nullable|url',
+            'school_video_url' => 'nullable|url',
 
-            'school_video' => 'nullable',
-            'school_video_url' => $this->isMethod('post') ? 'nullable' : 'nullable',
-            
             'name.ar' => 'required',
             'name.en' => 'required',
             'image' => 'required_without:id|image',

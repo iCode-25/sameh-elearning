@@ -1563,7 +1563,7 @@
                     <div class="cursor-pointer symbol symbol-35px"
                          data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
                          data-kt-menu-placement="bottom-end">
-                        <img src=" {{ setting('image_logo_dashboard', 'en') }}" class="rounded-3" style="width: 100%;"  alt="user"/>
+                        <img src="{{ setting('image_logo_dashboard', 'en') }}" class="rounded-3" style="width: 100%;"  alt="user"/>
                       
                         {{-- <img src="{{ is_string(setting('image_logo', 'en')) ? setting('image_logo', 'en') : '/default-logo.png' }}" class="rounded-3" style="width: 100%;" alt="user"/> --}}
                     </div> 

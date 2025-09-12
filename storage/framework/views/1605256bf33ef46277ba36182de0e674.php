@@ -156,136 +156,133 @@ unset($__errorArgs, $__bag); ?>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
-                                        <div class="col-6 mb-5">
-    <label class="fs-5 fw-bold form-label mb-5">
-        <?php echo e(\App\Helpers\TranslationHelper::translate('Video')); ?>:
-    </label>
-    <input type="file" id="news_video" accept="video/*" class="form-control form-control-solid" />
-    <button type="button" id="uploadBtn" class="btn btn-success mt-3">
-        <span id="btnText"><?php echo e(\App\Helpers\TranslationHelper::translate('Upload Video')); ?></span>
-        <span id="btnSpinner" class="spinner-border spinner-border-sm ms-2" role="status" style="display: none;"></span>
-    </button>
-    <div id="uploadStatus" class="mt-2"></div>
-    <input type="hidden" name="video_url" id="video_url">
+                                       <?php
+    use Illuminate\Support\Str;
 
-    <?php if($videos->video_url): ?>
+    function getYoutubeEmbedUrl($url) {
+        if (Str::contains($url, 'watch?v=')) {
+            $id = Str::after($url, 'v=');
+            $id = Str::before($id, '&'); // عشان لو فيه بارامترات زيادة
+            return "https://www.youtube.com/embed/$id";
+        }
+
+        if (Str::contains($url, 'youtu.be/')) {
+            $id = Str::after($url, 'youtu.be/');
+            $id = Str::before($id, '?');
+            return "https://www.youtube.com/embed/$id";
+        }
+
+        return $url; // fallback
+    }
+?>
+
+<div class="col-6 mb-5">
+    <label class="fs-5 fw-bold form-label mb-2">
+        <?php echo e(\App\Helpers\TranslationHelper::translate('Video Link')); ?>:
+    </label>
+    <input type="url" name="video_url"
+        value="<?php echo e(old('video_url', $videos->video_url ?? '')); ?>"
+        class="form-control" placeholder="https://www.youtube.com/watch?v=xxxx" />
+
+    <?php if(!empty($videos->video_url)): ?>
         <div class="mt-4">
             <h5><?php echo e(\App\Helpers\TranslationHelper::translate('Existing Video')); ?>:</h5>
-            <video width="100%" controls>
-                <source src="https://abdalhmad.b-cdn.net/<?php echo e($videos->video_url); ?>" type="video/mp4">
-                <?php echo e(\App\Helpers\TranslationHelper::translate('Your browser does not support the video tag.')); ?>
-
-            </video>
-        </div>
-    <?php endif; ?>
-</div>
-
-
-
-
-                                        
-
-                                        
-                                       
-<!-- Toast -->
-<div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
-  <div id="errorToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="d-flex">
-      <div class="toast-body">
-        ⚠️ اختر فيديو أولا
-      </div>
-      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-                                        
-
-                                        <div class="col-6 mb-5">
-    <label class="fs-5 fw-bold form-label mb-5">
-        <?php echo e(\App\Helpers\TranslationHelper::translate('Azhar Homework Video')); ?>:
-    </label>
-    <input type="file" id="azhar_video" class="form-control form-control-solid" accept="video/*" />
-    <button type="button" id="uploadAzharBtn" class="btn btn-success mt-3">
-        <span id="azharBtnText"><?php echo e(\App\Helpers\TranslationHelper::translate('Upload Video')); ?></span>
-        <span id="azharBtnSpinner" class="spinner-border spinner-border-sm ms-2" role="status" style="display: none;"></span>
-    </button>
-    <div id="azharUploadStatus" class="mt-2"></div>
-    <input type="hidden" name="azhar_video_url" id="azhar_video_url">
-
-    <?php if($videos->azhar_video_url): ?>
-        <div class="mt-4">
-            <h5><?php echo e(\App\Helpers\TranslationHelper::translate('Existing Azhar Video')); ?>:</h5>
-            <video width="100%" controls>
-                <source src="https://abdalhmad.b-cdn.net/<?php echo e($videos->azhar_video_url); ?>" type="video/mp4">
-                <?php echo e(\App\Helpers\TranslationHelper::translate('Your browser does not support the video tag.')); ?>
-
-            </video>
+            <div class="ratio ratio-16x9">
+                <iframe width="100%" height="315"
+                    src="<?php echo e(getYoutubeEmbedUrl($videos->video_url)); ?>"
+                    title="YouTube video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
     <?php endif; ?>
 </div>
 
 <div class="col-6 mb-5">
-    <label class="fs-5 fw-bold form-label mb-5">
-        <?php echo e(\App\Helpers\TranslationHelper::translate('School Homework Video')); ?>:
+    <label class="fs-5 fw-bold form-label mb-2">
+        <?php echo e(\App\Helpers\TranslationHelper::translate('Azhar Homework Video Link')); ?>:
     </label>
-    <input type="file" id="school_video" class="form-control form-control-solid" accept="video/*" />
-    <button type="button" id="uploadSchoolBtn" class="btn btn-success mt-3">
-        <span id="schoolBtnText"><?php echo e(\App\Helpers\TranslationHelper::translate('Upload Video')); ?></span>
-        <span id="schoolBtnSpinner" class="spinner-border spinner-border-sm ms-2" role="status" style="display: none;"></span>
-    </button>
-    <div id="schoolUploadStatus" class="mt-2"></div>
-    <input type="hidden" name="school_video_url" id="school_video_url">
+    <input type="url" name="azhar_video_url"
+        value="<?php echo e(old('azhar_video_url', $videos->azhar_video_url ?? '')); ?>"
+        class="form-control" placeholder="https://www.youtube.com/watch?v=xxxx" />
 
-    <?php if($videos->school_video_url): ?>
+    <?php if(!empty($videos->azhar_video_url)): ?>
+        <div class="mt-4">
+            <h5><?php echo e(\App\Helpers\TranslationHelper::translate('Existing Azhar Video')); ?>:</h5>
+            <div class="ratio ratio-16x9">
+                <iframe width="100%" height="315"
+                    src="<?php echo e(getYoutubeEmbedUrl($videos->azhar_video_url)); ?>"
+                    title="YouTube video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    <?php endif; ?>
+</div>
+
+<div class="col-6 mb-5">
+    <label class="fs-5 fw-bold form-label mb-2">
+        <?php echo e(\App\Helpers\TranslationHelper::translate('School Homework Video Link')); ?>:
+    </label>
+    <input type="url" name="school_video_url"
+        value="<?php echo e(old('school_video_url', $videos->school_video_url ?? '')); ?>"
+        class="form-control" placeholder="https://www.youtube.com/watch?v=xxxx" />
+
+    <?php if(!empty($videos->school_video_url)): ?>
         <div class="mt-4">
             <h5><?php echo e(\App\Helpers\TranslationHelper::translate('Existing School Video')); ?>:</h5>
-            <video width="100%" controls>
-                <source src="https://abdalhmad.b-cdn.net/<?php echo e($videos->school_video_url); ?>" type="video/mp4">
-                <?php echo e(\App\Helpers\TranslationHelper::translate('Your browser does not support the video tag.')); ?>
-
-            </video>
+            <div class="ratio ratio-16x9">
+                <iframe width="100%" height="315"
+                    src="<?php echo e(getYoutubeEmbedUrl($videos->school_video_url)); ?>"
+                    title="YouTube video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
     <?php endif; ?>
 </div>
 
 
-                                        <div class="col-6  mb-5">
-                                            <label
-                                                class="fs-5 fw-bold form-label mb-5"><?php echo e(\App\Helpers\TranslationHelper::translate('pdf')); ?>
 
-                                                :</label>
-                                            <input type="file" class="form-control form-control-solid" name="news_pdf"
-                                                accept="application/pdf" />
-                                            <?php $__errorArgs = ['news_pdf'];
+
+                                       <div class="col-6 mb-5">
+    <label class="fs-5 fw-bold form-label mb-5">
+        <?php echo e(\App\Helpers\TranslationHelper::translate('pdf')); ?> :
+    </label>
+    <input type="file" class="form-control form-control-solid" name="news_pdf"
+        accept="application/pdf" />
+    <?php $__errorArgs = ['news_pdf'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                                <span class="text-danger" role="alert">
-                                                    <strong><?php echo e($message); ?></strong>
-                                                </span>
-                                            <?php unset($message);
+        <span class="text-danger" role="alert">
+            <strong><?php echo e($message); ?></strong>
+        </span>
+    <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                                            <?php if($videos->getFirstMediaUrl('newsnews_pdf') != null): ?>
-                                                <div class="mt-4">
-                                                    <h5><?php echo e(\App\Helpers\TranslationHelper::translate('Existing PDF')); ?>:
-                                                    </h5>
-                                                    <iframe src="<?php echo e($videos->getFirstMediaUrl('newsnews_pdf')); ?>"
-                                                        width="100%" height="600px" frameborder="0"></iframe>
-                                                </div>
-                                            <?php endif; ?>
-                                        </div>
+
+    <?php if($videos->getFirstMediaUrl('newsnews_pdf') != null): ?>
+        <div class="mt-4">
+            <h5><?php echo e(\App\Helpers\TranslationHelper::translate('Existing PDF')); ?>:</h5>
+            <a href="<?php echo e($videos->getFirstMediaUrl('newsnews_pdf')); ?>" 
+               target="_blank" 
+               class="btn btn-primary">
+               <?php echo e(\App\Helpers\TranslationHelper::translate('View')); ?>
+
+            </a>
+        </div>
+    <?php endif; ?>
+</div>
+
 
                                         <div class="col-6  mb-5">
                                             <label
@@ -313,6 +310,8 @@ unset($__errorArgs, $__bag); ?>
                                                     width="100px" style="border-radius: 5px">
                                             <?php endif; ?>
                                         </div>
+
+                                        
                                     </div>
                                 </div>
 
@@ -322,7 +321,7 @@ unset($__errorArgs, $__bag); ?>
                                             class="indicator-label"><?php echo e(\App\Helpers\TranslationHelper::translate('Save')); ?></span>
                                     </button>
                                 </div>
-      
+
 
                             </form>
                         </div>
@@ -337,7 +336,7 @@ unset($__errorArgs, $__bag); ?>
 <?php $__env->startPush('admin_js'); ?>
     <script src="<?php echo e(asset('dashboard/assets/plugins/custom/datatables/datatables.bundle.js')); ?>"></script>
     <script src="<?php echo e(asset('dashboard/assets/js/delete-item.js')); ?>" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
     <script>
@@ -349,121 +348,6 @@ unset($__errorArgs, $__bag); ?>
             });
         });
     </script>
-    
-  
-<script>
-document.getElementById("uploadBtn").addEventListener("click", async function () {
-    let fileInput = document.getElementById("news_video");
-    let file = fileInput.files[0];
-
-    if (!file) {
-        alert("اختر فيديو أولا");
-        return;
-    }
-
-    // تفعيل spinner أثناء الرفع
-    document.getElementById("btnSpinner").style.display = "inline-block";
-    document.getElementById("btnText").innerText = "جاري الرفع...";
-
-    try {
-        // 1- نجيب Presigned URL من السيرفر
-        let presignRes = await fetch("/admin/videos/presign", {
-            method: "POST",
-            headers: { 
-                "X-CSRF-TOKEN": "<?php echo e(csrf_token()); ?>", 
-                "Content-Type": "application/json" 
-            },
-            body: JSON.stringify({ file_name: file.name, mime_type: file.type })
-        });
-
-        let presignData = await presignRes.json();
-
-        // 2- نرفع الفيديو على Bunny
-        let uploadRes = await fetch(presignData.uploadUrl, {
-            method: "PUT",
-            headers: presignData.headers,
-            body: file
-        });
-
-        if (uploadRes.ok) {
-            document.getElementById("uploadStatus").innerHTML = "<span class='text-success'>✅ تم رفع الفيديو</span>";
-            document.getElementById("video_url").value = presignData.path; 
-        } else {
-            document.getElementById("uploadStatus").innerHTML = "<span class='text-danger'>❌ فشل الرفع</span>";
-        }
-
-    } catch (error) {
-        document.getElementById("uploadStatus").innerHTML = "<span class='text-danger'>⚠️ حصل خطأ أثناء الرفع</span>";
-    } finally {
-        // إخفاء spinner بعد الانتهاء
-        document.getElementById("btnSpinner").style.display = "none";
-        document.getElementById("btnText").innerText = "<?php echo e(\App\Helpers\TranslationHelper::translate('Upload Video')); ?>";
-    }
-});
-</script>
-
-    
-
-<script>
-async function uploadVideo(inputId, btnTextId, btnSpinnerId, statusId, hiddenInputId) {
-    let fileInput = document.getElementById(inputId);
-    let file = fileInput.files[0];
-    if (!file) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'تنبيه',
-            text: '⚠️ اختر فيديو أولا',
-            confirmButtonText: 'تمام'
-        });
-        return;
-    }
-
-    document.getElementById(btnSpinnerId).style.display = "inline-block";
-    document.getElementById(btnTextId).innerText = "جاري الرفع الان...";
-
-    try {
-        let presignRes = await fetch("/admin/videos/presign", {
-            method: "POST",
-            headers: { 
-                "X-CSRF-TOKEN": "<?php echo e(csrf_token()); ?>", 
-                "Content-Type": "application/json" 
-            },
-            body: JSON.stringify({ file_name: file.name, mime_type: file.type })
-        });
-
-        let presignData = await presignRes.json();
-
-        let uploadRes = await fetch(presignData.uploadUrl, {
-            method: "PUT",
-            headers: presignData.headers,
-            body: file
-        });
-
-        if (uploadRes.ok) {
-            document.getElementById(statusId).innerHTML = "<span class='text-success'>✅ تم رفع الفيديو بنجاح</span>";
-            document.getElementById(hiddenInputId).value = presignData.path; 
-        } else {
-            document.getElementById(statusId).innerHTML = "<span class='text-danger'>❌ فشل الرفع</span>";
-        }
-
-    } catch (error) {
-        document.getElementById(statusId).innerHTML = "<span class='text-danger'>⚠️ حصل خطأ أثناء الرفع</span>";
-    } finally {
-        document.getElementById(btnSpinnerId).style.display = "none";
-        document.getElementById(btnTextId).innerText = "<?php echo e(\App\Helpers\TranslationHelper::translate('Upload Video')); ?>";
-    }
-}
-
-document.getElementById("uploadAzharBtn").addEventListener("click", function() {
-    uploadVideo('azhar_video', 'azharBtnText', 'azharBtnSpinner', 'azharUploadStatus', 'azhar_video_url');
-});
-
-document.getElementById("uploadSchoolBtn").addEventListener("click", function() {
-    uploadVideo('school_video', 'schoolBtnText', 'schoolBtnSpinner', 'schoolUploadStatus', 'school_video_url');
-});
-</script>
-
-
 <?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp_new\htdocs\sameh_stein\resources\views/admin/pages/videos/form.blade.php ENDPATH**/ ?>

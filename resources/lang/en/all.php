@@ -746,4 +746,11 @@
   'Samah Shtain Quritem' => 'Samah Shtain Quritem',
   'M:Samah Shtain' => 'M:Samah Shtain',
   'The Physics as it Should Be' => 'The Physics as it Should Be',
+  'Samah Shtain ' => 'Samah Shtain ',
+  'Samah Shtain Dashboard' => 'Samah Shtain Dashboard',
+  'Video Link' => 'Video Link',
+  'Azhar Homework Video Link' => 'Azhar Homework Video Link',
+  'School Homework Video Link' => 'School Homework Video Link',
+  'Existing School Video' => 'Existing School Video',
+  'View' => 'View',
 );

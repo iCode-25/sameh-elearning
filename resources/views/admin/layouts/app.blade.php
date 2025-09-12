@@ -27,14 +27,13 @@
     <script src="{{asset('dashboard/assets/js/toastr.js')}}"></script>
     <link rel="stylesheet" href="{{asset('dashboard/assets/css/toastr.css')}}">
 
-        <link rel="shortcut icon" href="{{asset('dashboard/assets/media/logos/logo.png')}}"/>
+        <link rel="shortcut icon" href="{{ setting('image_logo_dashboard', 'en') }}"/>
 
 
-    {{-- <link rel="shortcut icon" href="{{setting('logo', 'en')}}"/> --}}
     @if(is_array(setting('logo', 'en')) && isset(setting('logo', 'en')['url']))
     <link rel="shortcut icon" href="{{ setting('logo', 'en')['url'] }}"/>
 @else
-    <link rel="shortcut icon" href="/default-icon.png"/> <!-- أيقونة افتراضية -->
+    <link rel="shortcut icon" href="/default-icon.png"/> 
 @endif
     <!--begin::Fonts-->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />

@@ -61,7 +61,6 @@ class  StoryService
         if (isset($data['image'])) {
             $story->storeFile($data['image'], '_image');
         }
-
     }
 
 
