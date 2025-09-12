@@ -3,7 +3,7 @@
     data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo" style="height: 45px">
         <a href="<?php echo e(route('admin.index')); ?>">
-            <h1 style="color: #fff"><?php echo e(\App\Helpers\TranslationHelper::translate('M:AbdulHamid')); ?></h1>
+            <h1 style="color: #fff"><?php echo e(\App\Helpers\TranslationHelper::translate('M:Samah Shtain')); ?></h1>
         </a>
         <div id="kt_app_sidebar_toggle"
             class="app-sidebar-toggle btn btn-icon btn-shadow btn-sm btn-color-muted btn-active-color-primary h-25px w-25px position-absolute top-50 start-100 translate-middle rotate"

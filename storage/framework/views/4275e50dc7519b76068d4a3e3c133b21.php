@@ -6,7 +6,7 @@
 <head>
     <base href="">
 
-    <title><?php echo e(\App\Helpers\TranslationHelper::translate('AbdulHamid Quritem')); ?> - <?php echo $__env->yieldContent('title'); ?> </title>
+    <title><?php echo e(\App\Helpers\TranslationHelper::translate('Samah Shtain')); ?> - <?php echo $__env->yieldContent('title'); ?> </title>
 
     <meta name="description" content="<?php echo e($title ?? ''); ?>"/>
     <meta name="keywords" content=""/>

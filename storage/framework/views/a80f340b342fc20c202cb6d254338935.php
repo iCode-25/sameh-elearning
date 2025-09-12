@@ -46,7 +46,7 @@
                 <div class="col-lg-6">
                     <div class="about-content">
                         <span class="badge-text">
-                            <?php echo e(\App\Helpers\TranslationHelper::translate('Simply Chemistry')); ?>
+                            <?php echo e(\App\Helpers\TranslationHelper::translate('Simply Physics')); ?>
 
                         </span>
                         <h2 class="section-title">
@@ -65,7 +65,7 @@
                             <div class="col-md-6">
                                 <div class="feature-box">
                                     <div class="icon-circle"><i class="fas fa-flask"></i></div>
-                                    <h6><?php echo e(\App\Helpers\TranslationHelper::translate('Chemistry Lessons')); ?></h6>
+                                    <h6><?php echo e(\App\Helpers\TranslationHelper::translate('Physics Lessons')); ?></h6>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -287,7 +287,7 @@
                                 class="w-50 mx-auto">
                         </div>
                         <h5 class="fw-800 mb-2">
-                            <?php echo e(\App\Helpers\TranslationHelper::translate('Chemistry Lessons')); ?>
+                            <?php echo e(\App\Helpers\TranslationHelper::translate('Physics Lessons')); ?>
 
                         </h5>
                         <p class="light-gray small">

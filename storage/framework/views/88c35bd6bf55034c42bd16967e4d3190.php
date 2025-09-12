@@ -1,5 +1,4 @@
-@extends('front.layouts.app')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- TITLE BANNER START -->
     <section class="title-banner">
         <div class="container-fluid">
@@ -9,16 +8,17 @@
                         <div class="row align-items-center">
                             <div class="col-lg-6 col-sm-6">
                                 <div class="title-content">
-                                    <h1 class="dark-gray fw-700">{{ \App\Helpers\TranslationHelper::translate('About Us') }}
+                                    <h1 class="dark-gray fw-700"><?php echo e(\App\Helpers\TranslationHelper::translate('About Us')); ?>
+
                                     </h1>
                                 </div>
                                 <div class="img-block">
-                                    <img src="{{ asset('front/assets/media/user/star.png') }}" alt="star">
+                                    <img src="<?php echo e(asset('front/assets/media/user/star.png')); ?>" alt="star">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-6 d-sm-block d-none">
                                 <div class="title-image">
-                                    <img src="{{ setting('image_banner_page_about', 'en') }}" alt="">
+                                    <img src="<?php echo e(setting('image_banner_page_about', 'en')); ?>" alt="">
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                 <div class="col-lg-6">
                     <div class="image-masonry">
                         <div class="img-box big">
-                            <img width="100%" src="{{ asset('front/assets/media/course/course-1.png') }}" alt="course">
+                            <img width="100%" src="<?php echo e(asset('front/assets/media/course/course-1.png')); ?>" alt="course">
                         </div>
                     </div>
                 </div>
@@ -46,13 +46,16 @@
                 <div class="col-lg-6">
                     <div class="about-content">
                         <span class="badge-text">
-                            {{ \App\Helpers\TranslationHelper::translate('Simply Physics') }}
+                            <?php echo e(\App\Helpers\TranslationHelper::translate('Simply Physics')); ?>
+
                         </span>
                         <h2 class="section-title">
-                            {{ setting('title_about_us', app()->getLocale()) }}
+                            <?php echo e(setting('title_about_us', app()->getLocale())); ?>
+
                         </h2>
                         <p class="section-desc">
-                            {!! \Illuminate\Support\Str::limit(setting('description_about_us', app()->getLocale()), 400) !!}
+                            <?php echo \Illuminate\Support\Str::limit(setting('description_about_us', app()->getLocale()), 400); ?>
+
                         </p>
 
                         <hr class="my-2">
@@ -62,25 +65,25 @@
                             <div class="col-md-6">
                                 <div class="feature-box">
                                     <div class="icon-circle"><i class="fas fa-flask"></i></div>
-                                    <h6>{{ \App\Helpers\TranslationHelper::translate('Physics Lessons') }}</h6>
+                                    <h6><?php echo e(\App\Helpers\TranslationHelper::translate('Physics Lessons')); ?></h6>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="feature-box">
                                     <div class="icon-circle"><i class="fas fa-calendar-alt"></i></div>
-                                    <h6>{{ \App\Helpers\TranslationHelper::translate('Monthly Packages') }}</h6>
+                                    <h6><?php echo e(\App\Helpers\TranslationHelper::translate('Monthly Packages')); ?></h6>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="feature-box">
                                     <div class="icon-circle"><i class="fas fa-question-circle"></i></div>
-                                    <h6>{{ \App\Helpers\TranslationHelper::translate('Quizzes') }}</h6>
+                                    <h6><?php echo e(\App\Helpers\TranslationHelper::translate('Quizzes')); ?></h6>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="feature-box">
                                     <div class="icon-circle"><i class="fas fa-book-open"></i></div>
-                                    <h6>{{ \App\Helpers\TranslationHelper::translate('Educational Articles') }}</h6>
+                                    <h6><?php echo e(\App\Helpers\TranslationHelper::translate('Educational Articles')); ?></h6>
                                 </div>
                             </div>
                         </div>
@@ -205,9 +208,9 @@
     <!-- online-end -->
 
     <div class="video-section"
-        style="background-image: url('{{ asset(setting('image_section_video_about', 'en')) }}'); background-size: cover; background-position: center;">
+        style="background-image: url('<?php echo e(asset(setting('image_section_video_about', 'en'))); ?>'); background-size: cover; background-position: center;">
         <a href="#" data-bs-toggle="modal" data-bs-target="#videoModal" class="play-btn">
-            <img src="{{ asset('front/assets/media/user/video.png') }}" alt="video" class="btns">
+            <img src="<?php echo e(asset('front/assets/media/user/video.png')); ?>" alt="video" class="btns">
         </a>
     </div>
 
@@ -220,8 +223,9 @@
                 </div>
                 <div class="modal-body text-center">
                     <video width="100%" controls autoplay>
-                        <source src="{{ setting('video_page_about', 'en') }}" type="video/mp4">
-                        {{ \App\Helpers\TranslationHelper::translate('Your browser does not support the video tag.') }}
+                        <source src="<?php echo e(setting('video_page_about', 'en')); ?>" type="video/mp4">
+                        <?php echo e(\App\Helpers\TranslationHelper::translate('Your browser does not support the video tag.')); ?>
+
                     </video>
                 </div>
             </div>
@@ -238,14 +242,17 @@
         <div class="container">
             <div class="text-center mb-5">
                 <div class="eyebrow heading">
-                    {{ \App\Helpers\TranslationHelper::translate('Services') }}
+                    <?php echo e(\App\Helpers\TranslationHelper::translate('Services')); ?>
+
                 </div>
                 <h2 class="dark-gray fw-800 heading mb-3">
-                    {{ \App\Helpers\TranslationHelper::translate('Exclusive') }}
-                    <span class="color-sec">{{ \App\Helpers\TranslationHelper::translate('Services') }}</span>
+                    <?php echo e(\App\Helpers\TranslationHelper::translate('Exclusive')); ?>
+
+                    <span class="color-sec"><?php echo e(\App\Helpers\TranslationHelper::translate('Services')); ?></span>
                 </h2>
                 <p class="light-gray">
-                    {{ \App\Helpers\TranslationHelper::translate('Discover our modern and interactive services designed to help you achieve academic excellence') }}
+                    <?php echo e(\App\Helpers\TranslationHelper::translate('Discover our modern and interactive services designed to help you achieve academic excellence')); ?>
+
                 </p>
             </div>
 
@@ -254,14 +261,16 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center shadow-sm border-0 p-4 hover-card">
                         <div class="icon-box mb-3">
-                            <img src="{{ asset('front/assets/media/user/banner-user-1.png') }}" alt="icon"
+                            <img src="<?php echo e(asset('front/assets/media/user/banner-user-1.png')); ?>" alt="icon"
                                 class="w-50 mx-auto">
                         </div>
                         <h5 class="fw-800 mb-2">
-                            {{ \App\Helpers\TranslationHelper::translate('Monthly Packages') }}
+                            <?php echo e(\App\Helpers\TranslationHelper::translate('Monthly Packages')); ?>
+
                         </h5>
                         <p class="light-gray small">
-                            {{ \App\Helpers\TranslationHelper::translate('Subscribe to our monthly plans for simplified lessons, practice, and regular quizzes') }}
+                            <?php echo e(\App\Helpers\TranslationHelper::translate('Subscribe to our monthly plans for simplified lessons, practice, and regular quizzes')); ?>
+
                         </p>
                     </div>
                 </div>
@@ -270,14 +279,16 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center shadow-sm border-0 p-4 hover-card">
                         <div class="icon-box mb-3">
-                            <img src="{{ asset('front/assets/media/user/banner-user-2.png') }}" alt="icon"
+                            <img src="<?php echo e(asset('front/assets/media/user/banner-user-2.png')); ?>" alt="icon"
                                 class="w-50 mx-auto">
                         </div>
                         <h5 class="fw-800 mb-2">
-                            {{ \App\Helpers\TranslationHelper::translate('Physics Lessons') }}
+                            <?php echo e(\App\Helpers\TranslationHelper::translate('Physics Lessons')); ?>
+
                         </h5>
                         <p class="light-gray small">
-                            {{ \App\Helpers\TranslationHelper::translate('Simplify complex concepts with clear explanations and exercises') }}
+                            <?php echo e(\App\Helpers\TranslationHelper::translate('Simplify complex concepts with clear explanations and exercises')); ?>
+
                         </p>
                     </div>
                 </div>
@@ -286,14 +297,16 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center shadow-sm border-0 p-4 hover-card">
                         <div class="icon-box mb-3">
-                            <img src="{{ asset('front/assets/media/user/banner-user-3.png') }}" alt="icon"
+                            <img src="<?php echo e(asset('front/assets/media/user/banner-user-3.png')); ?>" alt="icon"
                                 class="w-50 mx-auto">
                         </div>
                         <h5 class="fw-800 mb-2">
-                            {{ \App\Helpers\TranslationHelper::translate('Educational Articles') }}
+                            <?php echo e(\App\Helpers\TranslationHelper::translate('Educational Articles')); ?>
+
                         </h5>
                         <p class="light-gray small">
-                            {{ \App\Helpers\TranslationHelper::translate('Gain deeper understanding and effective study strategies through articles') }}
+                            <?php echo e(\App\Helpers\TranslationHelper::translate('Gain deeper understanding and effective study strategies through articles')); ?>
+
                         </p>
                     </div>
                 </div>
@@ -302,14 +315,16 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 text-center shadow-sm border-0 p-4 hover-card">
                         <div class="icon-box mb-3">
-                            <img src="{{ asset('front/assets/media/user/banner-user-4.png') }}" alt="icon"
+                            <img src="<?php echo e(asset('front/assets/media/user/banner-user-4.png')); ?>" alt="icon"
                                 class="w-50 mx-auto">
                         </div>
                         <h5 class="fw-800 mb-2">
-                            {{ \App\Helpers\TranslationHelper::translate('Quizzes') }}
+                            <?php echo e(\App\Helpers\TranslationHelper::translate('Quizzes')); ?>
+
                         </h5>
                         <p class="light-gray small">
-                            {{ \App\Helpers\TranslationHelper::translate('Test your knowledge with comprehensive quizzes simulating final exams') }}
+                            <?php echo e(\App\Helpers\TranslationHelper::translate('Test your knowledge with comprehensive quizzes simulating final exams')); ?>
+
                         </p>
                     </div>
                 </div>
@@ -345,52 +360,53 @@
     <section class="py-5" style="background: linear-gradient(135deg, #f8f9fa, #eef1f7);">
         <div class="container">
             <h2 class="text-center fw-bold mb-5">
-                💳 {{ \App\Helpers\TranslationHelper::translate('Available Payment Methods on Platform') }}
+                💳 <?php echo e(\App\Helpers\TranslationHelper::translate('Available Payment Methods on Platform')); ?>
+
             </h2>
 
             <div class="row g-4 justify-content-center">
                 <!-- Vodafone Cash -->
                 <div class="col-6 col-md-4 col-lg-2">
                     <div class="card shadow-sm border-0 text-center p-3 h-100 rounded-4 payment-card">
-                        <img src="{{ asset('front/assets/media/Vodafone-Cash.png') }}" alt="Vodafone Cash"
+                        <img src="<?php echo e(asset('front/assets/media/Vodafone-Cash.png')); ?>" alt="Vodafone Cash"
                             class="img-fluid mb-3" style="width:70px; height:70px; object-fit:contain;">
-                        <h6 class="fw-bold mb-0">{{ \App\Helpers\TranslationHelper::translate('Vodafone Cash') }}</h6>
+                        <h6 class="fw-bold mb-0"><?php echo e(\App\Helpers\TranslationHelper::translate('Vodafone Cash')); ?></h6>
                     </div>
                 </div>
 
                 <!-- Etisalat Cash -->
                 <div class="col-6 col-md-4 col-lg-2">
                     <div class="card shadow-sm border-0 text-center p-3 h-100 rounded-4 payment-card">
-                        <img src="{{ asset('front/assets/media/Etisalat_Misr-Logo.wine.png') }}" alt="Etisalat Cash"
+                        <img src="<?php echo e(asset('front/assets/media/Etisalat_Misr-Logo.wine.png')); ?>" alt="Etisalat Cash"
                             class="img-fluid mb-3" style="width:70px; height:70px; object-fit:contain;">
-                        <h6 class="fw-bold mb-0">{{ \App\Helpers\TranslationHelper::translate('Etisalat Cash') }}</h6>
+                        <h6 class="fw-bold mb-0"><?php echo e(\App\Helpers\TranslationHelper::translate('Etisalat Cash')); ?></h6>
                     </div>
                 </div>
 
                 <!-- Orange Cash -->
                 <div class="col-6 col-md-4 col-lg-2">
                     <div class="card shadow-sm border-0 text-center p-3 h-100 rounded-4 payment-card">
-                        <img src="{{ asset('front/assets/media/om2.png') }}" alt="Orange Cash" class="img-fluid mb-3"
+                        <img src="<?php echo e(asset('front/assets/media/om2.png')); ?>" alt="Orange Cash" class="img-fluid mb-3"
                             style="width:70px; height:70px; object-fit:contain;">
-                        <h6 class="fw-bold mb-0">{{ \App\Helpers\TranslationHelper::translate('Orange Cash') }}</h6>
+                        <h6 class="fw-bold mb-0"><?php echo e(\App\Helpers\TranslationHelper::translate('Orange Cash')); ?></h6>
                     </div>
                 </div>
 
                 <!-- WE Pay -->
                 <div class="col-6 col-md-4 col-lg-2">
                     <div class="card shadow-sm border-0 text-center p-3 h-100 rounded-4 payment-card">
-                        <img src="{{ asset('front/assets/media/we.png') }}" alt="WE Pay" class="img-fluid mb-3"
+                        <img src="<?php echo e(asset('front/assets/media/we.png')); ?>" alt="WE Pay" class="img-fluid mb-3"
                             style="width:70px; height:70px; object-fit:contain;">
-                        <h6 class="fw-bold mb-0">{{ \App\Helpers\TranslationHelper::translate('WE Pay') }}</h6>
+                        <h6 class="fw-bold mb-0"><?php echo e(\App\Helpers\TranslationHelper::translate('WE Pay')); ?></h6>
                     </div>
                 </div>
 
                 <!-- Fawry -->
                 <div class="col-6 col-md-4 col-lg-2">
                     <div class="card shadow-sm border-0 text-center p-3 h-100 rounded-4 payment-card">
-                        <img src="{{ asset('front/assets/media/fery.jpg') }}" alt="Fawry" class="img-fluid mb-3"
+                        <img src="<?php echo e(asset('front/assets/media/fery.jpg')); ?>" alt="Fawry" class="img-fluid mb-3"
                             style="width:70px; height:70px; object-fit:contain;">
-                        <h6 class="fw-bold mb-0">{{ \App\Helpers\TranslationHelper::translate('Fawry') }}</h6>
+                        <h6 class="fw-bold mb-0"><?php echo e(\App\Helpers\TranslationHelper::translate('Fawry')); ?></h6>
                     </div>
                 </div>
 
@@ -399,7 +415,7 @@
                     <div class="card shadow-sm border-0 text-center p-3 h-100 rounded-4 payment-card">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa"
                             class="img-fluid mb-3" style="width:70px; height:70px; object-fit:contain;">
-                        <h6 class="fw-bold mb-0">{{ \App\Helpers\TranslationHelper::translate('Visa / MasterCard') }}</h6>
+                        <h6 class="fw-bold mb-0"><?php echo e(\App\Helpers\TranslationHelper::translate('Visa / MasterCard')); ?></h6>
                     </div>
                 </div>
             </div>
@@ -417,4 +433,6 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
         }
     </style>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('front.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp_new\htdocs\sameh_stein\resources\views/front/pages/about.blade.php ENDPATH**/ ?>

@@ -6,7 +6,7 @@
 <head>
     <base href="">
 
-    <title>{{\App\Helpers\TranslationHelper::translate('AbdulHamid Quritem')}} - @yield('title') </title>
+    <title>{{\App\Helpers\TranslationHelper::translate('Samah Shtain')}} - @yield('title') </title>
 {{-- {{__('dashboard.CGI')}} --}}
     <meta name="description" content="{{ $title ?? '' }}"/>
     <meta name="keywords" content=""/>

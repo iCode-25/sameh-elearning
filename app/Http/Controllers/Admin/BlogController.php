@@ -94,7 +94,6 @@ class BlogController extends Controller
      */
     public function create(): View
     {
-        $tags = Tag::get();
         return view('admin.pages.blog.form',  new BlogViewModel(), get_defined_vars());
     }
 
@@ -114,7 +113,6 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog): View
     {
-        $tags = Tag::get();
 
         return view('admin.pages.blog.form',  new BlogViewModel($blog), get_defined_vars());
     }
