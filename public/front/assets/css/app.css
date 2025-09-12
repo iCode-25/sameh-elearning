@@ -6272,7 +6272,7 @@ footer .footer-wrapper .link-block form .mailBox {
     transition: all 0.3s ease-in-out;
 }
 
-.contact .contact-block {
+/* .contact .contact-block {
     padding: 0 clamp(80px, 5vw, 120px);
 }
 
@@ -6427,6 +6427,29 @@ footer .footer-wrapper .link-block form .mailBox {
     box-shadow: none;
     transition: none;
     opacity: 1;
+} */
+
+.contact-card {
+    background: #fff;
+    transition: all 0.3s ease;
+}
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+}
+.contact-form-box {
+    background: #fff;
 }
 
 .sec-page {
