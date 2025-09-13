@@ -38,10 +38,14 @@
                 <div class="col-lg-8 col-md-12 p-0">
                     <div class="card border-0 shadow rounded-4 p-2 bg-white mb-2">
                         <div style="position: relative; width: 100%; max-width: 800px; margin: auto;">
-                            <video controls width="100%" style="border-radius: 12px; max-height: 80vh;">
+                            {{-- <video controls width="100%" style="border-radius: 12px; max-height: 80vh;">
                                 <source src="https://abdalhmad.b-cdn.net/{{ $lesson->video_url }}" type="video/mp4">
                                 {{ \App\Helpers\TranslationHelper::translate('Your browser does not support the video tag.') }}
-                            </video>
+                            </video> --}}
+
+                            <iframe width="100%" height="500" src="{{ App\Helpers\VideoHelpers::toEmbedUrl($lesson->video_url) }}"
+                                style="border-radius: 12px; max-height: 80vh;" frameborder="0" allowfullscreen>
+                            </iframe>
 
                             <div id="watermark"
                                 style="position: absolute;
