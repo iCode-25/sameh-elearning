@@ -43,7 +43,8 @@
         "files": [
             "app/Helpers/HelperFunctions.php",
             "app/Helpers/ReorderHelper.php",
-            "app/Helpers/TranslationHelper.php"
+            "app/Helpers/TranslationHelper.php",
+            "app/Helpers/VideoHelpers.php"
         ]
     },
     "autoload-dev": {
@@ -53,7 +54,8 @@
         "files": [
             "app/Helpers/HelperFunctions.php",
             "app/Helpers/ReorderHelper.php",
-            "app/Helpers/TranslationHelper.php"
+            "app/Helpers/TranslationHelper.php",
+            "app/Helpers/VideoHelpers.php"
         ]
     },
     "scripts": {

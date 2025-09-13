@@ -37,28 +37,22 @@
                 <div class="col-lg-8 col-md-12 p-0">
                     <div class="card border-0 shadow rounded-4 p-2 bg-white mb-2">
                         <div class="video-wrapper" style="position: relative; width: 100%; max-width: 800px; margin: auto;">
+                            
+
                             <?php if(request('type') === 'azhar' && $lesson->azhar_video_url && auth('web')->user()->type == 'azhar'): ?>
-                                <video controls controlsList="nodownload nofullscreen" width="100%"
-                                    style="border-radius: 12px; max-height: 80vh;">
-                                    <source src="https://abdalhmad.b-cdn.net/<?php echo e($lesson->azhar_video_url); ?>" type="video/mp4">
-                                    <?php echo e(\App\Helpers\TranslationHelper::translate('Your browser does not support the video tag.')); ?>
-
-                                </video>
+                                <iframe width="100%" height="500" src="<?php echo e(App\Helpers\VideoHelpers::toEmbedUrl($lesson->azhar_video_url)); ?>"
+                                    style="border-radius: 12px; max-height: 80vh;" frameborder="0" allowfullscreen>
+                                </iframe>
                             <?php elseif(request('type') === 'general' && $lesson->school_video_url && auth('web')->user()->type == 'general'): ?>
-                                <video controls controlsList="nodownload nofullscreen" width="100%"
-                                    style="border-radius: 12px; max-height: 80vh;">
-                                    <source src="https://abdalhmad.b-cdn.net/<?php echo e($lesson->school_video_url); ?>" type="video/mp4">
-                                    <?php echo e(\App\Helpers\TranslationHelper::translate('Your browser does not support the video tag.')); ?>
-
-                                </video>
+                                <iframe width="100%" height="500" src="<?php echo e(App\Helpers\VideoHelpers::toEmbedUrl($lesson->school_video_url)); ?>"
+                                    style="border-radius: 12px; max-height: 80vh;" frameborder="0" allowfullscreen>
+                                </iframe>
                             <?php else: ?>
-                                <video controls controlsList="nodownload nofullscreen" width="100%"
-                                style="border-radius: 12px; max-height: 80vh;">
-                                    <source src="https://abdalhmad.b-cdn.net/<?php echo e($lesson->video_url); ?>" type="video/mp4">
-                                    <?php echo e(\App\Helpers\TranslationHelper::translate('Your browser does not support the video tag.')); ?>
-
-                                </video>
+                                <iframe width="100%" height="500" src="<?php echo e(App\Helpers\VideoHelpers::toEmbedUrl($lesson->video_url)); ?>"
+                                    style="border-radius: 12px; max-height: 80vh;" frameborder="0" allowfullscreen>
+                                </iframe>
                             <?php endif; ?>
+
 
                             <div id="watermark"
                                 style="
@@ -182,7 +176,8 @@
                     <div class="card border-0 shadow rounded-4 p-2 bg-white mb-2">
                         <h4 class="fw-bold mb-3" style="color: var(--primary-color);">
                             <?php echo e(\App\Helpers\TranslationHelper::translate('lesson tests')); ?></h4>
-                        <?php if(isset($lesson->tests) && $lesson->tests()->active()->where('type', auth('web')->user()->type)->count()): ?>
+                        <?php if(isset($lesson->tests) &&
+                                $lesson->tests()->active()->where('type', auth('web')->user()->type)->count()): ?>
                             <ul class="list-group list-group-flush">
                                 <?php $__currentLoopData = $lesson->tests()->active()->where('type', auth('web')->user()->type)->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $test): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <li class="list-group-item d-flex justify-content-between align-items-center mb-0 pb-0">

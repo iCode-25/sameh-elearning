@@ -39,7 +39,7 @@
                 <div class="col-lg-8 col-md-12 p-0">
                     <div class="card border-0 shadow rounded-4 p-2 bg-white mb-2">
                         <div class="video-wrapper" style="position: relative; width: 100%; max-width: 800px; margin: auto;">
-                            @if (request('type') === 'azhar' && $lesson->azhar_video_url && auth('web')->user()->type == 'azhar')
+                            {{-- @if (request('type') === 'azhar' && $lesson->azhar_video_url && auth('web')->user()->type == 'azhar')
                                 <video controls controlsList="nodownload nofullscreen" width="100%"
                                     style="border-radius: 12px; max-height: 80vh;">
                                     <source src="https://abdalhmad.b-cdn.net/{{ $lesson->azhar_video_url }}" type="video/mp4">
@@ -57,7 +57,22 @@
                                     <source src="https://abdalhmad.b-cdn.net/{{ $lesson->video_url }}" type="video/mp4">
                                     {{ \App\Helpers\TranslationHelper::translate('Your browser does not support the video tag.') }}
                                 </video>
+                            @endif --}}
+
+                            @if (request('type') === 'azhar' && $lesson->azhar_video_url && auth('web')->user()->type == 'azhar')
+                                <iframe width="100%" height="500" src="{{ App\Helpers\VideoHelpers::toEmbedUrl($lesson->azhar_video_url) }}"
+                                    style="border-radius: 12px; max-height: 80vh;" frameborder="0" allowfullscreen>
+                                </iframe>
+                            @elseif (request('type') === 'general' && $lesson->school_video_url && auth('web')->user()->type == 'general')
+                                <iframe width="100%" height="500" src="{{ App\Helpers\VideoHelpers::toEmbedUrl($lesson->school_video_url) }}"
+                                    style="border-radius: 12px; max-height: 80vh;" frameborder="0" allowfullscreen>
+                                </iframe>
+                            @else
+                                <iframe width="100%" height="500" src="{{ App\Helpers\VideoHelpers::toEmbedUrl($lesson->video_url) }}"
+                                    style="border-radius: 12px; max-height: 80vh;" frameborder="0" allowfullscreen>
+                                </iframe>
                             @endif
+
 
                             <div id="watermark"
                                 style="
@@ -157,7 +172,8 @@
                     <div class="card border-0 shadow rounded-4 p-2 bg-white mb-2">
                         <h4 class="fw-bold mb-3" style="color: var(--primary-color);">
                             {{ \App\Helpers\TranslationHelper::translate('lesson tests') }}</h4>
-                        @if (isset($lesson->tests) && $lesson->tests()->active()->where('type', auth('web')->user()->type)->count())
+                        @if (isset($lesson->tests) &&
+                                $lesson->tests()->active()->where('type', auth('web')->user()->type)->count())
                             <ul class="list-group list-group-flush">
                                 @foreach ($lesson->tests()->active()->where('type', auth('web')->user()->type)->get() as $test)
                                     <li class="list-group-item d-flex justify-content-between align-items-center mb-0 pb-0">
