@@ -18,7 +18,7 @@
                             </div>
                             <div class="col-lg-6 col-sm-6 d-sm-block d-none">
                                 <div class="title-image">
-                                    <img src="{{ $lesson->getFirstMediaUrl('news') }}" alt="">
+                                    <img src="{{ $lesson->getFirstMediaUrl('newsimage_news') }}" alt="">
                                 </div>
                             </div>
                         </div>
