@@ -731,4 +731,5 @@
   'School Homework Video Link' => 'رابط فيديو واجب المدرسة',
   'Existing School Video' => 'الفيديو الحالي للمدرسة',
   'View' => 'عرض',
+  'Samah Shtain Dashboard' => 'Samah Shtain Dashboard',
 );

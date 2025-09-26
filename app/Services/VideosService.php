@@ -55,12 +55,12 @@ class  VideosService
 
         $news->save();
 
-        // if (isset($data['image'])) {
-        //     $news->storeFile($data['image'], 'news');
-        // }
-            if (isset($data['image'])) {
-                $news->storeFile($data['image']);
-            }
+        if (isset($data['image'])) {
+            $news->storeFile($data['image'], 'image_news');
+        }
+            // if (isset($data['image'])) {
+            //     $news->storeFile($data['image']);
+            // }
 
 
         if (isset($data['news_pdf'])) {
@@ -73,8 +73,12 @@ class  VideosService
 
     public function updateVideos($news, $data)
     {
-        if (isset($data['image'])) {
-            $news->updateFile($data['image']);
+        // if (isset($data['image'])) {
+        //     $news->updateFile($data['image']);
+        // }
+
+         if (isset($data['image'])) {
+            $news->updateFile($data['image'], 'image_news');
         }
 
         if (!empty($data['video_url'])) {

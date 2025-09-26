@@ -112,7 +112,7 @@
     function getYoutubeEmbedUrl($url) {
         if (Str::contains($url, 'watch?v=')) {
             $id = Str::after($url, 'v=');
-            $id = Str::before($id, '&'); // عشان لو فيه بارامترات زيادة
+            $id = Str::before($id, '&'); 
             return "https://www.youtube.com/embed/$id";
         }
 
@@ -239,8 +239,8 @@
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
-                                            @if ($videos->getFirstMediaUrl('news') != null)
-                                                <img src="{{ $videos->getFirstMediaUrl('news') }}" alt="videos"
+                                            @if ($videos->getFirstMediaUrl('newsimage_news') != null)
+                                                <img src="{{ $videos->getFirstMediaUrl('newsimage_news') }}" alt="videos"
                                                     width="100px" style="border-radius: 5px">
                                             @endif
                                         </div>

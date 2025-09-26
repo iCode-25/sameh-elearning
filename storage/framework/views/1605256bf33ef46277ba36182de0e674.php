@@ -162,7 +162,7 @@ unset($__errorArgs, $__bag); ?>
     function getYoutubeEmbedUrl($url) {
         if (Str::contains($url, 'watch?v=')) {
             $id = Str::after($url, 'v=');
-            $id = Str::before($id, '&'); // عشان لو فيه بارامترات زيادة
+            $id = Str::before($id, '&'); 
             return "https://www.youtube.com/embed/$id";
         }
 
@@ -182,7 +182,7 @@ unset($__errorArgs, $__bag); ?>
     </label>
     <input type="url" name="video_url"
         value="<?php echo e(old('video_url', $videos->video_url ?? '')); ?>"
-        class="form-control" placeholder="https://www.youtube.com/watch?v=xxxx" />
+        class="form-control" placeholder="Enter url video" />
 
     <?php if(!empty($videos->video_url)): ?>
         <div class="mt-4">
@@ -206,7 +206,7 @@ unset($__errorArgs, $__bag); ?>
     </label>
     <input type="url" name="azhar_video_url"
         value="<?php echo e(old('azhar_video_url', $videos->azhar_video_url ?? '')); ?>"
-        class="form-control" placeholder="https://www.youtube.com/watch?v=xxxx" />
+        class="form-control" placeholder="Enter url video" />
 
     <?php if(!empty($videos->azhar_video_url)): ?>
         <div class="mt-4">
@@ -230,7 +230,7 @@ unset($__errorArgs, $__bag); ?>
     </label>
     <input type="url" name="school_video_url"
         value="<?php echo e(old('school_video_url', $videos->school_video_url ?? '')); ?>"
-        class="form-control" placeholder="https://www.youtube.com/watch?v=xxxx" />
+        class="form-control" placeholder="Enter url video" />
 
     <?php if(!empty($videos->school_video_url)): ?>
         <div class="mt-4">
@@ -305,8 +305,8 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                                            <?php if($videos->getFirstMediaUrl('news') != null): ?>
-                                                <img src="<?php echo e($videos->getFirstMediaUrl('news')); ?>" alt="videos"
+                                            <?php if($videos->getFirstMediaUrl('newsimage_news') != null): ?>
+                                                <img src="<?php echo e($videos->getFirstMediaUrl('newsimage_news')); ?>" alt="videos"
                                                     width="100px" style="border-radius: 5px">
                                             <?php endif; ?>
                                         </div>
