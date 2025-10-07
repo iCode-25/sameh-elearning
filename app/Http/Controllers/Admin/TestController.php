@@ -105,7 +105,7 @@ class TestController extends Controller
             ->addColumn('action', function (Test $test) {
                 return view('admin.pages.test.buttons', compact('test'));
             })
-            ->rawColumns(['image', 'action' , 'is_active'])
+            ->rawColumns(['image', 'action', 'is_active'])
             ->startsWithSearch()
             ->make(true);
     }
@@ -141,7 +141,7 @@ class TestController extends Controller
     //     return $dataTables->eloquent($model)->addIndexColumn()
     //         ->filter(
     //             function ($query) use ($request) {
-    //                 if ($search = $request->get('search')['value']) { 
+    //                 if ($search = $request->get('search')['value']) {
     //                     $query->where(function ($q) use ($search) {
     //                         $q->where('name', 'LIKE', "%$search%");
     //                     });
@@ -153,7 +153,7 @@ class TestController extends Controller
     //         })->editColumn('name', function (Test $test) {
     //             return $test->name;
     //         })->editColumn('category', function (Test $test) {
-    //             return $test->categories->name ?? '-'; 
+    //             return $test->categories->name ?? '-';
     //         })->editColumn('image', function (Test $test) {
     //             $imageUrl = $test->getFirstMediaUrl('tests_image') ?: asset('path/to/default/image.jpg');
     //             return "<img width='100' src='{$imageUrl}' alt='Test Image'/>";
@@ -184,7 +184,7 @@ class TestController extends Controller
     {
         $packages = Packages::get();
         $videos = Videos::get();
-        return view('admin.pages.test.form',  new TestViewModel(), get_defined_vars());
+        return view('admin.pages.test.form', new TestViewModel(), get_defined_vars());
     }
 
     /**
@@ -198,14 +198,12 @@ class TestController extends Controller
         return back();
     }
 
-
     public function edit(Test $test): View
     {
         $packages = Packages::get();
         $videos = Videos::get();
-        return view('admin.pages.test.form',  new TestViewModel($test), get_defined_vars());
+        return view('admin.pages.test.form', new TestViewModel($test), get_defined_vars());
     }
-
 
     public function update(TestRequest $request, Test $test): RedirectResponse
     {
@@ -215,31 +213,11 @@ class TestController extends Controller
         return back();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function createQuizzes($id): View
     {
         $test = Test::findOrFail($id);
         return view('admin.pages.test.form_test', new QuizzeViewModel($test), get_defined_vars());
     }
-
-
-  
-
-
 
     public function storeQuizzes(Request $request, Test $test)
     {
@@ -255,7 +233,7 @@ class TestController extends Controller
 
             'answer_3' => 'nullable|array',
             'answer_3.*' => 'nullable|string',
-            
+
             'answer_4' => 'nullable|array',
             'answer_4.*' => 'nullable|string',
             // 'image_answer_1' => 'required|file|image',
@@ -263,7 +241,7 @@ class TestController extends Controller
             // 'image_answer_3' => 'nullable|file|image',
             'c_answer' => 'required|string|in:answer_1,answer_2,answer_3,answer_4',
             'question_score' => 'required',
-            
+            'hint' => 'nullable|string',
         ]);
 
         $quiz = Quizze::create([
@@ -274,7 +252,7 @@ class TestController extends Controller
             'answer_4' => $request->answer_4,
             'c_answer' => $request->c_answer,
             'question_score' => $request->question_score,
-            
+            'hint' => $request->hint,
             'test_id' => $test->id,
         ]);
         // $this->storeAnswerImages($quiz, $request);
@@ -293,38 +271,18 @@ class TestController extends Controller
         }
     }
 
-
-
-
-    // private function storeAnswerImages(Quizze $quiz, Request $request, $index)
-    // {
-    //     // dd($request->all());
-    //     foreach (range(1, 3) as $answerIndex) {
-    //         $field = "image_answer_{$answerIndex}";
-    //         if ($request->hasFile($field) && isset($request->file($field)[0])) {
-    //             $quiz->storeFile($request->file($field)[0], "answer_{$answerIndex}_image");
-    //         }
-    //     }
-    // }
-
-
-
     public function showAnswers($id): View
     {
         $test = Test::with('quizzes')->findOrFail($id);
         return view('admin.pages.test.show_answers', compact('test'));
     }
 
-
     public function editQuizzes($id): View
     {
-
         $quizze = Quizze::findOrFail($id);
         $test = $quizze->tests;
         return view('admin.pages.test.form_test', new QuizzeViewModel($test, $quizze), get_defined_vars());
     }
-
-
 
     public function updateQuizzes(Request $request, $id)
     {
@@ -336,8 +294,8 @@ class TestController extends Controller
             'answer_2' => 'required|array',
             'answer_3' => 'nullable|array',
             'answer_4' => 'nullable|array',
+            'hint' => 'nullable|string',
 
-            
             'c_answer' => 'required|string|in:answer_1,answer_2,answer_3,answer_4',
             'question_score' => 'required',
             'image_answer_1' => 'nullable|file|image',
@@ -351,10 +309,11 @@ class TestController extends Controller
             $quiz->setTranslation('answer_2', $lang, $request->answer_2[$lang]);
             $quiz->setTranslation('answer_3', $lang, $request->answer_3[$lang] ?? null);
             $quiz->setTranslation('answer_4', $lang, $request->answer_4[$lang] ?? null);
-            
+
         }
         $quiz->c_answer = $request->c_answer;
         $quiz->question_score = $request->question_score;
+        $quiz->hint = $request->hint;
         $quiz->save();
         foreach (range(1, 3) as $index) {
             if ($request->hasFile("image_answer_{$index}")) {

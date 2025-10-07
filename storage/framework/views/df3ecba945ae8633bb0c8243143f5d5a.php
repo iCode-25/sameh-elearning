@@ -651,7 +651,7 @@
                     <?php $__currentLoopData = $lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="video-card">
                             <div class="card-img">
-                                <img src="<?php echo e($lesson->getFirstMediaUrl('news')); ?>" alt="video">
+                                <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_news')); ?>" alt="video">
                                 <a href="<?php echo e(route('site.lesson_details', ['lesson' => $lesson->id])); ?>" class="play-btn">
                                     <img src="<?php echo e(asset('front/assets/media/icons/play-icon.png')); ?>" alt="play">
                                 </a>
@@ -721,7 +721,7 @@
                         <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
                             <div class="card border-0 shadow h-100 hover-shadow w-100">
                                 <div class="card-head h-50 d-flex flex-column">
-                                    <img src="<?php echo e($lesson->getFirstMediaUrl('news')); ?>" alt="<?php echo e($lesson->name); ?>"
+                                    <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_news')); ?>" alt="<?php echo e($lesson->name); ?>"
                                         class="card-img-top rounded-top h-100">
                                 </div>
                                 <div class="card-body d-flex flex-column">

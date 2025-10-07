@@ -13,9 +13,9 @@ class Quizze extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia, HandleUploadFile , HasTranslations;
 
-    protected $table = 'quizzes'; 
+    protected $table = 'quizzes';
 
-    protected $fillable = ['title', 'answer_1' , 'answer_2' , 'answer_3' , 'answer_4' , 'c_answer' , 'test_id', 'question_score'];
+    protected $fillable = ['title', 'answer_1' , 'answer_2' , 'answer_3' , 'answer_4' , 'c_answer' , 'test_id', 'question_score', 'hint'];
 
     public $translatable = ['title', 'answer_1', 'answer_2', 'answer_3' , 'answer_4'];
 
@@ -30,11 +30,6 @@ class Quizze extends Model implements HasMedia
     {
         return $q->orderBy('id', 'asc');
     }
-
-    // public function storeFile($file, $collection = '_image')
-    // {
-    //     $this->addMedia($file)->toMediaCollection($collection);
-    // }
 
     public function storeFile($file, $collection)
     {

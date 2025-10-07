@@ -1,6 +1,4 @@
-@extends('front.layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <section class="title-banner">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -10,15 +8,15 @@
                             <div class="col-lg-6 col-sm-6">
                                 <div class="title-content">
                                     <h2 class="fw-bold mb-3" style="color: var(--primary-color);">
-                                        {{ $test->name }}</h2>
+                                        <?php echo e($test->name); ?></h2>
                                 </div>
                                 <div class="img-block">
-                                    <img src="{{ asset('front/assets/media/user/star.png') }}" alt="star">
+                                    <img src="<?php echo e(asset('front/assets/media/user/star.png')); ?>" alt="star">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-6 d-sm-block d-none">
                                 <div class="title-image">
-                                    <img src="{{ $package->getFirstMediaUrl('news') }}" alt="">
+                                    <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_news')); ?>" alt="">
                                 </div>
                             </div>
                         </div>
@@ -33,13 +31,11 @@
         <div class="card shadow-sm border-0 rounded-4">
             <div class="card-header bg-white border-bottom-0 px-4 py-3 d-flex justify-content-between align-items-center">
                 <h5 class="mb-0 fw-bold" style="color: var(--primary-color);">اختبار</h5>
-                {{-- <span class="badge bg-warning text-dark fs-6 px-3 py-2">
-                    ⏱️ <span id="timer">60</span> ثانية
-                </span> --}}
+                
             </div>
             <div class="card-body px-4 py-4" id="question-area">
                 <h6 class="text-muted mb-2">السؤال <span id="question-number">1</span> من
-                    <span>{{ $test->number_student_questions > count($test->quizzes) ? count($test->quizzes) : $test->number_student_questions }}</span>
+                    <span><?php echo e($test->number_student_questions > count($test->quizzes) ? count($test->quizzes) : $test->number_student_questions); ?></span>
                 </h6>
                 <div id="question-text" class="fw-bold fs-4 mb-4 text-dark"></div>
 
@@ -49,9 +45,11 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('css')
+
+
+<?php $__env->startPush('css'); ?>
     <style>
         :root {
             --main-color: var(--primary-color);
@@ -152,20 +150,20 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
     </style>
-@endpush
+<?php $__env->stopPush(); ?>
 
 
-@php
+<?php
     $questions = $test->quizzes->shuffle()->take($test->number_student_questions);
-@endphp
+?>
 
-@push('js')
+<?php $__env->startPush('js'); ?>
     <script>
-        const locale = "{{ app()->getLocale() }}";
-        const questions = @json($questions);
+        const locale = "<?php echo e(app()->getLocale()); ?>";
+        const questions = <?php echo json_encode($questions, 15, 512) ?>;
         let currentIndex = 0;
         let correctCount = 0;
-        let answers = []; // هنا هنخزن كل إجابة
+        let answers = [];
 
         function renderQuestion(index) {
             const q = questions[index];
@@ -175,10 +173,10 @@
             const feedback = document.getElementById('feedback');
 
             document.getElementById('question-number').textContent = index + 1;
-            // document.getElementById('question-text').innerHTML = qText;
-            document.getElementById('question-text').innerHTML =
-                `${qText}<div class="mt-2 fs-6 text-secondary">درجة السؤال: <strong>${q.question_score ?? 1}</strong></div>`;
-
+            document.getElementById('question-text').innerHTML = `
+            ${qText}
+            <div class="mt-2 fs-6 text-secondary">درجة السؤال: <strong>${q.question_score ?? 1}</strong></div>
+        `;
 
             feedback.textContent = '';
             optionsDiv.innerHTML = '';
@@ -201,31 +199,28 @@
                 text: q.answer_4[locale] ?? q.answer_4.en
             });
 
-            options.forEach((opt, idx) => {
+            options.forEach((opt) => {
                 const wrapper = document.createElement('label');
                 wrapper.className = 'option-card';
                 wrapper.innerHTML = `
                 <input type="radio" name="answer" value="${opt.key}">
                 <span>${opt.text}</span>
             `;
-                wrapper.addEventListener('click', (e) => {
-                    // منع اختيار نفس العنصر مرتين
+                wrapper.addEventListener('click', () => {
                     if (document.querySelector('input[name="answer"]:checked')) {
                         handleAnswer(opt.key, q.c_answer, q);
                     }
                 });
-                wrapper.innerHTML = `
-                    <input type="radio" name="answer" value="${opt.key}">
-                    <span>${opt.text}</span>
-                `;
                 optionsDiv.appendChild(wrapper);
             });
-            // startTimer(60); // يبدأ العدّاد مع كل سؤال
+
+            startTimer(60); // العدّاد لكل سؤال (لو عندك دوال startTimer و stopTimer)
         }
 
         function handleAnswer(selectedKey, correctKey, q) {
-            const wrappers = document.querySelectorAll('.option-card');
+            // stopTimer();
 
+            const wrappers = document.querySelectorAll('.option-card');
             wrappers.forEach(wrapper => {
                 const radio = wrapper.querySelector('input');
                 const key = radio.value;
@@ -233,12 +228,8 @@
                 wrapper.classList.add('disabled');
                 wrapper.style.pointerEvents = "none";
 
-                if (key === correctKey) {
-                    wrapper.classList.add('correct');
-                }
-                if (key === selectedKey && selectedKey !== correctKey) {
-                    wrapper.classList.add('wrong');
-                }
+                if (key === correctKey) wrapper.classList.add('correct');
+                if (key === selectedKey && selectedKey !== correctKey) wrapper.classList.add('wrong');
             });
 
             const feedback = document.getElementById('feedback');
@@ -253,7 +244,7 @@
                 feedback.classList.add('text-danger');
             }
 
-            // ✅ عرض التلميح (hint) لو موجود
+            // ✅ عرض الـ Hint لو موجود (لغة واحدة فقط)
             if (q.hint) {
                 const hintBox = document.createElement('div');
                 hintBox.className = 'alert alert-info mt-3';
@@ -271,13 +262,14 @@
 
             console.log(answers);
 
-            // ✅ إضافة زر "التالي"
+            // ✅ زر "التالي" أو "عرض النتيجة"
             const nextBtnContainer = document.createElement('div');
             nextBtnContainer.className = 'text-center mt-4';
 
             const nextBtn = document.createElement('button');
             nextBtn.textContent = currentIndex + 1 < questions.length ? 'السؤال التالي ➡️' : 'عرض النتيجة 🏁';
-            nextBtn.className = 'btn btn-primary px-4 py-2';
+            nextBtn.className = currentIndex + 1 < questions.length ? 'btn btn-primary px-4 py-2' :
+                'btn btn-success px-4 py-2';
 
             nextBtn.addEventListener('click', () => {
                 const hintBox = document.querySelector('.alert.alert-info');
@@ -289,7 +281,7 @@
                 if (currentIndex < questions.length) {
                     renderQuestion(currentIndex);
                 } else {
-                    // ✅ عرض النتيجة النهائية هنا
+                    // ✅ الاختبار خلص - حساب النتيجة النهائية
                     let totalScore = 0;
                     let maxScore = 0;
 
@@ -297,9 +289,7 @@
                         const question = questions.find(q => q.id === ans.question_id);
                         const score = Number(question.question_score) || 1;
                         maxScore += score;
-                        if (ans.is_correct) {
-                            totalScore += score;
-                        }
+                        if (ans.is_correct) totalScore += score;
                     });
 
                     let percentage = ((totalScore / maxScore) * 100).toFixed(2);
@@ -313,30 +303,30 @@
                     if (resultStatus === '❌ راسب') {
                         testStatus = 0;
                         retryButton = `
-                    <button onclick="location.reload()" class="btn btn-danger mt-4 px-4 py-2">
-                        {{ \App\Helpers\TranslationHelper::translate('حاول تاني') }} 💪
-                    </button>
-                `;
+                        <button onclick="location.reload()" class="btn btn-danger mt-4 px-4 py-2">
+                            <?php echo e(\App\Helpers\TranslationHelper::translate('حاول تاني')); ?> 💪
+                        </button>
+                    `;
                     }
 
                     document.getElementById('question-area').innerHTML = `
-                <div class="text-center p-5 result-box">
-                    <h2 class="${resultColor} mb-4">انتهى الاختبار 🎉</h2>
-                    <p class="fs-5 mb-2">✅ عدد الإجابات الصحيحة: <strong>${correctAnswers}</strong></p>
-                    <p class="fs-5 mb-2">❌ عدد الإجابات الخاطئة: <strong>${wrongAnswers}</strong></p>
-                    <p class="fs-5 mb-2">🧮 الدرجة: <strong>${totalScore}</strong> من <strong>${maxScore}</strong></p>
-                    <p class="fs-5 mb-2">📊 نسبة النجاح: <strong>${percentage}%</strong></p>
-                    <p class="fs-4 mt-4 fw-bold ${resultColor}">${resultStatus}</p>
-                    ${retryButton}
-                </div>
-            `;
+                    <div class="text-center p-5 result-box">
+                        <h2 class="${resultColor} mb-4">انتهى الاختبار 🎉</h2>
+                        <p class="fs-5 mb-2">✅ عدد الإجابات الصحيحة: <strong>${correctAnswers}</strong></p>
+                        <p class="fs-5 mb-2">❌ عدد الإجابات الخاطئة: <strong>${wrongAnswers}</strong></p>
+                        <p class="fs-5 mb-2">🧮 الدرجة: <strong>${totalScore}</strong> من <strong>${maxScore}</strong></p>
+                        <p class="fs-5 mb-2">📊 نسبة النجاح: <strong>${percentage}%</strong></p>
+                        <p class="fs-4 mt-4 fw-bold ${resultColor}">${resultStatus}</p>
+                        ${retryButton}
+                    </div>
+                `;
 
                     // ✅ إرسال النتيجة للسيرفر
-                    fetch("{{ route('user.package.test.submit', ['package' => $package->id, 'test' => $test->id]) }}", {
+                    fetch("<?php echo e(route('user.test.submit', ['lesson' => $lesson->id, 'test' => $test->id])); ?>", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
-                                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                                "X-CSRF-TOKEN": "<?php echo e(csrf_token()); ?>",
                                 "X-Requested-With": "XMLHttpRequest"
                             },
                             body: JSON.stringify({
@@ -362,7 +352,8 @@
             feedback.insertAdjacentElement('afterend', nextBtnContainer);
         }
 
-
         renderQuestion(currentIndex);
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('front.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\sameh-elearning\resources\views/front/pages/courses/show_quiz.blade.php ENDPATH**/ ?>

@@ -243,8 +243,7 @@
         const questions = @json($questions);
         let currentIndex = 0;
         let correctCount = 0;
-        let answers = []; // هنا هنخزن كل إجابة
-
+        let answers = [];
 
         function renderQuestion(index) {
             const q = questions[index];
@@ -254,10 +253,10 @@
             const feedback = document.getElementById('feedback');
 
             document.getElementById('question-number').textContent = index + 1;
-            // document.getElementById('question-text').innerHTML = qText;
-            document.getElementById('question-text').innerHTML =
-                `${qText}<div class="mt-2 fs-6 text-secondary">درجة السؤال: <strong>${q.question_score ?? 1}</strong></div>`;
-
+            document.getElementById('question-text').innerHTML = `
+            ${qText}
+            <div class="mt-2 fs-6 text-secondary">درجة السؤال: <strong>${q.question_score ?? 1}</strong></div>
+        `;
 
             feedback.textContent = '';
             optionsDiv.innerHTML = '';
@@ -280,33 +279,28 @@
                 text: q.answer_4[locale] ?? q.answer_4.en
             });
 
-            options.forEach((opt, idx) => {
+            options.forEach((opt) => {
                 const wrapper = document.createElement('label');
                 wrapper.className = 'option-card';
                 wrapper.innerHTML = `
                 <input type="radio" name="answer" value="${opt.key}">
                 <span>${opt.text}</span>
             `;
-                wrapper.addEventListener('click', (e) => {
-                    // منع اختيار نفس العنصر مرتين
+                wrapper.addEventListener('click', () => {
                     if (document.querySelector('input[name="answer"]:checked')) {
                         handleAnswer(opt.key, q.c_answer, q);
                     }
                 });
-                wrapper.innerHTML = `
-                    <input type="radio" name="answer" value="${opt.key}">
-                    <span>${opt.text}</span>
-                `;
                 optionsDiv.appendChild(wrapper);
             });
-            startTimer(60); // يبدأ العدّاد مع كل سؤال
+
+            startTimer(60); // العدّاد لكل سؤال (لو عندك دوال startTimer و stopTimer)
         }
 
         function handleAnswer(selectedKey, correctKey, q) {
-            // stopTimer(); // أول ما الطالب يختار، نوقف العدّاد
+            // stopTimer();
 
             const wrappers = document.querySelectorAll('.option-card');
-
             wrappers.forEach(wrapper => {
                 const radio = wrapper.querySelector('input');
                 const key = radio.value;
@@ -314,15 +308,13 @@
                 wrapper.classList.add('disabled');
                 wrapper.style.pointerEvents = "none";
 
-                if (key === correctKey) {
-                    wrapper.classList.add('correct');
-                }
-                if (key === selectedKey && selectedKey !== correctKey) {
-                    wrapper.classList.add('wrong');
-                }
+                if (key === correctKey) wrapper.classList.add('correct');
+                if (key === selectedKey && selectedKey !== correctKey) wrapper.classList.add('wrong');
             });
 
             const feedback = document.getElementById('feedback');
+            feedback.classList.remove('text-success', 'text-danger');
+
             if (selectedKey === correctKey) {
                 feedback.innerHTML = '✅ إجابة صحيحة';
                 feedback.classList.add('text-success');
@@ -332,6 +324,15 @@
                 feedback.classList.add('text-danger');
             }
 
+            // ✅ عرض الـ Hint لو موجود (لغة واحدة فقط)
+            if (q.hint) {
+                const hintBox = document.createElement('div');
+                hintBox.className = 'alert alert-info mt-3';
+                hintBox.innerHTML = `<strong>💡 تلميح:</strong> ${q.hint}`;
+                feedback.insertAdjacentElement('afterend', hintBox);
+            }
+
+            // ✅ حفظ الإجابة
             answers.push({
                 question_id: q.id,
                 correct_answer: q.c_answer,
@@ -341,13 +342,26 @@
 
             console.log(answers);
 
-            setTimeout(() => {
+            // ✅ زر "التالي" أو "عرض النتيجة"
+            const nextBtnContainer = document.createElement('div');
+            nextBtnContainer.className = 'text-center mt-4';
+
+            const nextBtn = document.createElement('button');
+            nextBtn.textContent = currentIndex + 1 < questions.length ? 'السؤال التالي ➡️' : 'عرض النتيجة 🏁';
+            nextBtn.className = currentIndex + 1 < questions.length ? 'btn btn-primary px-4 py-2' :
+                'btn btn-success px-4 py-2';
+
+            nextBtn.addEventListener('click', () => {
+                const hintBox = document.querySelector('.alert.alert-info');
+                if (hintBox) hintBox.remove();
+
+                nextBtnContainer.remove();
+
                 currentIndex++;
                 if (currentIndex < questions.length) {
                     renderQuestion(currentIndex);
                 } else {
-                    // الاختبار خلص
-                    // احسب الدرجة النهائية
+                    // ✅ الاختبار خلص - حساب النتيجة النهائية
                     let totalScore = 0;
                     let maxScore = 0;
 
@@ -355,15 +369,12 @@
                         const question = questions.find(q => q.id === ans.question_id);
                         const score = Number(question.question_score) || 1;
                         maxScore += score;
-                        if (ans.is_correct) {
-                            totalScore += score;
-                        }
+                        if (ans.is_correct) totalScore += score;
                     });
 
                     let percentage = ((totalScore / maxScore) * 100).toFixed(2);
                     let resultStatus = totalScore >= (maxScore / 2) ? '✅ ناجح' : '❌ راسب';
                     let resultColor = totalScore >= (maxScore / 2) ? 'text-success' : 'text-danger';
-                    // احسب عدد الأسئلة الصحيحة والغلط
                     const correctAnswers = answers.filter(ans => ans.is_correct).length;
                     const wrongAnswers = answers.length - correctAnswers;
 
@@ -372,25 +383,25 @@
                     if (resultStatus === '❌ راسب') {
                         testStatus = 0;
                         retryButton = `
-                            <button onclick="location.reload()" class="btn btn-danger mt-4 px-4 py-2">
-                                {{\App\Helpers\TranslationHelper::translate('حاول تاني')}} 💪
-                            </button>
-                        `;
+                        <button onclick="location.reload()" class="btn btn-danger mt-4 px-4 py-2">
+                            {{ \App\Helpers\TranslationHelper::translate('حاول تاني') }} 💪
+                        </button>
+                    `;
                     }
 
                     document.getElementById('question-area').innerHTML = `
-                        <div class="text-center p-5 result-box">
-                            <h2 class="${resultColor} mb-4">انتهى الاختبار 🎉</h2>
-                            <p class="fs-5 mb-2">✅ عدد الإجابات الصحيحة: <strong>${correctAnswers}</strong></p>
-                            <p class="fs-5 mb-2">❌ عدد الإجابات الخاطئة: <strong>${wrongAnswers}</strong></p>
-                            <p class="fs-5 mb-2">🧮 الدرجة: <strong>${totalScore}</strong> من <strong>${maxScore}</strong></p>
-                            <p class="fs-5 mb-2">📊 نسبة النجاح: <strong>${percentage}%</strong></p>
-                            <p class="fs-4 mt-4 fw-bold ${resultColor}">${resultStatus}</p>
-                            ${retryButton}
-                        </div>
-                    `;
+                    <div class="text-center p-5 result-box">
+                        <h2 class="${resultColor} mb-4">انتهى الاختبار 🎉</h2>
+                        <p class="fs-5 mb-2">✅ عدد الإجابات الصحيحة: <strong>${correctAnswers}</strong></p>
+                        <p class="fs-5 mb-2">❌ عدد الإجابات الخاطئة: <strong>${wrongAnswers}</strong></p>
+                        <p class="fs-5 mb-2">🧮 الدرجة: <strong>${totalScore}</strong> من <strong>${maxScore}</strong></p>
+                        <p class="fs-5 mb-2">📊 نسبة النجاح: <strong>${percentage}%</strong></p>
+                        <p class="fs-4 mt-4 fw-bold ${resultColor}">${resultStatus}</p>
+                        ${retryButton}
+                    </div>
+                `;
 
-                    // بعت البيانات إلى السيرفر
+                    // ✅ إرسال النتيجة للسيرفر
                     fetch("{{ route('user.test.submit', ['lesson' => $lesson->id, 'test' => $test->id]) }}", {
                             method: "POST",
                             headers: {
@@ -410,42 +421,16 @@
                         .then(res => res.json())
                         .then(data => {
                             console.log("تم إرسال الإجابات بنجاح:", data);
-                            // ممكن تعرض نتيجة أو توجهه لصفحة تانية
                         })
                         .catch(err => {
                             console.error("خطأ أثناء إرسال البيانات:", err);
                         });
-
-                    return;
-
                 }
-            }, 2000);
+            });
+
+            nextBtnContainer.appendChild(nextBtn);
+            feedback.insertAdjacentElement('afterend', nextBtnContainer);
         }
-
-        // function startTimer(duration = 60) {
-        //     timeLeft = duration;
-        //     timerElement = document.getElementById('timer');
-        //     timerElement.textContent = timeLeft;
-
-        //     timer = setInterval(() => {
-        //         timeLeft--;
-        //         timerElement.textContent = timeLeft;
-
-        //         if (timeLeft <= 0) {
-        //             clearInterval(timer);
-        //             autoMoveNext(); // لو الطالب ما جاوبش
-        //         }
-        //     }, 1000);
-        // }
-
-        // function stopTimer() {
-        //     clearInterval(timer);
-        // }
-
-        // function autoMoveNext() {
-        //     const q = questions[currentIndex];
-        //     handleAnswer(null, q.c_answer, q); // كأن الطالب مأجابش
-        // }
 
         renderQuestion(currentIndex);
     </script>

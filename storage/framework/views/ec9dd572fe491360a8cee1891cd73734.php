@@ -1,6 +1,4 @@
-@extends('front.layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <section class="title-banner">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -10,15 +8,15 @@
                             <div class="col-lg-6 col-sm-6">
                                 <div class="title-content">
                                     <h2 class="fw-bold mb-3" style="color: var(--primary-color);">
-                                        {{ $test->name }}</h2>
+                                        <?php echo e($test->name); ?></h2>
                                 </div>
                                 <div class="img-block">
-                                    <img src="{{ asset('front/assets/media/user/star.png') }}" alt="star">
+                                    <img src="<?php echo e(asset('front/assets/media/user/star.png')); ?>" alt="star">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-6 d-sm-block d-none">
                                 <div class="title-image">
-                                    <img src="{{ $package->getFirstMediaUrl('news') }}" alt="">
+                                    <img src="<?php echo e($package->getFirstMediaUrl('news')); ?>" alt="">
                                 </div>
                             </div>
                         </div>
@@ -33,13 +31,11 @@
         <div class="card shadow-sm border-0 rounded-4">
             <div class="card-header bg-white border-bottom-0 px-4 py-3 d-flex justify-content-between align-items-center">
                 <h5 class="mb-0 fw-bold" style="color: var(--primary-color);">اختبار</h5>
-                {{-- <span class="badge bg-warning text-dark fs-6 px-3 py-2">
-                    ⏱️ <span id="timer">60</span> ثانية
-                </span> --}}
+                
             </div>
             <div class="card-body px-4 py-4" id="question-area">
                 <h6 class="text-muted mb-2">السؤال <span id="question-number">1</span> من
-                    <span>{{ $test->number_student_questions > count($test->quizzes) ? count($test->quizzes) : $test->number_student_questions }}</span>
+                    <span><?php echo e($test->number_student_questions > count($test->quizzes) ? count($test->quizzes) : $test->number_student_questions); ?></span>
                 </h6>
                 <div id="question-text" class="fw-bold fs-4 mb-4 text-dark"></div>
 
@@ -49,9 +45,9 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('css')
+<?php $__env->startPush('css'); ?>
     <style>
         :root {
             --main-color: var(--primary-color);
@@ -152,17 +148,17 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
     </style>
-@endpush
+<?php $__env->stopPush(); ?>
 
 
-@php
+<?php
     $questions = $test->quizzes->shuffle()->take($test->number_student_questions);
-@endphp
+?>
 
-@push('js')
+<?php $__env->startPush('js'); ?>
     <script>
-        const locale = "{{ app()->getLocale() }}";
-        const questions = @json($questions);
+        const locale = "<?php echo e(app()->getLocale()); ?>";
+        const questions = <?php echo json_encode($questions, 15, 512) ?>;
         let currentIndex = 0;
         let correctCount = 0;
         let answers = []; // هنا هنخزن كل إجابة
@@ -314,7 +310,7 @@
                         testStatus = 0;
                         retryButton = `
                     <button onclick="location.reload()" class="btn btn-danger mt-4 px-4 py-2">
-                        {{ \App\Helpers\TranslationHelper::translate('حاول تاني') }} 💪
+                        <?php echo e(\App\Helpers\TranslationHelper::translate('حاول تاني')); ?> 💪
                     </button>
                 `;
                     }
@@ -332,11 +328,11 @@
             `;
 
                     // ✅ إرسال النتيجة للسيرفر
-                    fetch("{{ route('user.package.test.submit', ['package' => $package->id, 'test' => $test->id]) }}", {
+                    fetch("<?php echo e(route('user.package.test.submit', ['package' => $package->id, 'test' => $test->id])); ?>", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
-                                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                                "X-CSRF-TOKEN": "<?php echo e(csrf_token()); ?>",
                                 "X-Requested-With": "XMLHttpRequest"
                             },
                             body: JSON.stringify({
@@ -365,4 +361,6 @@
 
         renderQuestion(currentIndex);
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('front.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\sameh-elearning\resources\views/front/pages/Packages/show_quiz.blade.php ENDPATH**/ ?>

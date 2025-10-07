@@ -753,4 +753,5 @@
   'School Homework Video Link' => 'School Homework Video Link',
   'Existing School Video' => 'Existing School Video',
   'View' => 'View',
+  'Hint' => 'Hint',
 );
