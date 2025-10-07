@@ -38,7 +38,7 @@
                         <div class="col-xl-9">
                             <div class="course-detail-wrapper">
                                 <div class="detail-image">
-                                    <img src="<?php echo e($lesson->getFirstMediaUrl('news')); ?>" alt=""
+                                    <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_news')); ?>" alt=""
                                         class="mb-24 br-12 w-100">
                                 </div>
                                 <h4 class="black fw-700 mb-16"><?php echo e($lesson->getTranslation('name', app()->getLocale())); ?>
@@ -133,10 +133,10 @@
 
                                         </p>
                                         <p class="light-gray">
-                                            
+
                                               <?php echo e($lesson->level?->name ?? ''); ?>
 
-                                        
+
                                         </p>
                                     </div>
                                 </div>

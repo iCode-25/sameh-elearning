@@ -23,7 +23,7 @@
                             </div>
                             <div class="col-lg-6 col-sm-6 d-sm-block d-none">
                                 <div class="title-image">
-                                    <img src="{{ $lesson->getFirstMediaUrl('news') }}" alt="">
+                                    <img src="{{ $lesson->getFirstMediaUrl('newsimage_news') }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                                     class="my-2 d-flex justify-content-start align-items-start cursor-pointer"
                                     style="cursor: pointer">
 
-                                    <img src="{{ $lesson->getFirstMediaUrl('news') }}" class="border"
+                                    <img src="{{ $lesson->getFirstMediaUrl('newsimage_news') }}" class="border"
                                         style="width: 160px; height: 100px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
 
                                     <div class="px-2" style="font-size: 14px !important;">
@@ -150,7 +150,7 @@
                                     class="my-2 d-flex justify-content-start align-items-start cursor-pointer"
                                     style="cursor: pointer">
 
-                                    <img src="{{ $lesson->getFirstMediaUrl('news') }}" class="border"
+                                    <img src="{{ $lesson->getFirstMediaUrl('newsimage_news') }}" class="border"
                                         style="width: 160px; height: 100px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
 
                                     <div class="px-2" style="font-size: 14px !important;">
