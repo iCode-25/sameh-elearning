@@ -58,7 +58,7 @@ class PackagesService
     private function storeFiles(Packages $packages, array $data)
     {
         if (isset($data['image'])) {
-            $packages->storeFile($data['image'], '_image');
+            $packages->storeFile(image: $data['image'], prefix: '_image');
         }
     }
 

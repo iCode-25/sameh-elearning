@@ -31,7 +31,8 @@ trait HandleUploadFile
         }
     }
 
-    public function storeFile(?UploadedFile $image , $prefix =''): void
+    // public function storeFile(?UploadedFile $image , $prefix =''): void
+    public function storeFile($image, $prefix =''): void
     {
         if (isset($image)) {
             $this->addMedia($image)->toMediaCollection($this->getTable().$prefix);

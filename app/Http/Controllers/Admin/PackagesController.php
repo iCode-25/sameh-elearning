@@ -115,8 +115,6 @@ class PackagesController extends Controller
     public function store(PackagesRequest $request)
     {
         // return $request;
-        dd($request->validated());
-
         $this->packages->createPackages($request->validated());
         session()->flash('success', TranslationHelper::translate('Operation Success'));
         return back();
