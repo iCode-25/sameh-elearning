@@ -10,8 +10,7 @@
 @endsection
 
 @push('admin_css')
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endpush
 
 @section('content')
@@ -117,9 +116,13 @@
                     d.created_at = $('#created_at').val();
                 }
             },
-            columns: [
-                { data: 'index', name: 'index', orderable: false, searchable: false },
-                    {
+            columns: [{
+                    data: 'index',
+                    name: 'index',
+                    orderable: false,
+                    searchable: false
+                },
+                {
                     data: 'image',
                     name: 'image',
                     defaultContent: '-',
@@ -162,7 +165,7 @@
             });
         });
     </script>
-    
+
 
     <script src="{{ asset('dashboard/assets/js/delete-item.js') }}" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.js"></script>

@@ -35,13 +35,13 @@
                                 <h4 class="postbox-title">
                                     {{ $blog->name }}
                                  </h4>
-                                <p> 
+                                <p>
                                   {!! $blog->description !!}
                                 </p>
                             </div>
                         </div>
                          @endforeach
-                  
+
 
 
 
@@ -82,7 +82,7 @@
                                     </div>
                                    {{ $category->category_card }}
                                 </a>
-                                @endforeach 
+                                @endforeach
                             </div>
                         </div> --}}
 
@@ -97,7 +97,7 @@
                             <h4 class="sidebar-widget-title mb-40">{{ \App\Helpers\TranslationHelper::translate('Latest Videos on Cryptocurrencies') }}</h4>
                             <div class="sidebar-widget-content">
                                 <div class="sidebar-widget-post">
-                        
+
                                     @foreach ($news as $new)
                                     <div style="background-color: #a42249; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); padding: 10px; border-radius:12px; gap: 20px" class="rc-post mb-15 d-flex align-items-center">
                                         {{-- <div class="rc-post-thumb mr-20">
@@ -106,7 +106,7 @@
                                             </a>
                                         </div> --}}
                                          <video width="80%" height="150" controls>
-            <source src="{{ $new->getFirstMediaUrl('newsnews_video') }}" type="video/mp4">
+            <source src="{{ $new->getFirstMediaUrl('newsimage_newsnews_video') }}" type="video/mp4">
         </video>
                                         <div class="rc-post-content">
                                             {{-- <div class="rc-meta d-flex mb-10">
@@ -118,14 +118,14 @@
                                             </h3>
                                         </div>
                                     </div>
-                                      @endforeach 
+                                      @endforeach
 
 
-                                   
+
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -134,9 +134,9 @@
 
 
 
-    {{-- 
+    {{--
 
-   
+
     <div class="postbox-area pt-120 pb-120">
         <div class="container">
             <div class="row">
@@ -246,6 +246,6 @@
         </div>
     </div> --}}
 
-   
-  
+
+
 @endsection

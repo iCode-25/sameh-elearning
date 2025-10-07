@@ -36,7 +36,7 @@
                 <div class="col-lg-8 col-md-12 p-0">
                     <div class="card border-0 shadow rounded-4 p-2 bg-white mb-2">
                         <div style="position: relative; width: 100%; max-width: 800px; margin: auto;">
-                            
+
 
                             <iframe width="100%" height="500" src="<?php echo e(App\Helpers\VideoHelpers::toEmbedUrl($lesson->video_url)); ?>"
                                 style="border-radius: 12px; max-height: 80vh;" frameborder="0" allowfullscreen>
@@ -70,14 +70,14 @@
                             <div><?php echo $lesson->getTranslation('des', app()->getLocale()); ?></div>
                         </div>
                     </div>
-                    <?php if($lesson->getFirstMediaUrl('newsnews_pdf')): ?>
+                    <?php if($lesson->getFirstMediaUrl('newsimage_newsnews_pdf')): ?>
                         <div class="card border-0 shadow rounded-4 p-2 bg-white mb-2">
                             <div class="mb-4">
                                 <h5 class="fw-semibold mb-2" style="color: var(--primary-color);">
                                     <?php echo e(\App\Helpers\TranslationHelper::translate('PDF File')); ?></h5>
                                 <?php if (isset($component)) { $__componentOriginaldacc50c5ec342d35ab90e0ad87260feb = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginaldacc50c5ec342d35ab90e0ad87260feb = $attributes; } ?>
-<?php $component = App\View\Components\PdfViewer::resolve(['url' => $lesson->getFirstMediaUrl('newsnews_pdf')] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = App\View\Components\PdfViewer::resolve(['url' => $lesson->getFirstMediaUrl('newsimage_newsnews_pdf')] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('pdf-viewer'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -100,8 +100,8 @@
                     <?php endif; ?>
                 </div>
                 <div class="col-lg-4 col-md-12 px-2">
-                    
-                    
+
+
                     <?php if(auth('web')->user()->type == 'azhar' && $lesson->azhar_video_url): ?>
                         <div class="card border-0 shadow rounded-4 mb-2 p-2 bg-white">
                             <h4 class="fw-bold mb-3" style="color: var(--primary-color);">
@@ -111,7 +111,7 @@
                                     class="my-2 d-flex justify-content-start align-items-start cursor-pointer"
                                     style="cursor: pointer">
 
-                                    <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_news')); ?>" class="border"
+                                    <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_newsimage_news')); ?>" class="border"
                                         style="width: 160px; height: 100px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
 
                                     <div class="px-2" style="font-size: 14px !important;">
@@ -140,7 +140,7 @@
                                     class="my-2 d-flex justify-content-start align-items-start cursor-pointer"
                                     style="cursor: pointer">
 
-                                    <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_news')); ?>" class="border"
+                                    <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_newsimage_news')); ?>" class="border"
                                         style="width: 160px; height: 100px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
 
                                     <div class="px-2" style="font-size: 14px !important;">
@@ -161,7 +161,7 @@
                         </div>
                     <?php endif; ?>
 
-                    
+
                     <div class="card border-0 shadow rounded-4 p-2 bg-white mb-2">
                         <h4 class="fw-bold mb-3" style="color: var(--primary-color);">
                             <?php echo e(\App\Helpers\TranslationHelper::translate('lesson tests')); ?></h4>
@@ -224,7 +224,7 @@
                                         class="py-2 d-flex justify-content-start align-items-start cursor-pointer"
                                         style="cursor: pointer">
 
-                                        <img src="<?php echo e($next->getFirstMediaUrl('news')); ?>" class="border"
+                                        <img src="<?php echo e($next->getFirstMediaUrl('newsimage_news')); ?>" class="border"
                                             style="width: 160px; height: 100px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
 
                                         <div class="px-2" style="font-size: 14px !important;">

@@ -162,7 +162,7 @@ unset($__errorArgs, $__bag); ?>
     function getYoutubeEmbedUrl($url) {
         if (Str::contains($url, 'watch?v=')) {
             $id = Str::after($url, 'v=');
-            $id = Str::before($id, '&'); 
+            $id = Str::before($id, '&');
             return "https://www.youtube.com/embed/$id";
         }
 
@@ -270,11 +270,11 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
 
-    <?php if($videos->getFirstMediaUrl('newsnews_pdf') != null): ?>
+    <?php if($videos->getFirstMediaUrl('newsimage_newsnews_pdf') != null): ?>
         <div class="mt-4">
             <h5><?php echo e(\App\Helpers\TranslationHelper::translate('Existing PDF')); ?>:</h5>
-            <a href="<?php echo e($videos->getFirstMediaUrl('newsnews_pdf')); ?>" 
-               target="_blank" 
+            <a href="<?php echo e($videos->getFirstMediaUrl('newsimage_newsnews_pdf')); ?>"
+               target="_blank"
                class="btn btn-primary">
                <?php echo e(\App\Helpers\TranslationHelper::translate('View')); ?>
 
@@ -305,13 +305,13 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                                            <?php if($videos->getFirstMediaUrl('newsimage_news') != null): ?>
-                                                <img src="<?php echo e($videos->getFirstMediaUrl('newsimage_news')); ?>" alt="videos"
+                                            <?php if($videos->getFirstMediaUrl('newsimage_newsimage_news') != null): ?>
+                                                <img src="<?php echo e($videos->getFirstMediaUrl('newsimage_newsimage_news')); ?>" alt="videos"
                                                     width="100px" style="border-radius: 5px">
                                             <?php endif; ?>
                                         </div>
 
-                                        
+
                                     </div>
                                 </div>
 

@@ -62,11 +62,11 @@
 
             <div class="card-main-vedis">
                 <div class="card-vides">
-                    <img src="{{ $video->getFirstMediaUrl('news') }}"
+                    <img src="{{ $video->getFirstMediaUrl('newsimage_news') }}"
                          alt="Thumbnail"
                          class="img-fluid rounded shadow-lg video-thumbnail"
-                         data-video="{{ $video->getFirstMediaUrl('newsnews_video') }}"
-                         onclick="changeVideo('{{ $video->getFirstMediaUrl('newsnews_video') }}')">
+                         data-video="{{ $video->getFirstMediaUrl('newsimage_newsnews_video') }}"
+                         onclick="changeVideo('{{ $video->getFirstMediaUrl('newsimage_newsnews_video') }}')">
                 </div>
             </div>
         </div>

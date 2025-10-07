@@ -183,10 +183,10 @@ unset($__errorArgs, $__bag); ?>
 
 
 
-                                        
 
-                                        
-                                       
+
+
+
 <!-- Toast -->
 <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
   <div id="errorToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
@@ -207,7 +207,7 @@ unset($__errorArgs, $__bag); ?>
 
 
 
-                                        
+
 
                                         <div class="col-6 mb-5">
     <label class="fs-5 fw-bold form-label mb-5">
@@ -277,11 +277,11 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                                            <?php if($videos->getFirstMediaUrl('newsnews_pdf') != null): ?>
+                                            <?php if($videos->getFirstMediaUrl('newsimage_newsnews_pdf') != null): ?>
                                                 <div class="mt-4">
                                                     <h5><?php echo e(\App\Helpers\TranslationHelper::translate('Existing PDF')); ?>:
                                                     </h5>
-                                                    <iframe src="<?php echo e($videos->getFirstMediaUrl('newsnews_pdf')); ?>"
+                                                    <iframe src="<?php echo e($videos->getFirstMediaUrl('newsimage_newsnews_pdf')); ?>"
                                                         width="100%" height="600px" frameborder="0"></iframe>
                                                 </div>
                                             <?php endif; ?>
@@ -308,8 +308,8 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                                            <?php if($videos->getFirstMediaUrl('news') != null): ?>
-                                                <img src="<?php echo e($videos->getFirstMediaUrl('news')); ?>" alt="videos"
+                                            <?php if($videos->getFirstMediaUrl('newsimage_news') != null): ?>
+                                                <img src="<?php echo e($videos->getFirstMediaUrl('newsimage_news')); ?>" alt="videos"
                                                     width="100px" style="border-radius: 5px">
                                             <?php endif; ?>
                                         </div>
@@ -322,7 +322,7 @@ unset($__errorArgs, $__bag); ?>
                                             class="indicator-label"><?php echo e(\App\Helpers\TranslationHelper::translate('Save')); ?></span>
                                     </button>
                                 </div>
-      
+
 
                             </form>
                         </div>
@@ -349,8 +349,8 @@ unset($__errorArgs, $__bag); ?>
             });
         });
     </script>
-    
-  
+
+
 <script>
 document.getElementById("uploadBtn").addEventListener("click", async function () {
     let fileInput = document.getElementById("news_video");
@@ -369,9 +369,9 @@ document.getElementById("uploadBtn").addEventListener("click", async function ()
         // 1- نجيب Presigned URL من السيرفر
         let presignRes = await fetch("/admin/videos/presign", {
             method: "POST",
-            headers: { 
-                "X-CSRF-TOKEN": "<?php echo e(csrf_token()); ?>", 
-                "Content-Type": "application/json" 
+            headers: {
+                "X-CSRF-TOKEN": "<?php echo e(csrf_token()); ?>",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({ file_name: file.name, mime_type: file.type })
         });
@@ -387,7 +387,7 @@ document.getElementById("uploadBtn").addEventListener("click", async function ()
 
         if (uploadRes.ok) {
             document.getElementById("uploadStatus").innerHTML = "<span class='text-success'>✅ تم رفع الفيديو</span>";
-            document.getElementById("video_url").value = presignData.path; 
+            document.getElementById("video_url").value = presignData.path;
         } else {
             document.getElementById("uploadStatus").innerHTML = "<span class='text-danger'>❌ فشل الرفع</span>";
         }
@@ -402,7 +402,7 @@ document.getElementById("uploadBtn").addEventListener("click", async function ()
 });
 </script>
 
-    
+
 
 <script>
 async function uploadVideo(inputId, btnTextId, btnSpinnerId, statusId, hiddenInputId) {
@@ -424,9 +424,9 @@ async function uploadVideo(inputId, btnTextId, btnSpinnerId, statusId, hiddenInp
     try {
         let presignRes = await fetch("/admin/videos/presign", {
             method: "POST",
-            headers: { 
-                "X-CSRF-TOKEN": "<?php echo e(csrf_token()); ?>", 
-                "Content-Type": "application/json" 
+            headers: {
+                "X-CSRF-TOKEN": "<?php echo e(csrf_token()); ?>",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({ file_name: file.name, mime_type: file.type })
         });
@@ -441,7 +441,7 @@ async function uploadVideo(inputId, btnTextId, btnSpinnerId, statusId, hiddenInp
 
         if (uploadRes.ok) {
             document.getElementById(statusId).innerHTML = "<span class='text-success'>✅ تم رفع الفيديو بنجاح</span>";
-            document.getElementById(hiddenInputId).value = presignData.path; 
+            document.getElementById(hiddenInputId).value = presignData.path;
         } else {
             document.getElementById(statusId).innerHTML = "<span class='text-danger'>❌ فشل الرفع</span>";
         }

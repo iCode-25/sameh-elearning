@@ -151,7 +151,7 @@
                                             <?php $__empty_1 = true; $__currentLoopData = $package->lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $next): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                                 <div
                                                     class="py-2 d-flex justify-content-start align-items-start cursor-pointer">
-                                                    <img src="<?php echo e($next->getFirstMediaUrl('news')); ?>" class="border"
+                                                    <img src="<?php echo e($next->getFirstMediaUrl('newsimage_news')); ?>" class="border"
                                                         style="width: 160px; height: 100px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
 
                                                     <div class="px-2" style="font-size: 14px !important;">

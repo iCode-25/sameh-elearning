@@ -67,7 +67,7 @@ class VideosController extends Controller
                 return $videos->level->name ?? '-';
             })
             ->editColumn('newsnews_video', function (Videos $videos) {
-                $videoUrl = $videos->getFirstMediaUrl('newsnews_video');
+                $videoUrl = $videos->getFirstMediaUrl('newsimage_newsnews_video');
                 if ($videoUrl) {
                     return "
                     <video width='100' controls>
@@ -80,7 +80,7 @@ class VideosController extends Controller
                 }
             })
             ->editColumn('image', function (Videos $videos) {
-                $imageUrl = $videos->getFirstMediaUrl('newsimage_news') ?: asset('path/to/default/image.jpg');
+                $imageUrl = $videos->getFirstMediaUrl('newsimage_newsimage_news') ?: asset('path/to/default/image.jpg');
                 return "<img width='100' src='{$imageUrl}' alt='Image'/>";
             })
             ->editColumn('created_at', function (Videos $videos) {

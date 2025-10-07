@@ -16,7 +16,7 @@
                             </div>
                             <div class="col-lg-6 col-sm-6 d-sm-block d-none">
                                 <div class="title-image">
-                                    <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_news')); ?>" alt="">
+                                    <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_newsimage_news')); ?>" alt="">
                                 </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
         <div class="card shadow-sm border-0 rounded-4">
             <div class="card-header bg-white border-bottom-0 px-4 py-3 d-flex justify-content-between align-items-center">
                 <h5 class="mb-0 fw-bold" style="color: var(--primary-color);">اختبار</h5>
-                
+
             </div>
             <div class="card-body px-4 py-4" id="question-area">
                 <h6 class="text-muted mb-2">السؤال <span id="question-number">1</span> من
