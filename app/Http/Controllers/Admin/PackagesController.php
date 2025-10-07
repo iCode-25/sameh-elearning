@@ -139,6 +139,7 @@ class PackagesController extends Controller
     public function update(PackagesRequest $request, Packages $packages): RedirectResponse
     {
         //        return $request;
+        dd($request->validated());
         $this->packages->updatePackages($packages, $request->validated());
         session()->flash('success', TranslationHelper::translate('Successfully Updated'));
         return back();
