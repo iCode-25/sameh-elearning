@@ -277,11 +277,11 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                                            <?php if($videos->getFirstMediaUrl('newsimage_newsnews_pdf') != null): ?>
+                                            <?php if($videos->getFirstMediaUrl('newsnews_pdf') != null): ?>
                                                 <div class="mt-4">
                                                     <h5><?php echo e(\App\Helpers\TranslationHelper::translate('Existing PDF')); ?>:
                                                     </h5>
-                                                    <iframe src="<?php echo e($videos->getFirstMediaUrl('newsimage_newsnews_pdf')); ?>"
+                                                    <iframe src="<?php echo e($videos->getFirstMediaUrl('newsnews_pdf')); ?>"
                                                         width="100%" height="600px" frameborder="0"></iframe>
                                                 </div>
                                             <?php endif; ?>

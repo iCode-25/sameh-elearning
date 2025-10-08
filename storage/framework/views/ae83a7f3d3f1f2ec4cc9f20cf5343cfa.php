@@ -414,7 +414,7 @@
                             <div class="video-slider">
                                 <?php $__currentLoopData = $lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="video-block">
-                                        <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_newsimage_news')); ?>" alt="brand">
+                                        <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_news')); ?>" alt="brand">
                                         <a href="<?php echo e(route('site.lesson_details', ['lesson' => $lesson->id])); ?>"
                                             class="play-btn">
                                             <img src="<?php echo e(asset('front/assets/media/icons/play-icon.png')); ?>"

@@ -21,4 +21,4 @@
         </div>
     </section>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-<?php /**PATH C:\laragon\www\sameh-elearning\resources\views/front/components/lesson.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\xampp_new\htdocs\sameh_stein\resources\views/front/components/lesson.blade.php ENDPATH**/ ?>

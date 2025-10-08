@@ -213,10 +213,10 @@
         </span>
     @enderror
 
-    @if ($videos->getFirstMediaUrl('newsimage_newsnews_pdf') != null)
+    @if ($videos->getFirstMediaUrl('newsnews_pdf') != null)
         <div class="mt-4">
             <h5>{{ \App\Helpers\TranslationHelper::translate('Existing PDF') }}:</h5>
-            <a href="{{ $videos->getFirstMediaUrl('newsimage_newsnews_pdf') }}"
+            <a href="{{ $videos->getFirstMediaUrl('newsnews_pdf') }}"
                target="_blank"
                class="btn btn-primary">
                {{ \App\Helpers\TranslationHelper::translate('View') }}
@@ -239,8 +239,8 @@
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
-                                            @if ($videos->getFirstMediaUrl('newsimage_newsimage_news') != null)
-                                                <img src="{{ $videos->getFirstMediaUrl('newsimage_newsimage_news') }}" alt="videos"
+                                            @if ($videos->getFirstMediaUrl('newsimage_news') != null)
+                                                <img src="{{ $videos->getFirstMediaUrl('newsimage_news') }}" alt="videos"
                                                     width="100px" style="border-radius: 5px">
                                             @endif
                                         </div>

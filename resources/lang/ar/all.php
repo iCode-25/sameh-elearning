@@ -734,4 +734,5 @@
   'Samah Shtain Dashboard' => 'Samah Shtain Dashboard',
   'The Physics as it Should Be' => 'The Physics as it Should Be',
   'Hint' => 'Hint',
+  'الملف غير متوفر' => 'الملف غير متوفر',
 );

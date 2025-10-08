@@ -488,7 +488,7 @@
     <!-- COURSES SECTION END -->
 
     <?php if($packages->count() > 0): ?>
-
+        
         <section class="course-section py-80">
             <div class="container">
                 <div class="text-center mb-48">
@@ -685,12 +685,12 @@
         </section>
     <?php endif; ?>
 
-
+    
     <?php if($tests_lessons->isNotEmpty()): ?>
         <section class="course-section py-80">
             <div class="container-fluid">
 
-
+                
                 <div class="d-flex align-items-center justify-content-between mb-48 flex-wrap">
                     <div>
                         <div class="eyebrow-2"><?php echo e(\App\Helpers\TranslationHelper::translate('Tests')); ?></div>
@@ -715,7 +715,7 @@
                     </div>
                 </div>
 
-
+                
                 <div class="row g-4">
                     <?php $__currentLoopData = $tests_lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
@@ -731,7 +731,7 @@
 
                                     </p>
 
-
+                                    
                                     <div class="mt-auto">
                                         <a href="<?php echo e(route('user.show_lesson', ['lesson' => $lesson->id])); ?>"
                                             class="cus-btn">

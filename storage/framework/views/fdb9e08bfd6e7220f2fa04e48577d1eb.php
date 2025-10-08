@@ -37,7 +37,7 @@
                 <div class="col-lg-8 col-md-12 p-0">
                     <div class="card border-0 shadow rounded-4 p-2 bg-white mb-2">
                         <div class="video-wrapper" style="position: relative; width: 100%; max-width: 800px; margin: auto;">
-
+                            
 
                             <?php if(request('type') === 'azhar' && $lesson->azhar_video_url && auth('web')->user()->type == 'azhar'): ?>
                                 <iframe width="100%" height="500" src="<?php echo e(App\Helpers\VideoHelpers::toEmbedUrl($lesson->azhar_video_url)); ?>"
@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-lg-4 col-md-12 px-2">
 
-
+                    
                     <?php if(auth('web')->user()->type == 'azhar' && $lesson->azhar_video_url): ?>
                         <div class="card border-0 shadow rounded-4 mb-2 p-2 bg-white">
                             <h4 class="fw-bold mb-3" style="color: var(--primary-color);">
@@ -241,4 +241,4 @@
     </section>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('front.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\sameh-elearning\resources\views/front/pages/courses/show_lesson.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('front.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp_new\htdocs\sameh_stein\resources\views/front/pages/courses/show_lesson.blade.php ENDPATH**/ ?>

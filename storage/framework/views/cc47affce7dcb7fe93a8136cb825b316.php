@@ -149,8 +149,8 @@
                                             <?php echo e(\App\Helpers\TranslationHelper::translate('Image')); ?> :
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-6  text-left details_item ">
-                                            <a href="<?php echo e($videos->getFirstMediaUrl('newsimage_newsimage_news')); ?>" target="_blank">
-                                                <img src="<?php echo e($videos->getFirstMediaUrl('newsimage_newsimage_news')); ?>" class="w-100"
+                                            <a href="<?php echo e($videos->getFirstMediaUrl('newsimage_news')); ?>" target="_blank">
+                                                <img src="<?php echo e($videos->getFirstMediaUrl('newsimage_news')); ?>" class="w-100"
                                                     alt="test"
                                                     style="width: 150px; height: 150px; object-fit: contain;">
                                             </a>
@@ -166,8 +166,8 @@
                 <?php echo e(\App\Helpers\TranslationHelper::translate('PDF')); ?> :
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-left details_item">
-                <?php if($videos->getFirstMediaUrl('newsimage_newsnews_pdf')): ?>
-                    <iframe src="<?php echo e($videos->getFirstMediaUrl('newsimage_newsnews_pdf')); ?>"
+                <?php if($videos->getFirstMediaUrl('newsnews_pdf')): ?>
+                    <iframe src="<?php echo e($videos->getFirstMediaUrl('newsnews_pdf')); ?>"
                             width="100%" height="600px" frameborder="0"></iframe>
                 <?php else: ?>
                     <p class="text-danger">

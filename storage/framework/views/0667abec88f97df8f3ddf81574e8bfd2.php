@@ -16,7 +16,7 @@
                             </div>
                             <div class="col-lg-6 col-sm-6 d-sm-block d-none">
                                 <div class="title-image">
-                                    <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_newsimage_news')); ?>" alt="">
+                                    <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_news')); ?>" alt="">
                                 </div>
                             </div>
                         </div>

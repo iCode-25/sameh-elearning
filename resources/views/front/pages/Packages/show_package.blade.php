@@ -74,12 +74,12 @@
                             <div>{!! $lesson->getTranslation('des', app()->getLocale()) !!}</div>
                         </div>
                     </div>
-                    @if ($lesson->getFirstMediaUrl('newsimage_newsnews_pdf'))
+                    @if ($lesson->getFirstMediaUrl('newsnews_pdf'))
                         <div class="card border-0 shadow rounded-4 p-2 bg-white mb-2">
                             <div class="mb-4">
                                 <h5 class="fw-semibold mb-2" style="color: var(--primary-color);">
                                     {{ \App\Helpers\TranslationHelper::translate('PDF File') }}</h5>
-                                <x-pdf-viewer :url="$lesson->getFirstMediaUrl('newsimage_newsnews_pdf')" />
+                                <x-pdf-viewer :url="$lesson->getFirstMediaUrl('newsnews_pdf')" />
                             </div>
                         </div>
                     @endif
@@ -96,7 +96,7 @@
                                     class="my-2 d-flex justify-content-start align-items-start cursor-pointer"
                                     style="cursor: pointer">
 
-                                    <img src="{{ $lesson->getFirstMediaUrl('newsimage_newsimage_news') }}" class="border"
+                                    <img src="{{ $lesson->getFirstMediaUrl('newsimage_news') }}" class="border"
                                         style="width: 160px; height: 100px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
 
                                     <div class="px-2" style="font-size: 14px !important;">
@@ -123,7 +123,7 @@
                                     class="my-2 d-flex justify-content-start align-items-start cursor-pointer"
                                     style="cursor: pointer">
 
-                                    <img src="{{ $lesson->getFirstMediaUrl('newsimage_newsimage_news') }}" class="border"
+                                    <img src="{{ $lesson->getFirstMediaUrl('newsimage_news') }}" class="border"
                                         style="width: 160px; height: 100px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
 
                                     <div class="px-2" style="font-size: 14px !important;">

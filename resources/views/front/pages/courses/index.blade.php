@@ -41,7 +41,7 @@
                 @foreach ($lessons as $lesson)
                     <div class="video-card">
                         <div class="card-img">
-                            <img src="{{ $lesson->getFirstMediaUrl('newsimage_newsimage_news') }}" alt="video">
+                            <img src="{{ $lesson->getFirstMediaUrl('newsimage_news') }}" alt="video">
                             <a href="{{ route('site.lesson_details', ['lesson' => $lesson->id]) }}" class="play-btn">
                                 <img src="{{ asset('front/assets/media/icons/play-icon.png') }}" alt="play">
                             </a>
