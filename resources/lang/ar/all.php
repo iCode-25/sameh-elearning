@@ -732,4 +732,5 @@
   'Existing School Video' => 'الفيديو الحالي للمدرسة',
   'View' => 'عرض',
   'Samah Shtain Dashboard' => 'Samah Shtain Dashboard',
+  'The Physics as it Should Be' => 'The Physics as it Should Be',
 );
