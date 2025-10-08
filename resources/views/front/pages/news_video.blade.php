@@ -31,7 +31,7 @@
                            {{ \App\Helpers\TranslationHelper::translate('Couronne Royale News') }}
                     </h2>
                      {!! setting('description', app()->getLocale()) !!}
-                   
+
                 </div>
             </div>
             <div class="col-md-6" style="margin-top: 20px;">
@@ -43,7 +43,7 @@
 
         </div>
     </div>
-    
+
 </section>
 
 <!-- Videos Section -->
@@ -54,7 +54,7 @@
                 <div class="col-md-6 mb-4 d-flex justify-content-center">
                     <div style="background-color: #a42249; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); padding: 20px; border-radius: 12px; width: 100%; max-width: 450px;">
                         <video width="100%" height="250" controls style="border-radius: 12px;">
-                            <source src="{{ $new->getFirstMediaUrl('newsnews_video') }}" type="video/mp4">
+                            <source src="{{ $new->getFirstMediaUrl('newsimage_newsnews_video') }}" type="video/mp4">
                         </video>
                         <div class="rc-post-content" style="text-align: center; margin-top: 10px;">
                             <div class="rc-meta d-flex justify-content-center align-items-center mb-2" style="gap: 5px;">

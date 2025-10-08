@@ -59,8 +59,8 @@ class PackagesController extends Controller
             })->editColumn('name', function (Packages $packages) {
                 return $packages->name;
             })->editColumn('level', function (Packages $packages) {
-                    return $packages->level->name ?? '-';
-        })->editColumn('date', function (Packages $packages) {
+                return $packages->level->name ?? '-';
+            })->editColumn('date', function (Packages $packages) {
                 return $packages->date;
             })->editColumn('image', function (Packages $packages) {
                 $imageUrl = $packages->getFirstMediaUrl('workshops_image') ?: asset('path/to/default/image.jpg');
@@ -78,10 +78,6 @@ class PackagesController extends Controller
             ->startsWithSearch()
             ->make(true);
     }
-
-
-
-
 
     public function toggleActiveStatus(Request $request)
     {

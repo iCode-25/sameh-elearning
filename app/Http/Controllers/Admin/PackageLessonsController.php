@@ -58,7 +58,7 @@ class PackageLessonsController extends Controller
                 return $videos->price;
             })
             ->editColumn('image', function (Videos $videos) {
-                $imageUrl = $videos->getFirstMediaUrl('news') ?: asset('path/to/default/image.jpg');
+                $imageUrl = $videos->getFirstMediaUrl('newsimage_news') ?: asset('path/to/default/image.jpg');
                 return "<img width='100' src='{$imageUrl}' alt='Image'/>";
             })
             ->editColumn('created_at', function (Videos $videos) {
@@ -77,7 +77,7 @@ class PackageLessonsController extends Controller
             ->make(true);
     }
 
-    
+
 
     public function showPackageLessons($id): View
     {

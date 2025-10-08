@@ -149,7 +149,7 @@
                                             @forelse($package->lessons as $next)
                                                 <div
                                                     class="py-2 d-flex justify-content-start align-items-start cursor-pointer">
-                                                    <img src="{{ $next->getFirstMediaUrl('news') }}" class="border"
+                                                    <img src="{{ $next->getFirstMediaUrl('newsimage_news') }}" class="border"
                                                         style="width: 160px; height: 100px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
 
                                                     <div class="px-2" style="font-size: 14px !important;">

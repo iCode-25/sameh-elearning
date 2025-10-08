@@ -1,7 +1,7 @@
 <?php $__currentLoopData = $lessons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lesson): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="col-md-6">
         <div class="video-block border position-relative">
-            <img src="<?php echo e($lesson->getFirstMediaUrl('news')); ?>" alt="brand" class="w-100">
+            <img src="<?php echo e($lesson->getFirstMediaUrl('newsimage_newsimage_news')); ?>" alt="brand" class="w-100">
             <a <?php if(Route::currentRouteName() === 'user.profile'): ?> href="<?php echo e(route('user.show_lesson', ['lesson' => $lesson->id])); ?>"  <?php else: ?> href="<?php echo e(route('site.lesson_details', ['lesson' => $lesson->id])); ?>" <?php endif; ?> class="play-btn">
                 <img src="<?php echo e(asset('front/assets/media/icons/play-icon.png')); ?>" alt="video" class="video-pic">
             </a>

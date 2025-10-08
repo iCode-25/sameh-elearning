@@ -6,7 +6,7 @@
 <head>
     <base href="">
 
-    <title><?php echo e(\App\Helpers\TranslationHelper::translate('AbdulHamid Quritem')); ?> - <?php echo $__env->yieldContent('title'); ?> </title>
+    <title><?php echo e(\App\Helpers\TranslationHelper::translate('Samah Shtain')); ?> - <?php echo $__env->yieldContent('title'); ?> </title>
 
     <meta name="description" content="<?php echo e($title ?? ''); ?>"/>
     <meta name="keywords" content=""/>
@@ -27,14 +27,13 @@
     <script src="<?php echo e(asset('dashboard/assets/js/toastr.js')); ?>"></script>
     <link rel="stylesheet" href="<?php echo e(asset('dashboard/assets/css/toastr.css')); ?>">
 
-        <link rel="shortcut icon" href="<?php echo e(asset('dashboard/assets/media/logos/logo.png')); ?>"/>
+        <link rel="shortcut icon" href="<?php echo e(setting('image_logo_dashboard', 'en')); ?>"/>
 
 
-    
     <?php if(is_array(setting('logo', 'en')) && isset(setting('logo', 'en')['url'])): ?>
     <link rel="shortcut icon" href="<?php echo e(setting('logo', 'en')['url']); ?>"/>
 <?php else: ?>
-    <link rel="shortcut icon" href="/default-icon.png"/> <!-- أيقونة افتراضية -->
+    <link rel="shortcut icon" href="/default-icon.png"/> 
 <?php endif; ?>
     <!--begin::Fonts-->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />

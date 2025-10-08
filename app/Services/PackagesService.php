@@ -34,7 +34,6 @@ class PackagesService
 
     public function updatePackages(Packages $packages, array $data)
     {
-
         $packages->update([
             'name' => $data['name'],
             'description' => $data['description'],
@@ -55,18 +54,18 @@ class PackagesService
         $packages->delete();
     }
 
-    
+
     private function storeFiles(Packages $packages, array $data)
     {
         if (isset($data['image'])) {
-            $packages->storeFile($data['image'], '_image');
+            $packages->storeFile(image: $data['image'], prefix: '_image');
         }
     }
 
     private function updateFiles(Packages $packages, array $data)
     {
         if (isset($data['image'])) {
-            $packages->updateFile($data['image'], '_image');
+            $packages->updateFile(image: $data['image'], prefix: '_image');
         }
     }
 

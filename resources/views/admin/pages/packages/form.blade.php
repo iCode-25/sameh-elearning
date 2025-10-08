@@ -130,7 +130,7 @@
                                             @enderror
                                             @if ($packages->getFirstMediaUrl('workshops_image') != null)
                                                 <img src="{{ $packages->getFirstMediaUrl('workshops_image') }}"
-                                                    alt="packagess" width="100px" style="border-radius: 5px">
+                                                    alt="packages" width="100px" style="border-radius: 5px">
                                             @endif
                                         </div>
 

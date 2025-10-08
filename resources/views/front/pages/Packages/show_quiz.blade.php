@@ -18,7 +18,7 @@
                             </div>
                             <div class="col-lg-6 col-sm-6 d-sm-block d-none">
                                 <div class="title-image">
-                                    <img src="{{ $package->getFirstMediaUrl('news') }}" alt="">
+                                    <img src="{{ $package->getFirstMediaUrl('newsimage_news') }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -224,8 +224,6 @@
         }
 
         function handleAnswer(selectedKey, correctKey, q) {
-            // stopTimer(); // أول ما الطالب يختار، نوقف العدّاد
-
             const wrappers = document.querySelectorAll('.option-card');
 
             wrappers.forEach(wrapper => {
@@ -244,6 +242,8 @@
             });
 
             const feedback = document.getElementById('feedback');
+            feedback.classList.remove('text-success', 'text-danger');
+
             if (selectedKey === correctKey) {
                 feedback.innerHTML = '✅ إجابة صحيحة';
                 feedback.classList.add('text-success');
@@ -253,6 +253,15 @@
                 feedback.classList.add('text-danger');
             }
 
+            // ✅ عرض التلميح (hint) لو موجود
+            if (q.hint) {
+                const hintBox = document.createElement('div');
+                hintBox.className = 'alert alert-info mt-3';
+                hintBox.innerHTML = `<strong>💡 تلميح:</strong> ${q.hint}`;
+                feedback.insertAdjacentElement('afterend', hintBox);
+            }
+
+            // ✅ حفظ الإجابة
             answers.push({
                 question_id: q.id,
                 correct_answer: q.c_answer,
@@ -262,13 +271,25 @@
 
             console.log(answers);
 
-            setTimeout(() => {
+            // ✅ إضافة زر "التالي"
+            const nextBtnContainer = document.createElement('div');
+            nextBtnContainer.className = 'text-center mt-4';
+
+            const nextBtn = document.createElement('button');
+            nextBtn.textContent = currentIndex + 1 < questions.length ? 'السؤال التالي ➡️' : 'عرض النتيجة 🏁';
+            nextBtn.className = 'btn btn-primary px-4 py-2';
+
+            nextBtn.addEventListener('click', () => {
+                const hintBox = document.querySelector('.alert.alert-info');
+                if (hintBox) hintBox.remove();
+
+                nextBtnContainer.remove();
+
                 currentIndex++;
                 if (currentIndex < questions.length) {
                     renderQuestion(currentIndex);
                 } else {
-                    // الاختبار خلص
-                    // احسب الدرجة النهائية
+                    // ✅ عرض النتيجة النهائية هنا
                     let totalScore = 0;
                     let maxScore = 0;
 
@@ -292,25 +313,25 @@
                     if (resultStatus === '❌ راسب') {
                         testStatus = 0;
                         retryButton = `
-                            <button onclick="location.reload()" class="btn btn-danger mt-4 px-4 py-2">
-                                {{\App\Helpers\TranslationHelper::translate('حاول تاني')}} 💪
-                            </button>
-                        `;
+                    <button onclick="location.reload()" class="btn btn-danger mt-4 px-4 py-2">
+                        {{ \App\Helpers\TranslationHelper::translate('حاول تاني') }} 💪
+                    </button>
+                `;
                     }
 
                     document.getElementById('question-area').innerHTML = `
-                        <div class="text-center p-5 result-box">
-                            <h2 class="${resultColor} mb-4">انتهى الاختبار 🎉</h2>
-                            <p class="fs-5 mb-2">✅ عدد الإجابات الصحيحة: <strong>${correctAnswers}</strong></p>
-                            <p class="fs-5 mb-2">❌ عدد الإجابات الخاطئة: <strong>${wrongAnswers}</strong></p>
-                            <p class="fs-5 mb-2">🧮 الدرجة: <strong>${totalScore}</strong> من <strong>${maxScore}</strong></p>
-                            <p class="fs-5 mb-2">📊 نسبة النجاح: <strong>${percentage}%</strong></p>
-                            <p class="fs-4 mt-4 fw-bold ${resultColor}">${resultStatus}</p>
-                            ${retryButton}
-                        </div>
-                    `;
+                <div class="text-center p-5 result-box">
+                    <h2 class="${resultColor} mb-4">انتهى الاختبار 🎉</h2>
+                    <p class="fs-5 mb-2">✅ عدد الإجابات الصحيحة: <strong>${correctAnswers}</strong></p>
+                    <p class="fs-5 mb-2">❌ عدد الإجابات الخاطئة: <strong>${wrongAnswers}</strong></p>
+                    <p class="fs-5 mb-2">🧮 الدرجة: <strong>${totalScore}</strong> من <strong>${maxScore}</strong></p>
+                    <p class="fs-5 mb-2">📊 نسبة النجاح: <strong>${percentage}%</strong></p>
+                    <p class="fs-4 mt-4 fw-bold ${resultColor}">${resultStatus}</p>
+                    ${retryButton}
+                </div>
+            `;
 
-                    // بعت البيانات إلى السيرفر
+                    // ✅ إرسال النتيجة للسيرفر
                     fetch("{{ route('user.package.test.submit', ['package' => $package->id, 'test' => $test->id]) }}", {
                             method: "POST",
                             headers: {
@@ -330,41 +351,15 @@
                         .then(res => res.json())
                         .then(data => {
                             console.log("تم إرسال الإجابات بنجاح:", data);
-                            // ممكن تعرض نتيجة أو توجهه لصفحة تانية
                         })
                         .catch(err => {
                             console.error("خطأ أثناء إرسال البيانات:", err);
                         });
-
-                    return;
-
                 }
-            }, 2000);
-        }
+            });
 
-        // function startTimer(duration = 60) {
-        //     timeLeft = duration;
-        //     timerElement = document.getElementById('timer');
-        //     timerElement.textContent = timeLeft;
-
-        //     timer = setInterval(() => {
-        //         timeLeft--;
-        //         timerElement.textContent = timeLeft;
-
-        //         if (timeLeft <= 0) {
-        //             clearInterval(timer);
-        //             autoMoveNext(); // لو الطالب ما جاوبش
-        //         }
-        //     }, 1000);
-        // }
-
-        // function stopTimer() {
-        //     clearInterval(timer);
-        // }
-
-        function autoMoveNext() {
-            const q = questions[currentIndex];
-            handleAnswer(null, q.c_answer, q); // كأن الطالب مأجابش
+            nextBtnContainer.appendChild(nextBtn);
+            feedback.insertAdjacentElement('afterend', nextBtnContainer);
         }
 
 
